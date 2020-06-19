@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>chapitres_9_10</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+  /*
+  Copyright (c) 2017 Chris Patuzzo
+  https://twitter.com/chrispatuzzo
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+  */
+  
+  body {
+    font-family: Helvetica, arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 30px;
+    color: #333;
+  }
+  
+  body > *:first-child {
+    margin-top: 0 !important;
+  }
+  
+  body > *:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  a {
+    color: #4183C4;
+    text-decoration: none;
+  }
+  
+  a.absent {
+    color: #cc0000;
+  }
+  
+  a.anchor {
+    display: block;
+    padding-left: 30px;
+    margin-left: -30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0 10px;
+    padding: 0;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    cursor: text;
+    position: relative;
+  }
+  
+  h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+    text-decoration: none;
+  }
+  
+  h1 tt, h1 code {
+    font-size: inherit;
+  }
+  
+  h2 tt, h2 code {
+    font-size: inherit;
+  }
+  
+  h3 tt, h3 code {
+    font-size: inherit;
+  }
+  
+  h4 tt, h4 code {
+    font-size: inherit;
+  }
+  
+  h5 tt, h5 code {
+    font-size: inherit;
+  }
+  
+  h6 tt, h6 code {
+    font-size: inherit;
+  }
+  
+  h1 {
+    font-size: 28px;
+    color: black;
+  }
+  
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #cccccc;
+    color: black;
+  }
+  
+  h3 {
+    font-size: 18px;
+  }
+  
+  h4 {
+    font-size: 16px;
+  }
+  
+  h5 {
+    font-size: 14px;
+  }
+  
+  h6 {
+    color: #777777;
+    font-size: 14px;
+  }
+  
+  p, blockquote, ul, ol, dl, li, table, pre {
+    margin: 15px 0;
+  }
+  
+  hr {
+    border: 0 none;
+    color: #cccccc;
+    height: 4px;
+    padding: 0;
+  }
+  
+  body > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  body > h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+    margin-top: 0;
+  }
+  
+  li p.first {
+    display: inline-block;
+  }
+  
+  ul, ol {
+    padding-left: 30px;
+  }
+  
+  ul :first-child, ol :first-child {
+    margin-top: 0;
+  }
+  
+  ul :last-child, ol :last-child {
+    margin-bottom: 0;
+  }
+  
+  dl {
+    padding: 0;
+  }
+  
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px;
+  }
+  
+  dl dt:first-child {
+    padding: 0;
+  }
+  
+  dl dt > :first-child {
+    margin-top: 0;
+  }
+  
+  dl dt > :last-child {
+    margin-bottom: 0;
+  }
+  
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+  }
+  
+  dl dd > :first-child {
+    margin-top: 0;
+  }
+  
+  dl dd > :last-child {
+    margin-bottom: 0;
+  }
+  
+  blockquote {
+    border-left: 4px solid #dddddd;
+    padding: 0 15px;
+    color: #777777;
+  }
+  
+  blockquote > :first-child {
+    margin-top: 0;
+  }
+  
+  blockquote > :last-child {
+    margin-bottom: 0;
+  }
+  
+  table {
+    padding: 0;
+  }
+  table tr {
+    border-top: 1px solid #cccccc;
+    margin: 0;
+    padding: 0;
+  }
+  
+  table tr:nth-child(2n) {
+  }
+  
+  table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+  }
+  
+  table tr td {
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+  }
+  
+  table tr th :first-child, table tr td :first-child {
+    margin-top: 0;
+  }
+  
+  table tr th :last-child, table tr td :last-child {
+    margin-bottom: 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  span.frame {
+    display: block;
+    overflow: hidden;
+  }
+  
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto;
+  }
+  
+  span.frame span img {
+    display: block;
+    float: left;
+  }
+  
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+  }
+  
+  span.align-center {
+    display: block;
+    overflow: hidden;
+    clear: both;
+  }
+  
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center;
+  }
+  
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  span.align-right {
+    display: block;
+    overflow: hidden;
+    clear: both;
+  }
+  
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right;
+  }
+  
+  span.align-right span img {
+    margin: 0;
+    text-align: right;
+  }
+  
+  span.float-left {
+    display: block;
+    margin-right: 13px;
+    overflow: hidden;
+    float: left;
+  }
+  
+  span.float-left span {
+    margin: 13px 0 0;
+  }
+  
+  span.float-right {
+    display: block;
+    margin-left: 13px;
+    overflow: hidden;
+    float: right;
+  }
+  
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right;
+  }
+  
+  code, tt {
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+    border: 1px solid #eaeaea;
+    border-radius: 3px;
+  }
+  
+  pre code {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    border: none;
+  }
+  
+  .highlight pre {
+    border: 1px solid #cccccc;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px;
+  }
+  
+  pre {
+    border: 1px solid #cccccc;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px;
+  }
+  
+  pre code, pre tt {
+    border: none;
+  }
+  </style>
+</head>
+<body>
+<h1 id="chapitre-9-et-10">Chapitre 9 et 10</h1>
+<h1 id="sémantique-des-langages-logiques">Sémantique des langages logiques</h1>
+<ol start="20" type="1">
+<li>Expliquez comment représenter la sémantique d’un langage de programmation logique. Quelles sont les limites de la résolution SLD de Prolog.</li>
+</ol>
+<h2 id="composition-syntaxe">Composition (syntaxe)</h2>
+<p>Une clause est une affirmation portant sur des atomes logiques ; un atome logique exprime une relation entre des termes ; les termes sont les objets de l’univers. L’ensemble des termes est construit par les fonctions. On peut construire de nouveaux termes en les combinant à des fonctions.</p>
+<p>Il y a trois types de termes: <strong>1. Les variables</strong>: Des chaines commençant par une majuscule (exemple: X, Piano, Clavier, etc.)</p>
+<p><strong>2. Les valeurs</strong> Sont des valeurs directes, peuvent être des nombres, chaînes de caractère ou mot commençant par une minuscule (exemple: 7, 32, “Hello”, porte)</p>
+<p><strong>3. Fonction</strong> Termes compsés. Souvent composé par un mot (commence par une minuscule) et une suite de terme des types 1 et 2 (variables et valeurs; voir plus haut). (exemple: homme(julien), collegue(Varianne,Vulie,Vophie), pin(2,3,7,9)) Func= (a,b,c,…,z)</p>
+<p>Les atomes logiques <strong>Prédicat</strong> Est un atome logique (ou une relation) entre des termes. Un prédicat ne peut pas en contenir un autre. (exemple: pere(toto,paul), habite(X,adresse(12,“rue r”,nice))) Pred= (aa,bb,cc,…,zz)</p>
+<p>Un litéral est composé de fonction et de prédicats</p>
+<p><strong>Literal</strong> Un litéral est composé de prédicat et de fonction Lit= Lit(Pred,Func)</p>
+<p>On peut faire une conjonction de litéral grâce à l’opérateur “et”</p>
+<p><strong>Clauses</strong> Une clause est construite à l’aide de prédicat, de fonction et d’une variable Si c est un ensemble de literal et h un literal alors c =&gt; h est une clause Clauses(Pred,Func,X) (exemple: meme_pere(X,Y) :- pere(P,X), pere(P,Y).)</p>
+<p><strong>requête</strong> Une requête est une conjonction de littéraux Conj= Lit1 et … et Litn</p>
+<h2 id="sémantique-computationnelle">Sémantique computationnelle</h2>
+<p>L’enjeu se trouve dans les variables pour la satisfaction des litéraux. Rappel: pour satisfaire une clause, il faut trouver une interprétation des variables qui satisfait la clause (= qui rend la clause vrai)</p>
+<p>Deux règles pour la sémantique computationnelle</p>
+<p><strong>Substitution</strong> Une fonction qui transforme un terme en un nouveau terme en substituant les variables grâce à une assignation <img src="./images/00.png" alt="00" style="width:50.0%" /></p>
+<p><strong>Unification</strong> Fonction qui trouve la substitution s qui égalise deux termes. Ça se rapport à la résolution d’un système d’équation. <img src="./images/01.png" alt="01" style="width:50.0%" /></p>
+<p><strong>Domaine sémantique:</strong><br />
+Substitution x requête</p>
+<p><strong>Règle:</strong><br />
+s= Substitution, r= Requête, état du système=(s,r) On part avec une substitution vide et on fini avec une requête vide. (void,r)-&gt;….-&gt;(s,void) <img src="images/02.png" alt="02" style="width:50.0%" /></p>
+<p><strong>Points de non-déterminismes</strong> Choix des axioms Choix du litéral à résoudre Choix de l’unificateur</p>
+<h2 id="sémantique-dévaluation">Sémantique d’évaluation</h2>
+<p>On part d’un couple substitution (vide) et requête pour finir avec seulement une substitution <img src="images/03.png" alt="03" style="width:50.0%" /></p>
+<h1 id="la-notion-de-type">La Notion de type:</h1>
+<ol start="21" type="1">
+<li>Expliquez ce qu’est la notion de type et de typage. En quoi est-ce utile? Quelle est la différence entre un typage statique et dynamique?i Quelle est la différence entre type faible et fort?</li>
+</ol>
+<p>Type: Outil de modélisation pour caractériser les types. (classification)</p>
+<ul>
+<li>ensemble de valeur possibles et les opérations portant sur cet ensemble (contraintes)</li>
+</ul>
+<p>Cette notion est utile à la personne qui programme car cela permet une meilleure abstraction du monde réel.</p>
+<h2 id="quelle-est-la-différence-entre-le-typage-statique-et-dynamique">Quelle est la différence entre le typage statique et dynamique?</h2>
+<ul>
+<li>Le typage statique demande une rigueur par la description préalable des types par le programmeur. La détection des erreur concernant le type se fait pendant la compilation. (exemple: python)</li>
+<li>Le typage dynamique donne de la souplesse sur l’écriture du programme car il laisse le typage être défini par le langage. La détection des erreurs concernant le type se fait pendant l’exécution du code (après la compilation).</li>
+</ul>
+<p><strong>Attention</strong>: Les sous-classes peuvent être vérifiées uniquement le typage dynamique</p>
+<h2 id="différence-entre-typage-faible-et-fort">Différence entre typage faible et fort</h2>
+<ul>
+<li><p>Typage faible: très peu (ou pas) de vérification. On fait confiance à la personne qui développe le code.</p></li>
+<li><p>Typage fort: exige que les vérifications soient faites systématiquement. Pouvoir vérifier clairement la correspondance entre les types. (exemple: Java, Swift, Scala)</p></li>
+</ul>
+<h1 id="contrôle-du-typage">Contrôle du typage:</h1>
+<ol start="22" type="1">
+<li>Expliquez ce qu’est la compatibilité des types, l’équivalence de type et l’inférence de types.</li>
+</ol>
+<h2 id="equivalence-de-type">Equivalence de type:</h2>
+<p>Règle pour vérifier si le nom ou la structure (=définition) prime. On favorise le nom. exemple: 1. Si le nom compte plus: * On peut définir une classe poire et une classe pomme qui ont exactement la même structure. Malgré ça, le code empêche de faire la conversion (implicite et automatique) si on veut mettre le contenu d’une structure pomme à une structure poire. * L’avantage est qu’on ne peut pas faire de transformation bizzare qui peuvent rendre le code instable. 2. Si la structure compte plus: * On peut définir une classe poire et une classe pomme qui ont exactement la même structure. On peut facilement faire la conversion (implicite et automatique) si on veut mettre le contenu d’une structure pomme à une structure poire.</p>
+<h2 id="compatibilité-de-type">Compatibilité de type:</h2>
+<p>Règle automatique coercion (=conversion possible) des valeur (fait sans la connaissance du programmeur) ou manuelle (fait de façon explicite par une fonction spéciale écrite par le programmeur ou déjà présente) Cela implique une hiérarchie des classes. exemple: 1. La coercion se fait automatiquement: C’est au compilateur de déterminer comment convertir.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">char</span> a;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">//la conversion se fait implicitement</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="dt">int</span> b= a;</a></code></pre></div>
+<ol start="2" type="1">
+<li>La coercion se fait manuellement</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">a<span class="op">=</span> <span class="st">&quot;12&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#La fonction int convertit les chaînes de caractère en nombre</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">b<span class="op">=</span> <span class="bu">int</span>(a)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#Si on avait pas fait la conversion manuellement, ça n&#39;aurai pas marché</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">c<span class="op">=</span> <span class="dv">2</span><span class="op">*</span>b</a></code></pre></div>
+<h2 id="inférence-de-type">Inférence de type:</h2>
+<p>Règle qui permet au compilateur ou à l’interpréteur de déterminer le type à partir des sous-expressions. Il y en a, ou il y en a pas.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="dt">int</span> main()</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">{ </a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="dt">int</span> a= <span class="dv">5</span>;</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="dt">double</span> b= <span class="fl">2.3</span>;</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    </a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="co">//c va automatiquement faire int*double-&gt;int</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="dt">int</span> c= a*b;</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    </a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    <span class="co">//c va automatiquement faire int*double-&gt;float</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">    <span class="dt">float</span> d= a*b;</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">    </a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    <span class="co">//ça va retourner &quot;c= 11&quot;</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    printf(<span class="st">&quot;c= %d </span><span class="sc">\n</span><span class="st">&quot;</span>, c);</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">    </a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">    <span class="co">//ça va retourner &quot;d= 11.5&quot;</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">    printf(<span class="st">&quot;d= %lf&quot;</span>, d);</a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">    <span class="cf">return</span> <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">}</a></code></pre></div>
+<h1 id="les-variables">Les variables</h1>
+<ol start="24" type="1">
+<li>Expliquez ce qu’est la portée, visibilité et durée de vie d’une variable</li>
+</ol>
+<h2 id="la-portée">La portée:</h2>
+<p>Les partie du programme ou cet identificateur (= nom de variable) a une liaison. Une variable globale peut être utilisé partout. Une variable local peut être utilisé seulement dans la zone où elle a été crée (par exemple seulement dans une fonction). exemple:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">public</span> <span class="kw">class</span> test {</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="co">//a est de porté global (accessible partout)</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> a= <span class="dv">5</span>;</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">        <span class="co">//b est de porté local (accessible seulement dans main)</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">        <span class="dt">int</span> b= <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">        <span class="co">//ici b existe encore</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(b);</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">        <span class="co">//ici a existe</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(a);</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">        <span class="dt">int</span> c= <span class="fu">addition</span>(a,b);</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(c);</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">    }   </a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">addition</span>(<span class="dt">int</span> i, <span class="dt">int</span> j){ </a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">        <span class="co">//ici a existe (va afficher sa liaison)</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(a);</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">        <span class="co">//ici b n&#39;existe pas (ça va envoyer une erreur)</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(b);</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">        <span class="kw">return</span> i+j;</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">    }</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">}</a></code></pre></div>
+<h2 id="la-visibilité">La visibilité:</h2>
+<p>Les endroit ou cet identificateur peut être utilisé. Une variable globale peut exister (=sa liaison existe), mais elle ne peut pas être utilisable car elle est masquée par un homonyme. exemple:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">public</span> <span class="kw">class</span> test {</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="co">//a est de porté global (accessible partout)</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> a= <span class="dv">5</span>;</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args){</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">        <span class="co">//appel de la fonction hello</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">        <span class="fu">hello</span>();</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    }   </a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">hello</span>(){ </a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">        <span class="co">//la variable globale a est masqué par la variable local a</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">        <span class="bu">String</span> a= <span class="st">&quot;hello&quot;</span>;</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">        <span class="co">//ici a= &quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(a);</a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">        <span class="co">//a= 5 quand on quitte la fonction</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">    }</a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">}</a></code></pre></div>
+<h2 id="la-durée-de-vie">La durée de vie:</h2>
+<p>Période entre la création (allocation de la mémoire) et sa destruction (libération de la mémoire) d’un programme. Quand la variable est créée, elle prendre vraiment de la place dans la mémoire. Quand elle est détruite, elle n’existe plus du tout dans la mémoire. Accéder à une mémoire libéré conduit à une erreur.</p>
+<p>Si porté &gt; durée de vie = erreur de programmation</p>
+</body>
+</html>
