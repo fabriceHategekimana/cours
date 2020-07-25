@@ -1,5 +1,6 @@
 	.data
 str:	.asciz	"Hello World\n"
+nb:	.word	7
 
 	.text
 	.globl	main
