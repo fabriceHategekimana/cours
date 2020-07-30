@@ -1,14 +1,13 @@
-COURS=project:AN
-all: start
+
+COURS=an
+all: task
  
-start:
-	echo hello world!
 revisions: FORCE
-	cd ~/cours//revisions
+	cd ~/cours/an/revisions
 exercices: FORCE
-	cd ~/cours//exercices
+	cd ~/cours/an/exercices
 tps: FORCE
-	cd ~/cours//tps
+	cd ~/cours/an/tps
 addtask: FORCE
 	task add $(ARGS)$(SUB) $(COURS)
 summary: FORCE

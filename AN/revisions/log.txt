@@ -1,0 +1,216 @@
+08:23:32 [34;1m[DEBG:default][0m [3mInitializing application[0m
+08:23:32 [32;1m[INFO:default][0m Systems icon theme is: "hicolor"
+08:23:32 [34;1m[DEBG:default][0m [3mCreating IPC server[0m
+08:23:32 [34;1m[DEBG:default][0m [3mInitializing mandatory paths[0m
+08:23:32 [34;1m[DEBG:default][0m [3mSetup signal handlers[0m
+08:23:32 [34;1m[DEBG:default][0m [3mCreating running indicator file[0m
+08:23:32 [34;1m[DEBG:default][0m [3mInitializing core components[0m
+08:23:32 [32;1m[INFO:default][0m Loading extension "org.albert.extension.applications"
+08:23:32 [32;1m[INFO:applications][0m Start indexing applications.
+08:23:32 [34;1m[DEBG:default][0m [3morg.albert.extension.applications loaded in 1 milliseconds[0m
+08:23:32 [32;1m[INFO:default][0m Loading extension "org.albert.extension.externalextensions"
+08:23:32 [34;1m[DEBG:default][0m [3morg.albert.extension.externalextensions loaded in 1 milliseconds[0m
+08:23:32 [32;1m[INFO:default][0m Loading extension "org.albert.extension.firefoxbookmarks"
+08:23:32 [33;1m[WARN:default][0;1m Firefox profile 'Install4F96D1932A9F858E' does not contain a path.[0m
+08:23:32 [34;1m[DEBG:default][0m [3morg.albert.extension.firefoxbookmarks loaded in 2 milliseconds[0m
+08:23:32 [32;1m[INFO:default][0m Loading extension "org.albert.extension.system"
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: MapTool Launcher.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: MapTool.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: PlayOnLinux.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: R.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: Uninstall MapTool.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: Zoom.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: activity-log-manager.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: albert.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: apport-gtk.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: apturl.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: apvlv.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: ardour.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: assistant-qt5.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: audacity.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: blender.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: chrome-nmmhkkegccagdldgiimedpiccmgmieda-Default.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: chromium_chromium.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: compiz.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: compton.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: debian-uxterm.desktop[0m
+08:23:32 [34;1m[DEBG:default][0m [3morg.albert.extension.system loaded in 147 milliseconds[0m
+08:23:32 [32;1m[INFO:default][0m Loading extension "org.albert.extension.terminal"
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: debian-xterm.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: designer-qt5.desktop[0m
+08:23:32 [33;1m[WARN:default][0;1m inotify_add_watch("/home/fabrice/bin") failed: "No such file or directory"[0m
+08:23:32 [34;1m[DEBG:default][0m [3morg.albert.extension.terminal loaded in 21 milliseconds[0m
+08:23:32 [34;1m[DEBG:default][0m [3mIndexing executables in $PATH.[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: dia.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: discord-bartixxx_discord.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: discord.desktop[0m
+08:23:32 [34;1m[DEBG:default][0m [3mFinished indexing executables in $PATH.[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: evince-previewer.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: evince.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: evolution-calendar.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: feh.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: file-roller.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: firefox.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gcr-prompter.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gcr-viewer.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gedit.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: geoclue-where-am-i.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: geogebra.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gimp.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gkbd-keyboard-display.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-background-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-bluetooth-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-calculator_gnome-calculator.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-characters_gnome-characters.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-color-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-control-center.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-datetime-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-default-apps-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-display-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-info-overview-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-keyboard-panel.desktop[0m
+08:23:32 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-language-selector.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-logs_gnome-logs.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-mouse-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-network-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-notifications-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-online-accounts-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-power-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-printers-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-privacy-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-region-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-removable-media-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-search-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-session-properties.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-sharing-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-shell-extension-prefs.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-sound-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-system-monitor_gnome-system-monitor.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-terminal.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-thunderbolt-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-ubuntu-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-universal-access-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-user-accounts-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-wacom-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gnome-wifi-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: google-chrome-unstable.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gtkorphan.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: gucharmap.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: hplj1020.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: htop.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: hydrogen.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: i3.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: ibus-setup-table.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: ibus-setup.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: im-config.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: inkscape.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: jupyter_jupyter.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: kazam.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: kmplot_kmplot.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: kmplot_org.kde.kmplot.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: ktelnetservice5.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: libreoffice-calc.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: libreoffice-draw.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: libreoffice-impress.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: libreoffice-math.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: libreoffice-startcenter.desktop[0m
+08:23:33 [34;1m[DEBG:default][0m [3mChecking last used version[0m
+08:23:33 [34;1m[DEBG:default][0m [3mEntering eventloop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: libreoffice-writer.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: libreoffice-xsltfilter.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: linguist-qt5.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: lmms.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: ls-usercreated-1.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: moria.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: mount-archive.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: mutter.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nautilus-autorun-software.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nautilus-classic.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nautilus-folder-handler.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nautilus-home.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nautilus.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nm-applet.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nm-connection-editor.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: nvidia-settings.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: obconf.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: onboard-settings.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: onboard.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: openjdk-11-java.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.DejaDup.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.FileRoller.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.Nautilus.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.Shell.PortalHelper.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.Shell.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.Terminal.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.baobab.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.gedit.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.gnome.tweaks.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.kde.drkonqi.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.kde.kdeconnect.kcm.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.kde.kdeconnect.nonplasma.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.kde.kdeconnect.telhandler.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.kde.klipper.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.kde.plasmashell.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.kde.systemmonitor.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.qt-project.qtcreator.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.remmina.Remmina.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: org.zealdocs.Zeal.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: pacman4console.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: pavucontrol.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: pinball.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: plasma-windowed.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: prerex.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: python2.7.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: python3.5.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: python3.6.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: qjackctl.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: ranger.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: remmina-file.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: rhythmbox-device.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: rhythmbox.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: screenkey.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: shotwell-viewer.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: shotwell.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: signon-ui.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: simple-scan.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: simplescreenrecorder.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: skype_skypeforlinux.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: snap-handle-link.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: software-properties-drivers.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: software-properties-gtk.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: software-properties-livepatch.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: sol.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: system-config-printer.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: teams.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: teatime_teatime.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: telegramdesktop.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: texdoctk.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: thunderbird.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: transmission-gtk.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: typora.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: unity-activity-log-manager-panel.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: unity-lens-photos.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: unity-scope-gdrive.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: update-manager.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: usb-creator-gtk.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: vifm.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: vim.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: vino-server.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: vlc.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: vmware-view.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: vprerex.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: wine-Programs-RapidTyping 5-Aide.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: wine-Programs-RapidTyping 5-Licence.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: wine-Programs-RapidTyping 5-Lisez-moi.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: wine-Programs-RapidTyping 5-RapidTyping 5.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: www.octave.org-octave.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: xdg-desktop-portal-gtk.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: xdiagnose.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: xjadeo.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: yelp.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: zathura-pdf-poppler.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: zathura.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: zynaddsubfx-alsa.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: zynaddsubfx-jack.desktop[0m
+08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: zynaddsubfx-oss.desktop[0m
+08:23:33 [32;1m[INFO:applications][0m Indexed 108 applications.
