@@ -214,3 +214,4 @@
 08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: zynaddsubfx-jack.desktop[0m
 08:23:33 [34;1m[DEBG:applications][0m [3mIndexing desktop file: zynaddsubfx-oss.desktop[0m
 08:23:33 [32;1m[INFO:applications][0m Indexed 108 applications.
+13:09:35 [33;1m[WARN:default][0;1m The X11 connection broke (error 1). Did the X11 server die?[0m
