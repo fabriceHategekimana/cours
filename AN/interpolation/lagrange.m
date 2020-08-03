@@ -1,7 +1,7 @@
 
 
-function res= lagrange(A,x,y)
-	L= 0;
+function res= lagrange(A,x)
+	L= [];
 	n= length(x);
 	for i = [1:1:n]
 		xi= x(i)
@@ -13,7 +13,7 @@ function res= lagrange(A,x,y)
 				l= l*inter;
 			end
 		end
-		L=L+(l*y(i))
+		L= [L l]
 	end
 	res= L;
 end

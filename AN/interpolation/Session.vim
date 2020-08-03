@@ -213,12 +213,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 16 - ((15 * winheight(0) + 18) / 36)
+let s:l = 4 - ((3 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
-normal! 028|
+4
+normal! 012|
 wincmd w
 argglobal
 if bufexists('test.m') | buffer test.m | else | edit test.m | endif
@@ -346,12 +346,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 6 - ((5 * winheight(0) + 18) / 36)
+let s:l = 5 - ((4 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
-normal! 0
+5
+normal! 016|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 75 + 75) / 151)
