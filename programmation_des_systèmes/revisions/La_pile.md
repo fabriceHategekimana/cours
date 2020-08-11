@@ -7,10 +7,13 @@ On parle de pile vide E (empty stack) si le pointeur de pile  (sp) pointe sur le
 Les opération de base sur la pile son push et pop
 
 ## opérations sur la pile
-FA
-FD
-EA
-ED
+STM£ (store memory)
+LDM£ (load memory)
+avec (à la place de £)
+FA (Full ascending)
+FD (Full descending)
+EA (Empty ascending)
+ED (Empty descending)
 
 
 ## Attributs d'une pile
