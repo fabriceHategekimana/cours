@@ -139,3 +139,4 @@
 19:43:58 [34;1m[DEBG:applications][0m [3mIndexing desktop file: xdg-desktop-portal-gtk.desktop[0m
 19:43:58 [34;1m[DEBG:applications][0m [3mIndexing desktop file: yelp.desktop[0m
 19:43:58 [32;1m[INFO:applications][0m Indexed 39 applications.
+20:44:32 [33;1m[WARN:default][0;1m The X11 connection broke (error 1). Did the X11 server die?[0m
