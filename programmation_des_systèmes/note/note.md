@@ -25,3 +25,15 @@ Mode d'adressage(3):
 **remarque**
 La mise à jour se fait sur la base modifiée
 +- peut préfixer l'offset et indique qu'il est signé
+
+Labo:
+Utilisation porte logique
+Comment utiliser les portes logiques pour les flags v, n, z
+
+v= signed overflows
+n= negative
+z= 0
+
+
+remarque: Connaitre les flags v, n, z
+
