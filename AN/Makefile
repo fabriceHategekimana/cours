@@ -17,5 +17,7 @@ note: FORCE
 	vim note/note.md
 pdf: FORCE
 	cd pdf && bash ~/sh/cs.sh
+image:
+	bash ~/sh/myimport.sh images
 FORCE:
 
