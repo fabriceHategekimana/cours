@@ -20,9 +20,9 @@ VII.
 13. Calculer l’ordre de convergence pour la méthode de Newton vectorielle à l’aide d’un développement de Taylor. ([ordre_convergence_Newton](ordre_convergence_Newton))
 14. Pour une fonction vectorielle f : Rn → Rn , démontrer la convergence quadratique de la méthode de Newton en précisant les hypothèses et les lemmes nécessaires. (convergence_quadratique_Newton)
 15. Qu’est-ce qu’un problème de moindres carrés non-linéaire ? Donner deux méthodes pour résoudre un tel problème. Pour quels problèmes ces deux méthodes deviennent-elles identiques ? ([moindre_carré_non_linéaire](moindre_carré_non_linéaire))
-16. Expliquer la méthode de Gauss–Newton ainsi que son implémentation. (Gauss_Newton)
+16. Expliquer la méthode de Gauss–Newton ainsi que son implémentation. ([Gauss_Newton](Gauss_Newton))
 
-VIII.
+VIII.
 
 Equations différentielles ordinaires
 

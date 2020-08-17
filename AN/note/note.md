@@ -14,4 +14,3 @@ comptage:
 Il me reste 16 jours
 ça fait environ 5 questions par jour
 
-Labo
