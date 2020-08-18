@@ -18,4 +18,8 @@ task: FORCE
 	task $(COURS)$(SUB)
 project: FORCE
 	echo "$(COURS)"
+note: FORCE
+	vim note/note.md
+pdf: FORCE
+	cd pdf && bash ~/sh/cs.sh
 FORCE:

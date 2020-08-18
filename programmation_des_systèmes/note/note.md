@@ -13,7 +13,7 @@ int	0xCCCC
 %04x--> prints un hex int, justifié à droite en 4 places. s'il y a moins de 4 digits, c'est précédé de zéros. C'est plus de 4 digits on a le nombre entier mais sans zéro de poids fort.
 
 en résumé:
-le [0]nx indique sur combien de case doit être affiché le résultat. Si lerésultat n'a pas assez de case, alors on complète par des zéros/espaces.
+le [0]nx indique sur combien de case doit être affiché le résultat. Si le résultat n'a pas assez de case, alors on complète par des zéros/espaces.
 
 
 ## La pile
@@ -30,10 +30,12 @@ Labo:
 Utilisation porte logique
 Comment utiliser les portes logiques pour les flags v, n, z
 
-v= signed overflows
+v= signed overflows (arrive si les opérande sont du même signe dans l'addition mais donne un résultat d'un signe contraire)
 n= negative
 z= 0
+c= utile pour une addition et une soustraction lorsqu'il y a une retenue
 
+si c=0 alors r0-r1= r0+(max-r1+1) <= max donc r0-r1<0 et finalement r0<r1
 
 remarque: Connaitre les flags v, n, z
 

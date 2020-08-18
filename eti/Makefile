@@ -1,8 +1,7 @@
-COURS=project:eti
-all: start
+
+COURS=
+all: task
  
-start:
-	echo hello world!
 revisions: FORCE
 	cd ~/cours//revisions
 exercices: FORCE
@@ -10,10 +9,14 @@ exercices: FORCE
 tps: FORCE
 	cd ~/cours//tps
 addtask: FORCE
-	task add $(ARGS)$(SUB) $(COURS)
+	. ~/sh/mytask.sh
 summary: FORCE
 	task $(COURS) summary
 task: FORCE
 	task $(COURS)$(SUB)
+note: FORCE
+	vim note/note.md
+pdf: FORCE
+	cd pdf && bash ~/sh/cs.sh
 FORCE:
 

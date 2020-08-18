@@ -78,15 +78,15 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/cours/AN
+cd ~/cours/eti/note
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd note/note.md
-edit note/note.md
+$argadd questions.md
+edit questions.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -357,20 +357,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 27) / 55)
+let s:l = 1 - ((0 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 0
+1
+normal! 09|
 tabnext 1
-badd +4 note/note.md
-badd +12 ~/cours/AN/note/automne.md
-badd +5 ~/cours/AN/note/théorème_polynôme_interpolation.md
-badd +5 ~/cours/AN/note/formule_Lagrange.md
-badd +7 ~/cours/AN/note/Newton_interpolation.md
-badd +3 ~/cours/AN/note/polynômes_Chebyshev.md
-badd +5 ~/cours/AN/note/points_Chebyshev.md
+badd +0 questions.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

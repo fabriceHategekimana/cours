@@ -37,7 +37,7 @@ IX.
 
 Valeurs et vecteurs propres
 
-23. Enoncer et démontrer le théorème de Gerschgorin. Expliquer son utilité pour le calcul numérique des valeurs propres._(théorème_Gerschgorin)
+23. Enoncer et démontrer le théorème de Gerschgorin. Expliquer son utilité pour le calcul numérique des valeurs propres._([théorème_Gerschgorin](théorème_Gerschgorin))
 24. Expliquer le théorème sur la différentiabilité des valeurs propres simples. Donner une formule_pour la dérivée λ′ (0) de λ(ε) par rapport à la perturbation A(ε) = A + εC et expliquer son_utilité pour le calcul numérique de la valeur propre en question.([différentiabilité_valeurs_propres_simples](différentiabilité_valeurs_propres_simples))
 25. Définir la condition absolue κ d’une valeur propre simple. Quelle est le lien entre la condition_et la dérivée d’une valeur propre par rapport à une perturbation ? Donner des exemples d’une_valeur propre (i) bien conditionnée, (ii) mal conditionnée, (iii) non différentiable par rapport_aux petites perturbation._([condition_absolue_valeur_propre_simple](condition_absolue_valeur_propre_simple))
 26. Expliquer l’algorithme pour la méthode de la puissance._([méthode_puissance](méthode_puissance))
