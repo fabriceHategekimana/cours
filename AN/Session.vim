@@ -86,7 +86,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit ~/cours/AN/note/printemps.md
+edit note/note.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -357,28 +357,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((9 * winheight(0) + 22) / 45)
+let s:l = 1 - ((0 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
-normal! 05|
+1
+normal! 0
 tabnext 1
-badd +5 note/note.md
-badd +30 ~/cours/AN/note/printemps.md
-badd +11 ~/cours/AN/note/3algo_moindre_carré.md
-badd +4 ~/cours/AN/note/bissection.md
-badd +5 ~/cours/AN/note/co_point_fixe_pour_equa_non_lin.md
-badd +7 ~/cours/AN/note/point_fixe_Banach.md
-badd +1 ~/cours/AN/note/convergence_orde_m.md
-badd +3 ~/cours/AN/note/ordre_convergence_points_fixes.md
-badd +9 ~/cours/AN/note/Newton_scalaire_vectoriel.md
-badd +4 ~/cours/AN/note/méthode_sécante.md
-badd +4 ~/cours/AN/note/ordre_convergence_Newton.md
-badd +4 ~/cours/AN/note/moindre_carré_non_linéaire.md
-badd +6 ~/cours/AN/note/Gauss_Newton.md
-badd +19 ~/cours/AN/note/explicite_Euler_Runge.md
-badd +2 ~/cours/AN/note/ordre_convergence_Runge_Kutta.md
+badd +0 note/note.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
