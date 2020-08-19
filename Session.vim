@@ -31,8 +31,8 @@ nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw
 nnoremap <C-G> :!. ~/sh/g.sh 
 nnoremap <F12> :!clear
 nnoremap <F9> :so $VIMRUNTIME/syntax/hitest.vim
-nnoremap <F8> :!. ~/sh/images.sh
-nnoremap <F3> :!ranger
+nnoremap <F8> :call LinkImage()
+nnoremap <F3> :! ~/sh/mymake.sh 
 nnoremap <F1> :call Vimrc()
 inoremap  <><Left>
 inoremap  <><Left>
@@ -82,8 +82,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd ~/sh/push.sh
-edit ~/sh/push.sh
+$argadd .git/MERGE_MSG
+edit .git/MERGE_MSG
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -91,17 +91,6 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-let s:cpo_save=&cpo
-set cpo&vim
-nnoremap <buffer> <F5> :!./%
-nnoremap <buffer> <F2> :call Note("sh")
-nnoremap <buffer> éc ^i#
-inoremap <buffer> [ [  ]<Left><Left>
-inoreabbr <buffer> function (){}<Up><Up>
-inoreabbr <buffer> if if [ ]; thenfi<Up><Up><Right><Right>
-inoreabbr <buffer> elif elif [ ]; then<Up><Right><Right>
-let &cpo=s:cpo_save
-unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -118,8 +107,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -136,8 +125,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'sh'
-setlocal filetype=sh
+if &filetype != 'gitcommit'
+setlocal filetype=gitcommit
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -151,19 +140,19 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=tl
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=GetShIndent()
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,0=end,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
+setlocal includeexpr=substitute(v:fname,'^[^/]\\+/','','')
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
+setlocal keywordprg=git\ --git-dir='/home/fabrice/cours/.git'\ show
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -171,14 +160,14 @@ setlocal nolist
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
-setlocal modeline
+setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
 setlocal omnifunc=
-setlocal path=
+setlocal path=~/cours/.git,~/cours,
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -203,8 +192,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
+if &syntax != 'gitcommit'
+setlocal syntax=gitcommit
 endif
 setlocal tabstop=8
 setlocal tagcase=
@@ -213,7 +202,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=0
+setlocal textwidth=72
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -225,14 +214,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 16 - ((15 * winheight(0) + 27) / 55)
+let s:l = 1 - ((0 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
+1
 normal! 0
 tabnext 1
-badd +0 ~/sh/push.sh
+badd +0 .git/MERGE_MSG
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
