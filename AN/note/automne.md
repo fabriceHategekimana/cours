@@ -30,8 +30,8 @@ Condition et stabilité
 15. Définir la notion de la stabilité "forward". Quelle est la distinction entre la condition et la_stabilité ?_([stabilité_forward](stabilité_forward))
 
 16. Définir la notion de la stabilité "backward". Montrer que la stabilité backward implique la_stabilité forward._([stabilité_backward](stabilité_backward))
-17. Donner un exemple d’un problème bien conditionné et deux algorithmes pour le résoudre, un_stable et l’autre instable (avec démonstration)._(exemple_algorithme_stable_instable)
-18. Donner un exemple d’un algorithme qui est stable en sens backward (avec démonstration)._(exemple_algorithme_stable_backward)
+17. Donner un exemple d’un problème bien conditionné et deux algorithmes pour le résoudre, un_stable et l’autre instable (avec démonstration)._([exemple_algorithme_stable_instable](exemple_algorithme_stable_instable))
+18. Donner un exemple d’un algorithme qui est stable en sens backward (avec démonstration)._([exemple_algorithme_stable_backward](exemple_algorithme_stable_backward))
 
 IV.
 
@@ -40,8 +40,7 @@ Intégration numérique
 19. Définir les formules de quadrature à s étages et définir leur ordre._([quadrature_s_étages](quadrature_s_étages))
 20. Pour s nœuds distincts donnés, montrer l’existence d’une formule de quadrature d’ordre ≥ s._([montrer_existence_quadrature_ordre_supérieur](montrer_existence_quadrature_ordre_supérieur))
 21. Expliquer la construction des formules de Newton–Cotes. Donner quelques exemples._([Newton_Cotes](Newton_Cotes))
-22. Définir les formules symétriques. Enoncer et démontrer le théorème concernant l’ordre de
-celles-ci.
+22. Définir les formules symétriques. Enoncer et démontrer le théorème concernant l’ordre de celles-ci. ([formules_symétrique_ordre](formules_symétrique_ordre))
 23. Expliquer les formules de quadrature composées._([quadrature_composées](quadrature_composées))
 24. Si une formule de quadrature est d’ordre p, énoncer et démontrer le théorème de l’erreur_globale de la quadrature en justifiant le lemme pour l’erreur locale à l’aide des développements_de Taylor._([théorème_erreur_globale](théorème_erreur_globale))
 25. Enoncer et démontrer le théorème (ainsi que le lemme) disant que l’ordre d’une formule à s_étages est ≤ 2s._([théorème_ordre_s_étages_2s](théorème_ordre_s_étages_2s))

@@ -362,17 +362,28 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 4
-normal! 0
+normal! 02|
 tabnext 1
 badd +4 note/note.md
-badd +14 ~/cours/eti/note/questions.md
-badd +10 ~/cours/eti/note/Q2.md
-badd +6 ~/cours/eti/note/Q3.md
-badd +7 ~/cours/eti/note/Q4.md
-badd +7 ~/cours/eti/note/Q5.md
-badd +8 ~/cours/eti/note/Q6.md
-badd +5 ~/cours/eti/note/Q7.md
-badd +4 ~/cours/eti/note/Q8.md
+badd +35 ~/cours/eti/note/questions.md
+badd +3 ~/cours/eti/note/Q9.md
+badd +3 ~/cours/eti/note/R1.md
+badd +5 ~/cours/eti/note/R2.md
+badd +3 ~/cours/eti/note/R3.md
+badd +3 ~/cours/eti/note/R4.md
+badd +8 ~/cours/eti/note/R5.md
+badd +5 ~/cours/eti/note/R6.md
+badd +4 ~/cours/eti/note/R7.md
+badd +3 ~/cours/eti/note/R8.md
+badd +3 ~/cours/eti/note/R9.md
+badd +5 ~/cours/eti/note/R10.md
+badd +3 ~/cours/eti/note/R11.md
+badd +4 ~/cours/eti/note/R12.md
+badd +7 ~/cours/eti/note/R13.md
+badd +3 ~/cours/eti/note/R14.md
+badd +3 ~/cours/eti/note/R15.md
+badd +3 ~/cours/eti/note/R16.md
+badd +1 ~/cours/eti/note/R17.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

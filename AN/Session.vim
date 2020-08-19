@@ -86,7 +86,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit note/note.md
+edit ~/cours/AN/note/automne.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -357,20 +357,21 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 27) / 55)
+let s:l = 46 - ((27 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 0
+46
+normal! 0120|
 tabnext 1
 badd +4 note/note.md
-badd +12 ~/cours/AN/note/automne.md
-badd +5 ~/cours/AN/note/théorème_polynôme_interpolation.md
-badd +5 ~/cours/AN/note/formule_Lagrange.md
-badd +7 ~/cours/AN/note/Newton_interpolation.md
-badd +3 ~/cours/AN/note/polynômes_Chebyshev.md
-badd +5 ~/cours/AN/note/points_Chebyshev.md
+badd +46 ~/cours/AN/note/automne.md
+badd +3 ~/cours/AN/note/montrer_existence_quadrature_ordre_supérieur.md
+badd +1 ~/cours/AN/note/formules_symétrique_ordre.md
+badd +3 ~/cours/AN/note/quadrature_composées.md
+badd +7 ~/cours/AN/note/théorème_erreur_globale.md
+badd +3 ~/cours/AN/note/Newton_Cotes.md
+badd +3 ~/cours/AN/note/théorème_ordre_s_étages_2s.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

@@ -1,4 +1,4 @@
-COURS=
+COURS=project:AN
 all: task
  
 revisions: FORCE
