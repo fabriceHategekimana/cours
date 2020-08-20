@@ -1,5 +1,5 @@
 
-COURS=
+COURS=eti
 all: task
  
 revisions: FORCE
