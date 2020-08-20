@@ -1,6 +1,6 @@
 
 COURS=eti
-all: task
+all: note
  
 revisions: FORCE
 	cd ~/cours//revisions

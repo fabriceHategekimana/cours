@@ -1,5 +1,5 @@
 COURS=project:AN
-all: task
+all: note
  
 revisions: FORCE
 	cd ~/cours/revisions
