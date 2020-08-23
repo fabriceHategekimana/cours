@@ -357,24 +357,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 27) / 55)
+let s:l = 16 - ((15 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
+16
 normal! 0
 tabnext 1
-badd +4 note/note.md
-badd +3 ~/cours/AN/note/automne.md
-badd +2 ~/cours/AN/note/formules_symétrique_ordre.md
-badd +1 ~/cours/AN/note/quadrature_composées.md
-badd +3 ~/cours/AN/note/condition_matrice_inversible.md
-badd +3 ~/cours/AN/note/condition_résolution_système_équation_linéaire_inversible.md
-badd +3 ~/cours/AN/note/algorithme_Gauss_décomposition_LU.md
-badd +4 ~/cours/AN/note/théorème_erreur_backward_linéaire_inversible.md
-badd +1 ~/cours/AN/note/borne_condition_linéaire.md
-badd +3 ~/cours/AN/note/LU_changement_pivot_partiel.md
-badd +5 ~/cours/AN/note/méthode_moidres_carrés.md
+badd +5 note/note.md
+badd +4 ~/cours/AN/note/automne.md
+badd +2 ~/cours/AN/note/printemps.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
