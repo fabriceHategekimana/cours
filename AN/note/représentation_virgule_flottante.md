@@ -4,3 +4,5 @@
 ![simple_précision](../images/simple_précision.png)
 
 ![double_précision](../images/double_précision.png)
+
+
