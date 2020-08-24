@@ -1,10 +1,15 @@
 let SessionLoad = 1
 if &cp | set nocp | endif
-nnoremap  :!. ~/sh/g.sh --new-window  
-nnoremap   .
-nnoremap :w :mks!:w
 let s:cpo_save=&cpo
 set cpo&vim
+inoremap <C-Y> 
+inoremap <C-L> <Right>
+inoremap <C-W> :w
+inoremap <C-D><C-D> <><Left>
+inoremap <C-D> <><Left>
+nnoremap  :!. ~/sh/g.sh 
+nnoremap   .
+nnoremap :w :mks!:w
 nmap <silent> \w\m <Plug>VimwikiMakeTomorrowDiaryNote
 nmap <silent> \w\y <Plug>VimwikiMakeYesterdayDiaryNote
 nmap <silent> \w\t <Plug>VimwikiTabMakeDiaryNote
@@ -23,12 +28,13 @@ nnoremap tn :tabnew .
 nnoremap vp :vsp .
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
+nnoremap <C-G> :!. ~/sh/g.sh 
 nnoremap <F12> :!clear
 nnoremap <F9> :so $VIMRUNTIME/syntax/hitest.vim
-nnoremap <F8> :!. ~/sh/images.sh
-nnoremap <F3> :!ranger
+nnoremap <F8> :call LinkImage()
+nnoremap <F3> :! ~/sh/mymake.sh 
 nnoremap <F1> :call Vimrc()
-inoremap  </><Left>
+inoremap  <><Left>
 inoremap  <><Left>
 inoremap  <Right>
 inoremap  :w
@@ -59,7 +65,7 @@ set ignorecase
 set incsearch
 set printoptions=paper:a4
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vimwiki/,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim80,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vimwiki/,/var/lib/vim/addons,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/etc/vim/after,/var/lib/vim/addons/after,~/.vim/after
 set smartcase
 set splitbelow
 set splitright
@@ -68,20 +74,35 @@ set wildmenu
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
+silent tabonly
 cd ~/cours/programmation_des_systèmes/tps
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 helloworld.s
 argglobal
-silent! argdel *
-$argadd helloworld.s
-edit helloworld.s
+%argdel
+$argadd ~/.vimrc
+edit ~/.vimrc
 set splitbelow splitright
 wincmd t
-set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -94,12 +115,12 @@ setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
 setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -109,14 +130,15 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'asm'
-setlocal filetype=asm
+if &filetype != 'vim'
+setlocal filetype=vim
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -130,7 +152,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
@@ -138,11 +160,11 @@ setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\,0=\"\\\ 
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=:help
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -167,8 +189,10 @@ setlocal relativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
+setlocal scrolloff=-1
 setlocal shiftwidth=8
 setlocal noshortname
+setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
 setlocal softtabstop=0
@@ -180,35 +204,41 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'asm'
-setlocal syntax=asm
+if &syntax != 'vim'
+setlocal syntax=vim
 endif
 setlocal tabstop=8
 setlocal tagcase=
+setlocal tagfunc=
 setlocal tags=
-setlocal termkey=
-setlocal termsize=
-setlocal textwidth=0
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=78
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal wincolor=
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 13 - ((12 * winheight(0) + 8) / 16)
+let s:l = 401 - ((0 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 0
+401
+normal! 010|
 tabnext 1
-if exists('s:wipebuf')
+badd +0 ~/.vimrc
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 shortmess=filnxtToO
+set winheight=1 winwidth=20 shortmess=filnxtToOS
 set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if file_readable(s:sx)

@@ -1,6 +1,9 @@
 Conversion de valeur
 ====================
 
+## condition mnemonic
+![condition_mnemonic](../images/condition_mnemonic.png)
+
 ## tp2 print char
 
 les nombres peuvent être représenté comme hexadécimal:
@@ -51,3 +54,6 @@ Ne peux contenir que des nombres en hexadécimal (0xFF par exemple)
 **Commandes utiles**:
 ldrb => charge le byte dans le registre
 ls => unsigned lower or same
+cmp A B => A-B
+
+

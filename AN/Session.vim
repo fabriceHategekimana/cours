@@ -73,6 +73,7 @@ set spelllang=fr_ch,en_us
 set splitbelow
 set splitright
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set textwidth=211
 set wildmenu
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
@@ -86,7 +87,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit note/note.md
+edit ~/cours/AN/note/polynômes_Chebyshev.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -345,7 +346,7 @@ setlocal tags=./tags,./TAGS,tags,TAGS,~/.tags
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=0
+setlocal textwidth=211
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -357,16 +358,24 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 16 - ((15 * winheight(0) + 27) / 55)
+let s:l = 5 - ((4 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
+5
 normal! 0
 tabnext 1
-badd +5 note/note.md
-badd +4 ~/cours/AN/note/automne.md
-badd +2 ~/cours/AN/note/printemps.md
+badd +4 note/note.md
+badd +10 ~/cours/AN/note/automne.md
+badd +5 ~/cours/AN/note/théorème_polynôme_interpolation.md
+badd +1 ~/cours/AN/images/théo_exi_uni_interpo.png.md
+badd +5 ~/cours/AN/note/formule_Lagrange.md
+badd +1 ~/cours/AN/images/formule_Lagrange.png.md
+badd +1 Highlight\ test
+badd +442 ~/.vimrc
+badd +3 ~/cours/AN/note/Newton_interpolation.md
+badd +5 ~/cours/AN/note/lemme_dérivées_différences_divisées.md
+badd +0 ~/cours/AN/note/polynômes_Chebyshev.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -378,7 +387,6 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

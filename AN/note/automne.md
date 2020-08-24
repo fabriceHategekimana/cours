@@ -6,7 +6,7 @@ I.
 1. Enoncer et démontrer le théorème concernant l’existence et l’unicité du polynôme d’interpolation._([théorème_polynôme_interpolation](théorème_polynôme_interpolation))
 2. Définir la formule de Lagrange pour son calcul. Estimer son coût en flops._([formule_Lagrange](formule_Lagrange))
 3. Définir les différences divisées pour des points donnés. Enoncer et démontrer la formule de_Newton pour l’interpolation en ces points._([Newton_interpolation](Newton_interpolation))
-4. Enoncer et démontrer le lemme mettant en relation les dérivées et les différences divisées. En_déduire et démontrer le théorème pour estimer l’erreur de l’approximation par un polynôme_d’interpolation.(lemme_dérivées_différences_divisées)
+4. Enoncer et démontrer le lemme mettant en relation les dérivées et les différences divisées. En_déduire et démontrer le théorème pour estimer l’erreur de l’approximation par un polynôme_d’interpolation.([lemme_dérivées_différences_divisées](lemme_dérivées_différences_divisées))
 5. Définir les polynômes de Chebyshev. Esquisser quelques exemples._([polynômes_Chebyshev](polynômes_Chebyshev))
 6. Définir les points de Chebyshev. Justifier pourquoi ils sont un bon choix pour des points_d’interpolation. Illustrer par le phénomène de Runge._([points_Chebyshev](points_Chebyshev))
 7. Définir l’interpolation d’Hermite. Expliquer son calcul à l’aide des différences divisées._([interpolation_Hermite](interpolation_Hermite))

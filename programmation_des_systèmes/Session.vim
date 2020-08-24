@@ -357,12 +357,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 53 - ((52 * winheight(0) + 27) / 55)
+let s:l = 1 - ((0 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
-normal! 028|
+1
+normal! 0
 tabnext 1
 badd +0 note/note.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
