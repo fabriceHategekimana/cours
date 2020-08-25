@@ -86,7 +86,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit ~/cours/AN/note/représentation_virgule_flottante.md
+edit ~/cours/AN/note/automne.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -357,20 +357,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 8 - ((7 * winheight(0) + 27) / 55)
+let s:l = 21 - ((2 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
-normal! 0
+21
+normal! 0117|
 tabnext 1
 badd +4 note/note.md
-badd +18 ~/cours/AN/note/automne.md
-badd +2 ~/cours/AN/note/points_Chebyshev.md
-badd +2 ~/cours/AN/note/polynômes_Chebyshev.md
-badd +3 ~/cours/AN/note/interpolation_Hermite.md
-badd +1 ~/cours/AN/note/erreur_interpolation_Hermite.md
-badd +0 ~/cours/AN/note/représentation_virgule_flottante.md
+badd +32 ~/cours/AN/note/automne.md
+badd +1 ~/cours/AN/note/stabilité_forward.md
+badd +1 ~/cours/AN/note/stabilité_backward.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -382,7 +379,6 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
