@@ -11,7 +11,7 @@ exercices:
 tps:
 	cd ~/cours/tps
 addtask: FORCE
-	task add $(ARGS) $(COURS)$(SUB)
+	bash ~/sh/mytask.sh
 summary: FORCE
 	task $(COURS) summary
 task: FORCE

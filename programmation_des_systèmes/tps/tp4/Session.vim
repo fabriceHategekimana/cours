@@ -60,7 +60,6 @@ let &cpo=s:cpo_save
 unlet s:cpo_save
 set backspace=indent,eol,start
 set fileencodings=ucs-bom,utf-8,default,latin1
-set formatlistpat=^\\s*\\%(\\(-\\|\\*\\|+\\)\\|\\(\\C\\%(\\d\\+\\.\\)\\)\\)\\s\\+\\%(\\[\\([\ .oOX-]\\)\\]\\s\\)\\?
 set helplang=fr
 set ignorecase
 set incsearch
@@ -68,7 +67,6 @@ set printoptions=paper:a4
 set ruler
 set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vimwiki/,/var/lib/vim/addons,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/etc/vim/after,/var/lib/vim/addons/after,~/.vim/after
 set smartcase
-set spelllang=fr_ch,en_us
 set splitbelow
 set splitright
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -77,15 +75,15 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/cours/programmation_des_systèmes/tps/tp3
+cd ~/cours/programmation_des_systèmes/tps/tp4
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd ex2.s
-edit ex2.s
+$argadd quefaisje.s
+edit quefaisje.s
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -97,6 +95,13 @@ let s:cpo_save=&cpo
 set cpo&vim
 nnoremap <buffer> <F2> :call Note("s")
 nnoremap <buffer> <F5> :call RunARM()
+nnoremap <buffer> éas gg<Down>o:	.asciz	""<Left>
+nnoremap <buffer> éby gg<Down>o:	.byte	
+nnoremap <buffer> éwo gg<Down>o:	.word	
+nnoremap <buffer> éte :call TestARM()
+nnoremap <buffer> éti I//----------a----------//Tai<Del>
+inoremap <buffer> function :	stmfd sp!,{r4-r11}	mov	pc,lr<Up>I
+inoremap <buffer> print ldr	r0,=	bl	printf<Up>A
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -222,20 +227,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 46 - ((45 * winheight(0) + 27) / 55)
+let s:l = 9 - ((8 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-46
-normal! 023|
+9
+normal! 0
 tabnext 1
-badd +0 ex2.s
-badd +28 reste.md
-badd +1 .
-badd +15 ex1.s
-badd +43 affichageTP3.s
-badd +110 tribulle.s
-badd +48 tribulleproc.s
+badd +0 quefaisje.s
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -247,6 +246,7 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
