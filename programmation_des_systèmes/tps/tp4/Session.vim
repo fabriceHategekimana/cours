@@ -82,8 +82,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd quefaisje.s
-edit quefaisje.s
+$argadd ex1.s
+edit ex1.s
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -227,14 +227,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 9 - ((8 * winheight(0) + 27) / 55)
+let s:l = 50 - ((49 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-9
+50
 normal! 0
 tabnext 1
-badd +0 quefaisje.s
+badd +0 ex1.s
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

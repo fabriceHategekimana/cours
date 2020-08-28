@@ -13,3 +13,5 @@ main:	stmfd	sp!,{lr}
 	ldmfd	sp!,{lr}
 	mov	pc,lr
 
+fact:	stmfd sp!,{r4-r11}
+	mov	pc,lr

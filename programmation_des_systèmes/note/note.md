@@ -4,6 +4,8 @@ Conversion de valeur
 ## condition mnemonic
 ![condition_mnemonic](../images/condition_mnemonic.png)
 
+![mode_adressage_pile](../images/mode_adressage_pile.png)
+
 ## tp2 print char
 
 les nombres peuvent être représenté comme hexadécimal:
@@ -57,3 +59,11 @@ ls => unsigned lower or same
 cmp A B => A-B
 
 
+Questions:
+==========
+
+## C'est quoi un opcode?
+
+## Comment programmer des entrées et sorties en assembleur
+
+## C'est quoi le readallocate et writethrough?

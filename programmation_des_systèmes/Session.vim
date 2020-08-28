@@ -357,11 +357,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 13) / 26)
+let s:l = 15 - ((14 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
+15
 normal! 0
 tabnext 1
 badd +0 note/note.md

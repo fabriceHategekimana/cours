@@ -47,4 +47,4 @@ res:	sub	r1,r1,r3
 
 	ldr	r0,=num
 	bl	printf	
-	
+
