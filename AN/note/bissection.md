@@ -1,4 +1,5 @@
-Expliquer la méthode de la bissection
+Expliquer la méthode de la bissection expliquez sa convergence
+===============================================================
 
 S'appuie sur le théorème des valeurs intermédiaires et la recherche dichotomique:
 ![val_inter](../images/val_inter.png)

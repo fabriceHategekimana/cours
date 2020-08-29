@@ -209,7 +209,7 @@ nmap <buffer> <silent> <C-CR> <Plug>VimwikiVSplitLink
 nmap <buffer> <silent> <S-CR> <Plug>VimwikiSplitLink
 nnoremap <buffer> <F7> :call RunMarkdown3()
 nnoremap <buffer> <F6> :call RunMarkdown2()
-nnoremap <buffer> <F5> :let toc= RunMarkdown(toc)
+nnoremap <buffer> <F5> :!bash ~/sh/compmd.sh % 
 nnoremap <buffer> <F4> :let toc= Toc(toc)
 nnoremap <buffer> <F2> :let note= Note("markdown")
 nnoremap <buffer> <C-P> :!. ~/sh/cs.sh
@@ -357,14 +357,28 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 27) / 55)
+let s:l = 5 - ((4 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
+5
 normal! 0
 tabnext 1
-badd +0 note/note.md
+badd +5 note/note.md
+badd +1 ~/cours/AN/note/printemps.md
+badd +3 ~/cours/AN/note/géo_moindre_carrés.md
+badd +16 ~/cours/AN/note/facto_QR.md
+badd +11 ~/cours/AN/note/refl_Householder.md
+badd +1 ~/cours/AN/note/rot_Given.md
+badd +1 ~/cours/AN/note/3algo_moindre_carré.md
+badd +1 ~/cours/AN/images/algo_gramschmidt.png.md
+badd +7 ~/cours/AN/note/bissection.md
+badd +1 ~/cours/AN/note/co_point_fixe_pour_equa_non_lin.md
+badd +1 ~/cours/AN/note/point_fixe_Banach.md
+badd +1 ~/cours/AN/note/convergence_orde_m.md
+badd +1 ~/cours/AN/note/ordre_convergence_points_fixes.md
+badd +1 ~/cours/AN/note/Newton_scalaire_vectoriel.md
+badd +69 ~/cours/AN/note/automne.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
