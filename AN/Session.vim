@@ -86,7 +86,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit ~/cours/AN/note/3algo_moindre_carré.md
+edit note/note.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -357,16 +357,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 27) / 55)
+let s:l = 5 - ((4 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+5
 normal! 0
 tabnext 1
 badd +5 note/note.md
-badd +7 ~/cours/AN/note/printemps.md
-badd +0 ~/cours/AN/note/3algo_moindre_carré.md
+badd +40 ~/cours/AN/note/printemps.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
