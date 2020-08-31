@@ -62,8 +62,15 @@ cmp A B => A-B
 Questions:
 ==========
 
-## C'est quoi un opcode?
-
 ## Comment programmer des entrées et sorties en assembleur
 
 ## C'est quoi le readallocate et writethrough?
+
+
+Cours:
+======
+
+[Éléments_des_systèmes_informatiques](Éléments_des_systèmes_informatiques)
+Etude du jeu d instruction d un microcontrôleur
+Programmation en assembleur
+Appels système

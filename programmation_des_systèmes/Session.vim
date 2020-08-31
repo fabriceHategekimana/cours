@@ -86,7 +86,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit note/note.md
+edit ~/cours/programmation_des_systèmes/note/Mémoire.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -209,7 +209,7 @@ nmap <buffer> <silent> <C-CR> <Plug>VimwikiVSplitLink
 nmap <buffer> <silent> <S-CR> <Plug>VimwikiSplitLink
 nnoremap <buffer> <F7> :call RunMarkdown3()
 nnoremap <buffer> <F6> :call RunMarkdown2()
-nnoremap <buffer> <F5> :let toc= RunMarkdown(toc)
+nnoremap <buffer> <F5> :!bash ~/sh/compmd.sh % 
 nnoremap <buffer> <F4> :let toc= Toc(toc)
 nnoremap <buffer> <F2> :let note= Note("markdown")
 nnoremap <buffer> <C-P> :!. ~/sh/cs.sh
@@ -357,14 +357,21 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 15 - ((14 * winheight(0) + 27) / 54)
+let s:l = 6 - ((5 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-15
-normal! 0
+6
+normal! 044|
 tabnext 1
-badd +0 note/note.md
+badd +73 note/note.md
+badd +6 ~/cours/programmation_des_systèmes/note/Éléments_des_systèmes_informatiques.md
+badd +5 ~/cours/programmation_des_systèmes/note/Adresses.md
+badd +4 ~/cours/programmation_des_systèmes/note/Données.md
+badd +4 ~/cours/programmation_des_systèmes/note/Contrôle.md
+badd +10 ~/cours/programmation_des_systèmes/note/Processeur.md
+badd +5 ~/cours/programmation_des_systèmes/note/Registres.md
+badd +0 ~/cours/programmation_des_systèmes/note/Mémoire.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
