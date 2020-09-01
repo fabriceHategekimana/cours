@@ -27,7 +27,7 @@ nnoremap gi Gi
 nnoremap tn :tabnew .
 nnoremap vp :vsp .
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <C-G> :!. ~/sh/g.sh 
 nnoremap <F12> :!clear
 nnoremap <F9> :so $VIMRUNTIME/syntax/hitest.vim
@@ -67,7 +67,7 @@ set ignorecase
 set incsearch
 set printoptions=paper:a4
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vimwiki/,/var/lib/vim/addons,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/etc/vim/after,/var/lib/vim/addons/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vimwiki/,/var/lib/vim/addons,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,/etc/vim/after,/var/lib/vim/addons/after,~/.vim/after
 set smartcase
 set spelllang=fr_ch,en_us
 set splitbelow
@@ -86,7 +86,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit ~/cours/eti/note/Q1.md
+edit ~/cours/eti/note/questions.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -116,9 +116,9 @@ inoremap <buffer> ééfff \flechel{nom1}{nom2}{label}{angleIn}{angleOut}
 inoremap <buffer> ééff \fleche{nom1}{nom2}{label}
 inoremap <buffer> éér \rectangle{nom}{x}{y}
 inoremap <buffer> ééim ![](images/num.png)^<Right>a
-inoremap <buffer> éél :let liste= ListeMode(liste)
 inoremap <buffer> ééd \begin{tikzpicture}\end{tikzpicture}
 inoremap <buffer> ééta :call MarkdownLigne()
+inoremap <buffer> éém ``<Left>
 inoremap <buffer> ééco ``````<Left><Left><Left><Up>
 inoremap <buffer> éésss I#### 
 inoremap <buffer> ééss I### 
@@ -126,7 +126,6 @@ inoremap <buffer> éés I##
 inoremap <buffer> ééti # 
 inoremap <buffer> ééit __<Left>
 inoremap <buffer> ééb ****<Left><Left>
-inoremap <buffer> éim i![](images/num.png)^<Right>a
 nnoremap <buffer> <silent> O :call vimwiki#lst#kbd_O()
 nmap <buffer> <silent> [= <Plug>VimwikiGoToPrevSiblingHeader
 nmap <buffer> <silent> [[ <Plug>VimwikiGoToPrevHeader
@@ -210,7 +209,7 @@ nmap <buffer> <silent> <C-CR> <Plug>VimwikiVSplitLink
 nmap <buffer> <silent> <S-CR> <Plug>VimwikiSplitLink
 nnoremap <buffer> <F7> :call RunMarkdown3()
 nnoremap <buffer> <F6> :call RunMarkdown2()
-nnoremap <buffer> <F5> :let toc= RunMarkdown(toc)
+nnoremap <buffer> <F5> :!bash ~/sh/compmd.sh % 
 nnoremap <buffer> <F4> :let toc= Toc(toc)
 nnoremap <buffer> <F2> :let note= Note("markdown")
 nnoremap <buffer> <C-P> :!. ~/sh/cs.sh
@@ -222,10 +221,11 @@ imap <buffer> <silent> <NL> <Plug>VimwikiListNextSymbol
 inoremap <buffer> <silent>  :VimwikiReturn 1 5
 imap <buffer> <silent>  <Plug>VimwikiIncreaseLvlSingleItem
 nnoremap <buffer> échant :call Chant()
+nnoremap <buffer> ém bi`ea`
+nnoremap <buffer> éim i![](images/num.png)^<Right>a
 nnoremap <buffer> éta :call MarkdownLigne()
 nnoremap <buffer> éco i``````<Left><Left><Left><Up>
 nnoremap <buffer> éb I**A**
-nnoremap <buffer> él :let liste= ListeMode(liste)
 nnoremap <buffer> ésss I#### 
 nnoremap <buffer> éss I### 
 nnoremap <buffer> és I## 
@@ -322,6 +322,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=8
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -331,6 +332,7 @@ setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=fr_ch,en_us
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=.md
 setlocal swapfile
@@ -357,16 +359,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 27) / 55)
+let s:l = 22 - ((21 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+22
+normal! 0101|
 tabnext 1
 badd +4 note/note.md
-badd +6 ~/cours/eti/note/questions.md
-badd +0 ~/cours/eti/note/Q1.md
+badd +0 ~/cours/eti/note/questions.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -374,7 +375,7 @@ unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToOS
 set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if file_readable(s:sx)
+if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
