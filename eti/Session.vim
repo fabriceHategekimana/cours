@@ -359,12 +359,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 22 - ((21 * winheight(0) + 27) / 55)
+let s:l = 12 - ((11 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-22
-normal! 0101|
+12
+normal! 0
 tabnext 1
 badd +4 note/note.md
 badd +0 ~/cours/eti/note/questions.md

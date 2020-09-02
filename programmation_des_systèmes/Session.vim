@@ -27,7 +27,7 @@ nnoremap gi Gi
 nnoremap tn :tabnew .
 nnoremap vp :vsp .
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <C-G> :!. ~/sh/g.sh 
 nnoremap <F12> :!clear
 nnoremap <F9> :so $VIMRUNTIME/syntax/hitest.vim
@@ -67,7 +67,7 @@ set ignorecase
 set incsearch
 set printoptions=paper:a4
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vimwiki/,/var/lib/vim/addons,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,/etc/vim/after,/var/lib/vim/addons/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vimwiki/,/var/lib/vim/addons,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,/etc/vim/after,/var/lib/vim/addons/after,~/.vim/after
 set smartcase
 set spelllang=fr_ch,en_us
 set splitbelow
@@ -86,7 +86,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd note/note.md
-edit ~/cours/programmation_des_systèmes/note/Mémoire.md
+edit note/note.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -322,6 +322,7 @@ setlocal noscrollbind
 setlocal scrolloff=-1
 setlocal shiftwidth=8
 setlocal noshortname
+setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
@@ -331,6 +332,7 @@ setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=fr_ch,en_us
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=.md
 setlocal swapfile
@@ -357,21 +359,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 6 - ((5 * winheight(0) + 27) / 55)
+let s:l = 42 - ((41 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
-normal! 044|
+42
+normal! 0
 tabnext 1
-badd +73 note/note.md
-badd +6 ~/cours/programmation_des_systèmes/note/Éléments_des_systèmes_informatiques.md
-badd +5 ~/cours/programmation_des_systèmes/note/Adresses.md
-badd +4 ~/cours/programmation_des_systèmes/note/Données.md
-badd +4 ~/cours/programmation_des_systèmes/note/Contrôle.md
-badd +10 ~/cours/programmation_des_systèmes/note/Processeur.md
-badd +5 ~/cours/programmation_des_systèmes/note/Registres.md
-badd +0 ~/cours/programmation_des_systèmes/note/Mémoire.md
+badd +0 note/note.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -379,7 +374,7 @@ unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToOS
 set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if file_readable(s:sx)
+if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
