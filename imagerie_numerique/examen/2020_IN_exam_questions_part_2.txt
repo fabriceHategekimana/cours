@@ -1,0 +1,79 @@
+Exam questions
+Image Processing 2020
+2D Fourier transform and its properties:
+1. Fourier series. Explain the main principles of periodic function approximation. Explain 3 forms of
+Fourier series approximation (it can be interpreted as an inverse transform).
+2. Fourier series. Explain the direct and inverse Fourier series computation. Explain why for the
+continuous time periodic functions do we have discrete Fourier coefficients? You can use an
+example of periodic square signal to explain the properties of Fourier series coefficients.
+3. Fourier transform in continuous time and frequency. Explain the transition from periodic functions
+to aperiodic ones. Explain what is the main difference between the Fourier series and Fourier
+transform coefficients.
+4. Fourier transform in continuous time and frequency. Explain Fourier transform as a projection
+onto complex exponent basis functions. Explain the corresponding properties of real and
+imaginary parts linking them with the properties of cosine and sine functions.
+5. Fourier transform in continuous time and frequency. Explain properties of Fourier transform under
+time and frequency shifts.
+6. Fourier transform in continuous time and frequency. Explain properties of Fourier transform under
+time reversal. Explain the effects observed on slide 47, Theme 7 block 2 under phase flipping in
+the Fourier domain. Provide mathematical justification. Explain signal scaling in the time/spatial
+domain and its counterpart in the Fourier domain.
+7. Signal sampling in the time/spatial domain. Explain discrete time Fourier transform. Explain the
+properties of spectra of discritized signals. Explain the conditions of lossless data sampling
+allowing signal reconstructions and provide the definition of Nyquist sampling theorem.
+8. Signal sampling in the time/spatial domain. Explain the principles of ideal signal reconstruction.
+Explain an ideal low pass filer based reconstruction.
+9. Explain the transition from the discrete time continuous frequency Fourier transform to discrete
+time discrete frequency Fourier transform or simply discrete Fourier transform based on sampling
+in frequency domain. Explain the properties of sampled signals in the time domain.
+10. Discrete Fourier transform (DFT). Explain DFT in matrix form. Explain the properties of DFT
+matrices and the interpretation of transform as a projection on the complex basis vectors.
+11. Discrete Fourier transform (DFT). Explain the circulant convolution and its main differences to
+the linear convolution. Explain how to compute linear convolution via DFT.
+
+Frequency domain filtering:
+1. Explain the main principle of Fourier domain filtering. Complexity and advantages over direct
+convolution computation. Explain the construction of filters under the “zero-phase” conditions.
+The reasons of such a construction and properties of corresponding “zero-phase” filters.
+2. Explain the algorithm of Fourier domain filtering. Explain each step of this algorithm and
+properties of images in Fourier domain. You can use as an example slide No 13, Theme 8.
+Explain the observed Fourier domain effects for the examples shown on slides No 14 and 15.
+3. What is the application of image smoothing? Explain image smoothing in Fourier domain. What is
+an ideal low pass filter in Fourier domain and its representation in spatial domain. Why we do no
+use ideal low pass filers in practice? Explain all reasons for that.
+4. Image smoothing in Fourier domain. Explain Butterworth and Gaussian filters. What is their main
+difference to the ideal low pass filter and why we do prefer them in practice? Explain whether one
+can implement the ideal low pass filter in the spatial domain. Explain what is the Fourier
+presentation of Gaussian low pass filter in the spatial domain.
+5. Image sharpening. Explain what is the ideal high pass filer. How can one obtain the ideal high
+pass filter based on the ideal low pass filter. What are the main drawbacks of ideal high pass
+filter? How they are solved in practice. Exemplify two filters free of these drawbacks.
+6. The Laplacian in Fourier domain. Explain the properties. Link the derivatives in the spatial
+domain to Fourier domain equivalent filters. Explain the correspondence between the spatial and
+Fourier domain filtering. Explain the essence of approximation of derivatives in the spatial domain
+(you can use examples from the previous semester).
+7. What is image sharpening based on unsharpen mask? How can it be implemented in the spatial
+and Fourier domains? Explain two ways of implementation of unsharpen filters based on low
+pass filters and Laplacians (you can also refer to the materials from the previous semester).
+8. Explain homomorphic filtering. Explain its applications.
+9. Explain image selective filters: bandreject and bandpass filters, notch filters. Explain the domain
+of their applications. Explain the details of their implementation given some specific periodic
+patterns in the spatial domain. How can these filters be used to remove them in the spatial
+domain? Explain all details.
+Multiresolution transformations:
+1. Laplacian and Gaussian pyramids. Main properties and applications. Explain how to compute the
+direct and inverse pyramid and ensure perfect image reconstruction.
+
+2. Image interpolation. Explain image interpolation in Fourier domain. Explain the role of low-pass
+filtering. Explain why we do not use ideal low pass filters in practice. Explain inheritability of
+interpolation: why it is possible.
+3. Image decimation. Explain image decimation in Fourier domain. Explain main mechanism
+preventing image recovery after decimation. Explain the role of pre-filtering in image decimation.
+4. Wavelet transform. Explain the main principle of 1D and 2D wavelet transform. Explain the
+properties of wavelet coefficients. Explain the differences between wavelet transform and
+Laplacian-Gaussian pyramids.
+5. Gabor filters. Explain the main principles and applications. Provide Fourier domain interpretation
+of Gabor decomposition. Explain the main difference between Gabor decomposition and wavelet
+decomposition.
+
+
