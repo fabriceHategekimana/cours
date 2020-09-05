@@ -78,15 +78,15 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/cours/compilateur_et_interprete
+cd ~/cours/compilateur_et_interprete/exercice/ex1
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd examen/ExamQuestions.md
-edit examen/ExamQuestions.md
+$argadd note_ex1.md
+edit note_ex1.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -211,8 +211,8 @@ nnoremap <buffer> <F7> :call RunMarkdown3()
 nnoremap <buffer> <F6> :call RunMarkdown2()
 nnoremap <buffer> <F5> :!bash ~/sh/compmd.sh % 
 nnoremap <buffer> <F4> :let toc= Toc(toc)
-nnoremap <buffer> <F2> :let note= Note("markdown")
 nnoremap <buffer> <C-P> :!. ~/sh/cs.sh
+nnoremap <buffer> <F2> :let note= Note("markdown")
 imap <buffer> <silent>  <Plug>VimwikiDecreaseLvlSingleItem
 inoremap <buffer> <expr> 	 vimwiki#tbl#kbd_tab()
 imap <buffer> <silent>  <Plug>VimwikiListToggle
@@ -359,14 +359,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 9 - ((8 * winheight(0) + 27) / 55)
+let s:l = 11 - ((10 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-9
-normal! 02|
+11
+normal! 012|
 tabnext 1
-badd +0 examen/ExamQuestions.md
+badd +0 note_ex1.md
+badd +402 ~/.vimrc
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -378,7 +379,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
