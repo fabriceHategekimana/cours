@@ -11,8 +11,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd note/note.md
-edit note/note.md
+$argadd examen/ExamQuestions.md
+edit examen/ExamQuestions.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -29,6 +29,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
+<<<<<<< HEAD
 let s:l = 22 - ((16 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
@@ -37,6 +38,16 @@ normal! zt
 normal! 0
 tabnext 1
 badd +0 note/note.md
+=======
+let s:l = 9 - ((8 * winheight(0) + 27) / 55)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+9
+normal! 02|
+tabnext 1
+badd +0 examen/ExamQuestions.md
+>>>>>>> e968ddfe53e220ecfc37031395c81d12591e3eaa
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
