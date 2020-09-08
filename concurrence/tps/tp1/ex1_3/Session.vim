@@ -69,22 +69,21 @@ set runtimepath=~/.vim,~/.vim/plugged/swift.vim/,~/.vim/plugged/nerdtree/,~/.vim
 set smartcase
 set splitbelow
 set splitright
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-set wildignore=*.pyc
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.class
 set wildmenu
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/cours/compilateur_et_interprete/exercice/ex1
+cd ~/cours/concurrence/tps/tp1/ex1_3
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd arbre.py
-edit arbre.py
+$argadd test.java
+edit test.java
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -92,24 +91,22 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-nnoremap <buffer> nf /def 
-nnoremap <buffer> pf ?def 
 let s:cpo_save=&cpo
 set cpo&vim
-nnoremap <buffer> <F5> :call RunPython()
-nnoremap <buffer> <F4> :!python3
-nnoremap <buffer> <F2> :call Note("py")
-nnoremap <buffer> édc ^x 
-nnoremap <buffer> éc ^i#
-inoremap <buffer> class class ():def __init__(self):#code<Up><Up><Up><Left><Left><Left>
-inoremap <buffer> def  def ():F(i
-inoremap <buffer> printg print("")<Left><Left>
-inoremap <buffer> print print()<Left>
+nnoremap <buffer> <F2> :call Note("java")
+nnoremap <buffer> <F5> :call RunJava()
+xnoremap <buffer> éc :call JavaVisualComment()
+nnoremap <buffer> éc ^i//
+inoremap <buffer> for for(int i= 0; i<len; i++){}<Up>
+inoremap <buffer> function public void (){}<Up><Up>$Tda
+inoremap <buffer> print System.out.println();<Left>i
+inoremap <buffer> try try{}catch(InterruptedException e){System.out.println("Erreur");}<Up><Up><Up><Up>
+inoremap <buffer> while while(){}<Up><Up>t)a
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
-setlocal autoindent
+setlocal noautoindent
 setlocal backupcopy=
 setlocal balloonexpr=
 setlocal nobinary
@@ -118,13 +115,13 @@ setlocal breakindentopt=
 setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),0],:,!^F,o,O,e
-setlocal cinoptions=
+setlocal cindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=j1
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=b:#,fb:-
-setlocal commentstring=#\ %s
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=//%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -140,9 +137,9 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
-setlocal expandtab
-if &filetype != 'python'
-setlocal filetype=python
+setlocal noexpandtab
+if &filetype != 'java'
+setlocal filetype=java
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -156,19 +153,19 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=^\\s*\\(from\\|import\\)
-setlocal includeexpr=substitute(substitute(substitute(v:fname,b:grandparent_match,b:grandparent_sub,''),b:parent_match,b:parent_sub,''),b:child_match,b:child_sub,'g')
-setlocal indentexpr=GetPythonIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],:,!^F,o,O,e,<:>,=elif,=except
+setlocal include=
+setlocal includeexpr=substitute(v:fname,'\\.','/','g')
+setlocal indentexpr=GetJavaIndent()
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,0=extends,0=implements
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=pydoc
+setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -182,7 +179,7 @@ setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=python3complete#Complete
+setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -194,24 +191,24 @@ setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal scrolloff=-1
-setlocal shiftwidth=4
+setlocal shiftwidth=8
 setlocal noshortname
 setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal spelloptions=
 setlocal statusline=
-setlocal suffixesadd=.py
+setlocal suffixesadd=.java
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'python'
-setlocal syntax=python
+if &syntax != 'java'
+setlocal syntax=java
 endif
 setlocal tabstop=8
 setlocal tagcase=
@@ -232,15 +229,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 56 - ((52 * winheight(0) + 27) / 55)
+let s:l = 3 - ((2 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-56
-normal! 037|
+3
+normal! 017|
 tabnext 1
-badd +0 arbre.py
-badd +7 ~/note/note_py
+badd +0 test.java
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

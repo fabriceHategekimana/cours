@@ -1,7 +1,4 @@
-public class Additionneur implements Runnable{
-	private String name;
-	private int time;
-	private static int x;
+public class Additionneur extends Thread{
 
 	public Additionneur(String name, int time, int x){
 		this.name= name;
@@ -9,18 +6,25 @@ public class Additionneur implements Runnable{
 		this.x= x;
 	}	
 
-	@Override
 	public void run(){
-		try{ 
 			System.out.println("Thread "+name+" lit x= "+x);
-			Thread.sleep(time);
-			System.out.println("Thread "+name+" incrémentation de x");
-			x=x+1;
-			Thread.sleep(time);
-			System.out.println("Thread "+name+" x vaut maintenant: "+x);
+		try{ 
+			sleep(time);
 		}
 		catch(InterruptedException e){ 
 			System.out.println(e);	
 		}
+			System.out.println("Thread "+name+" incrémentation de x");
+		try{ 
+			sleep(time);
+		}
+		catch(InterruptedException e){ 
+			System.out.println(e);	
+		}
+			x=x+1;
+			System.out.println("Thread "+name+" maintenant x vaut: "+x);
 	}
+	private String name;
+	private int time;
+	private static int x;
 }

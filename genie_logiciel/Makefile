@@ -1,5 +1,5 @@
 
-COURS=
+COURS=genie
 all: task
  
 revisions: FORCE
@@ -17,6 +17,6 @@ task: FORCE
 note: FORCE
 	vim note/note.md
 pdf: FORCE
-	cd pdf && bash ~/sh/cs.sh
+	cd pdf/cours && bash ~/sh/cs.sh
 FORCE:
 
