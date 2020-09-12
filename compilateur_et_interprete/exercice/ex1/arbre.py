@@ -55,10 +55,8 @@ class Grammar():
     def getTransition(self, symbol):
         return self.transition[symbol]
 
-myPile= Pile()
-myWindow= Window("a + b")
 
-print(myWindow.view())
-myWindow.next()
-print(myWindow.view())
+
+
+
 
