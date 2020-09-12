@@ -56,7 +56,13 @@ class Grammar():
         return self.transition[symbol]
 
 
+#Définition de la grammaire
 
+t= { }
 
+t["exp"]= [["digit", "num"]]
+t["num"]= [["digit", "num"], [""]]
+t["digit"]= [["0"], ["1"], ["2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"]]
 
-
+termin= ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+ntermin= ["exp", "digit", "num"]

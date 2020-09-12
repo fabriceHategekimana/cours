@@ -1,6 +1,6 @@
 
 COURS=compilateur_et_interprete
-all: examen
+all: ex1
  
 examen: FORCE
 	vim ~/cours/compilateur_et_interprete/examen/ExamQuestions.md
@@ -21,5 +21,8 @@ note: FORCE
 	vim note/note.md
 pdf: FORCE
 	cd pdf && bash ~/sh/cs.sh
+
+ex1: FORCE
+	cd exercice/ex1/ && vim arbre.py
 FORCE:
 
