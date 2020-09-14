@@ -1,5 +1,5 @@
 
-COURS=
+COURS=reseaux
 all: task
  
 revisions: FORCE

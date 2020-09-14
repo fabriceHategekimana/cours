@@ -1,6 +1,7 @@
 1. Stop_and_Wait
 ================
 
+Algo:
 On transmet une trame
 On lance un temporisateur sur une duré (qui lève une interruption si le temps est dépassé)
 Si acquittement positif
