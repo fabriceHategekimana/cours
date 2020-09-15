@@ -29,12 +29,21 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
+<<<<<<< HEAD
 let s:l = 2 - ((1 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 2
 normal! 02|
+=======
+let s:l = 9 - ((8 * winheight(0) + 27) / 55)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+9
+normal! 0
+>>>>>>> 1bf92deff748529ccd0fe8ea2b59eb538c7c1692
 tabnext 1
 badd +0 note/note.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
