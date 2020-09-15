@@ -1,5 +1,5 @@
 
-COURS=Concurrence
+COURS=
 all: task
  
 revisions: FORCE
@@ -16,8 +16,6 @@ task: FORCE
 	task $(COURS)$(SUB)
 note: FORCE
 	vim note/note.md
-questions: FORCE
-	vim note/questions.md
 pdf: FORCE
 	cd pdf && bash ~/sh/cs.sh
 FORCE:
