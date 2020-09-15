@@ -17,7 +17,7 @@ Comment améliorer?
 
 ## Modélisation:
 
-Modélisation de l'emetteur:
+Modélisation de l'émetteur:
 
 ![Emetteur](../images/Emetteur.png)
 

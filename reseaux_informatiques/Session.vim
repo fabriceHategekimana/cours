@@ -29,12 +29,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 9) / 19)
+let s:l = 33 - ((16 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 0
+33
+normal! 017|
 tabnext 1
 badd +23 note/note.md
 badd +12 ~/cours/reseaux_informatiques/note/Linklayer.md
