@@ -1,5 +1,5 @@
 
-COURS=
+COURS=project:parallélisme
 all: task
  
 revisions: FORCE
