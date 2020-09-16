@@ -1,5 +1,5 @@
 
-COURS=
+COURS=project:IA
 all: task
  
 revisions: FORCE
