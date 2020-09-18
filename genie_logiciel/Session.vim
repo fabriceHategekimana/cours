@@ -30,6 +30,7 @@ vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <C-G> :!. ~/sh/g.sh 
 nnoremap <F12> :!clear
+nnoremap <F10> :!gedit %
 nnoremap <F9> :so $VIMRUNTIME/syntax/hitest.vim
 nnoremap <F8> :call LinkImage()
 nnoremap <F3> :! ~/sh/mymake.sh 
@@ -221,10 +222,12 @@ imap <buffer> <silent> <NL> <Plug>VimwikiListNextSymbol
 inoremap <buffer> <silent>  :VimwikiReturn 1 5
 imap <buffer> <silent>  <Plug>VimwikiIncreaseLvlSingleItem
 nnoremap <buffer> échant :call Chant()
+xnoremap <buffer> ém di``<Left>p
 nnoremap <buffer> ém bi`ea`
 nnoremap <buffer> éim i![](images/num.png)^<Right>a
 nnoremap <buffer> éta :call MarkdownLigne()
 nnoremap <buffer> éco i``````<Left><Left><Left><Up>
+xnoremap <buffer> éb di****2<Left>p
 nnoremap <buffer> éb I**A**
 nnoremap <buffer> ésss I#### 
 nnoremap <buffer> éss I### 
@@ -359,14 +362,19 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 13 - ((12 * winheight(0) + 27) / 55)
+let s:l = 16 - ((15 * winheight(0) + 27) / 55)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 03|
+16
+normal! 02|
 tabnext 1
-badd +0 note/note.md
+badd +16 note/note.md
+badd +1 ~/cours/genie_logiciel/note/Document_vision.md
+badd +20 ~/cours/genie_logiciel/note/Lean_canvas.md
+badd +3 ~/cours/genie_logiciel/note/User_stories.md
+badd +3 ~/cours/genie_logiciel/note/User_case.md
+badd +7 ~/cours/genie_logiciel/note/NFR.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
