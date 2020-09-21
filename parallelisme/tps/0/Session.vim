@@ -30,6 +30,7 @@ vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <C-G> :!. ~/sh/g.sh 
 nnoremap <F12> :!clear
+nnoremap <F10> :!gedit %
 nnoremap <F9> :so $VIMRUNTIME/syntax/hitest.vim
 nnoremap <F8> :call LinkImage()
 nnoremap <F3> :! ~/sh/mymake.sh 
@@ -71,6 +72,7 @@ set splitbelow
 set splitright
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set wildmenu
+set window=27
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -82,8 +84,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd exo1.cpp
-edit exo1.cpp
+$argadd ~/sh/compmd.sh
+edit ~/sh/compmd.sh
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -93,23 +95,13 @@ set winwidth=1
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
-nnoremap <buffer> <F6> :let g:parallele= 
-nnoremap <buffer> <F5> :call RunCpp()
-nnoremap <buffer> <F2> :call Note("cpp")
-xnoremap <buffer> éd :normal ^xx
-nnoremap <buffer> éd ^xx
-xnoremap <buffer> éc :normal I//
-nnoremap <buffer> éc I//$
-inoremap <buffer> else else{}<Up>
-inoremap <buffer> for for(int i= 0; i < n; i++){}<Up>
-inoremap <buffer> if if(){}2<Up>t)a
-inoremap <buffer> print std::cout <<  << std::endl;2F i
-inoremap <buffer> recv MPI_Status status;MPI_Recv(&, sizeof(int), MPI_INT, i, 0, MPI_COMM_WORLD, &status);F&a
-inoremap <buffer> send MPI_Send(&, sizeof(int), MPI_INT, i, 0, MPI_COMM_WORLD);F&a
-inoremap <buffer> vsend MPI_Send(v.data(), v.size(), MPI_INT, i, 0, MPI_COMM_WORLD);
-inoremap <buffer> vrecv MPI_Status status;MPI_Recv(v.data(), v.size(), MPI_INT, i, 0, MPI_COMM_WORLD, &status);
-inoremap <buffer> vfor for(auto i: v)
-inoremap <buffer> vector std::vector<int> (number, content);2F a
+nnoremap <buffer> <F5> :!./%
+nnoremap <buffer> <F2> :call Note("sh")
+nnoremap <buffer> éc ^i#
+inoremap <buffer> [ [  ]<Left><Left>
+inoreabbr <buffer> function (){}<Up><Up>
+inoreabbr <buffer> if if [ ]; thenfi<Up><Up><Right><Right>
+inoreabbr <buffer> elif elif [ ]; then<Up><Right><Right>
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -123,13 +115,13 @@ setlocal breakindentopt=
 setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
-setlocal cindent
+setlocal nocindent
 setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=#%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -140,14 +132,14 @@ setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal nocursorline
 setlocal cursorlineopt=both
-setlocal define=^\\s*#\\s*define
+setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
+if &filetype != 'sh'
+setlocal filetype=sh
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -161,16 +153,16 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=croql
+setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=^\\s*#\\s*include
+setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal indentexpr=GetShIndent()
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,0=end,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -187,7 +179,7 @@ setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
+setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -215,8 +207,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
+if &syntax != 'sh'
+setlocal syntax=sh
 endif
 setlocal tabstop=8
 setlocal tagcase=
@@ -237,14 +229,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 31 - ((30 * winheight(0) + 27) / 55)
+let s:l = 9 - ((8 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-31
-normal! 0
+9
+normal! 09|
 tabnext 1
-badd +0 exo1.cpp
+badd +0 ~/sh/compmd.sh
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
