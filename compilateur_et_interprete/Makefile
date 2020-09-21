@@ -1,6 +1,6 @@
 
 COURS=compilateur_et_interprete
-all: ex1
+all: task
  
 examen: FORCE
 	vim ~/cours/compilateur_et_interprete/examen/ExamQuestions.md
@@ -12,7 +12,7 @@ exercices: FORCE
 tps: FORCE
 	cd ~/cours/compilateur_et_interprete/tps
 addtask: FORCE
-	. ~/sh/mytask.sh
+	. ~/sh/mytask.sh 
 summary: FORCE
 	task $(COURS) summary
 task: FORCE
