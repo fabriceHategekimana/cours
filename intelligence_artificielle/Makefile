@@ -1,15 +1,15 @@
 
-COURS=project:IA
+COURS=intelligence_artificielle
 all: task
  
 revisions: FORCE
-	cd ~/cours//revisions
+	cd ~/cours/intelligence_artificielle/revisions
 exercices: FORCE
-	cd ~/cours//exercices
+	cd ~/cours/intelligence_artificielle/exercices
 tps: FORCE
-	cd ~/cours//tps
+	cd ~/cours/intelligence_artificielle/tps
 addtask: FORCE
-	. ~/sh/mytask.sh
+	bash ~/sh/mytask.sh +cours
 summary: FORCE
 	task $(COURS) summary
 task: FORCE

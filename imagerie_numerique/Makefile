@@ -1,15 +1,15 @@
 
-COURS=
+COURS=imagerie_numerique
 all: task
  
 revisions: FORCE
-	cd ~/cours//revisions
+	cd ~/cours/imagerie_numerique/revisions
 exercices: FORCE
-	cd ~/cours//exercices
+	cd ~/cours/imagerie_numerique/exercices
 tps: FORCE
-	cd ~/cours//tps
+	cd ~/cours/imagerie_numerique/tps
 addtask: FORCE
-	. ~/sh/mytask.sh
+	bash ~/sh/mytask.sh +cours
 summary: FORCE
 	task $(COURS) summary
 task: FORCE

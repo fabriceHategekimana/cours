@@ -1,15 +1,15 @@
 
-COURS=reseaux
+COURS=reseaux_informatiques
 all: task
  
 revisions: FORCE
-	cd ~/cours//revisions
+	cd ~/cours/reseaux_informatiques/revisions
 exercices: FORCE
-	cd ~/cours//exercices
+	cd ~/cours/reseaux_informatiques/exercices
 tps: FORCE
-	cd ~/cours//tps
+	cd ~/cours/reseaux_informatiques/tps
 addtask: FORCE
-	. ~/sh/mytask.sh
+	bash ~/sh/mytask.sh +cours
 summary: FORCE
 	task $(COURS) summary
 task: FORCE

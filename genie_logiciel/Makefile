@@ -1,15 +1,15 @@
 
-COURS=genie
+COURS=genie_logiciel
 all: task
  
 revisions: FORCE
-	cd ~/cours//revisions
+	cd ~/cours/genie_logiciel/revisions
 exercices: FORCE
-	cd ~/cours//exercices
+	cd ~/cours/genie_logiciel/exercices
 tps: FORCE
-	cd ~/cours//tps
+	cd ~/cours/genie_logiciel/tps
 addtask: FORCE
-	. ~/sh/mytask.sh
+	bash ~/sh/mytask.sh +cours
 summary: FORCE
 	task $(COURS) summary
 task: FORCE
@@ -17,6 +17,6 @@ task: FORCE
 note: FORCE
 	vim note/note.md
 pdf: FORCE
-	cd pdf/cours && bash ~/sh/cs.sh
+	cd pdf && bash ~/sh/cs.sh
 FORCE:
 

@@ -1,15 +1,15 @@
 
-COURS=project:parallélisme
+COURS=parallelisme
 all: task
  
 revisions: FORCE
-	cd ~/cours//revisions
+	cd ~/cours/parallelisme/revisions
 exercices: FORCE
-	cd ~/cours//exercices
+	cd ~/cours/parallelisme/exercices
 tps: FORCE
-	cd ~/cours//tps
+	cd ~/cours/parallelisme/tps
 addtask: FORCE
-	. ~/sh/mytask.sh
+	bash ~/sh/mytask.sh +cours
 summary: FORCE
 	task $(COURS) summary
 task: FORCE

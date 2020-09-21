@@ -2,9 +2,6 @@
 COURS=compilateur_et_interprete
 all: task
  
-examen: FORCE
-	vim ~/cours/compilateur_et_interprete/examen/ExamQuestions.md
-
 revisions: FORCE
 	cd ~/cours/compilateur_et_interprete/revisions
 exercices: FORCE
@@ -12,7 +9,7 @@ exercices: FORCE
 tps: FORCE
 	cd ~/cours/compilateur_et_interprete/tps
 addtask: FORCE
-	. ~/sh/mytask.sh 
+	bash ~/sh/mytask.sh +cours
 summary: FORCE
 	task $(COURS) summary
 task: FORCE
@@ -21,8 +18,5 @@ note: FORCE
 	vim note/note.md
 pdf: FORCE
 	cd pdf && bash ~/sh/cs.sh
-
-ex1: FORCE
-	cd exercice/ex1/ && vim arbre.py
 FORCE:
 

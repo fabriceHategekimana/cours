@@ -1,23 +1,21 @@
 
-COURS=Concurrence
+COURS=concurrence
 all: task
  
 revisions: FORCE
-	cd ~/cours//revisions
+	cd ~/cours/concurrence/revisions
 exercices: FORCE
-	cd ~/cours//exercices
+	cd ~/cours/concurrence/exercices
 tps: FORCE
-	cd ~/cours//tps
+	cd ~/cours/concurrence/tps
 addtask: FORCE
-	. ~/sh/mytask.sh
+	bash ~/sh/mytask.sh +cours
 summary: FORCE
 	task $(COURS) summary
 task: FORCE
 	task $(COURS)$(SUB)
 note: FORCE
 	vim note/note.md
-questions: FORCE
-	vim note/questions.md
 pdf: FORCE
 	cd pdf && bash ~/sh/cs.sh
 FORCE:
