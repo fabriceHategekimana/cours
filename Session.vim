@@ -83,8 +83,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd ~/sh/mytask.sh
-edit ~/sh/mytask.sh
+$argadd ~/sh/cours.sh
+edit ~/sh/cours.sh
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -97,6 +97,7 @@ set cpo&vim
 nnoremap <buffer> <F5> :!./%
 nnoremap <buffer> <F2> :call Note("sh")
 nnoremap <buffer> éc ^i#
+xnoremap <buffer> éc :normal ^i#
 inoremap <buffer> [ [  ]<Left><Left>
 inoreabbr <buffer> function (){}<Up><Up>
 inoreabbr <buffer> if if [ ]; thenfi<Up><Up><Right><Right>
@@ -228,14 +229,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 10 - ((9 * winheight(0) + 27) / 55)
+let s:l = 146 - ((48 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-10
-normal! 026|
+146
+normal! 017|
 tabnext 1
-badd +0 ~/sh/mytask.sh
+badd +0 ~/sh/cours.sh
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
