@@ -25,9 +25,9 @@ Java a un modèle d'analyse sémantique en 1 thread: Il peut échanger des ligne
 
 Slide 11
 
-Sureté (safety)
+Sureté (safety): être sûre qu'une propriété ne se produise pas
 
-vivacité (vicacity)
+vivacité (vicacity): On doit être sûre que le programme/thread se finissent
 
 ## Condition d'interblocage
 * Exclusion mutuelle: une ressource doit être partagée
@@ -44,3 +44,19 @@ vivacité (vicacity)
 Un module est une sorte d'interface avec des procédures et des variable (le but est de diminuer la visibilité des variables)
 Un moniteur est un module qui dispose d'un verrou qui limite le nombre d'accès
 Un objet est une sorte de module qui peut avoir plusieurs instance. Pour la programmation concurrente, on crée des objets qui sont des moniteurs qui ont plusieurs instances.
+
+Les méthodes wait slepp join testent l'état de l'indicateur et lèvent l'exception Interruptedexeption si l'indicateur vaut true.
+
+## Les différents états d'un thread
+
+![les_differents_etas_d_un_thread](../images/les_differents_etas_d_un_thread.png)
+
+l'[ordonnanceur](ordonnanceur)
+
+L'entrée dans un moniteur bloqué (=ressource/objet protégée par un verrou)
+
+La méthode [join](join)
+
+Problème d'exclusion mutuelle
+
+Quand deux threads ne peuvent s'exécuter en même temps sur une mémoire partagée.

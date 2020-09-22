@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>note</title>
+  <title>tp1</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -423,43 +423,24 @@
   </style>
 </head>
 <body>
-<h2 id="interface-runnable">Interface Runnable</h2>
-<p>Permet de créer des instances qui s’exécutent indépendemment. Comment les faire s’exécuter en même temps?</p>
-<p>Pourquoi écrire un programme concurrent? * optimiser l’utilisation des ressource du processeur * Utilisation</p>
-<p>Thread: Processus qui partagent la même zone mémoire/programme.</p>
-<p>Modification où la modification n’est pas répercuté dans la mémoire (par ex. dans un registre ou la mémoire cache à la place) Sans ça, la mémoire n’est pas partagée.</p>
-<p>Java a un modèle d’analyse sémantique en 1 thread: Il peut échanger des lignes de code pour des valeurs données.</p>
-<h2 id="problèmes-classiques">Problèmes classiques</h2>
-<ul>
-<li>Interblocage (deadlock) les processus s’attendent mutuellement</li>
-<li>Interférence: les processus corrompent une donnée en la modifiant (entrelacement=interlearing: donnée incohérente)</li>
-<li>insuffisance de ressource (starvation): un programme se fait toujours passer devant dans l’accès aux ressources</li>
-</ul>
-<h2 id="propriétés-désiré">Propriétés désiré</h2>
-<p>Slide 11</p>
-<p>Sureté (safety)</p>
-<p>vivacité (vicacity)</p>
-<h2 id="condition-dinterblocage">Condition d’interblocage</h2>
-<ul>
-<li>Exclusion mutuelle: une ressource doit être partagée</li>
-<li>Hold and wait: si interblocage, ils doivent retenir une ressource et attendre</li>
-<li>Pas de préemption: Il n’y a pas de superviseur. Les threads décident d’eux même de “lâcher la ressource”</li>
-<li>Attente circulaire: Deux thread s’attendent</li>
-</ul>
-<h2 id="solution-pour-linterblocage">Solution pour l’interblocage</h2>
-<ul>
-<li>On s’assure que l’une des 4 conditions puisse être enlevée (Seulement le Hold an wait et l’attente circulaire)</li>
-<li>On peut utiliser la synchronisation wait-free pour contrer le Hold and wait</li>
-<li>On peut utiliser un ordre d’accès sur les ressource pour contrer les attentes circulaire</li>
-</ul>
-<p>Un module est une sorte d’interface avec des procédures et des variable (le but est de diminuer la visibilité des variables) Un moniteur est un module qui dispose d’un verrou qui limite le nombre d’accès Un objet est une sorte de module qui peut avoir plusieurs instance. Pour la programmation concurrente, on crée des objets qui sont des moniteurs qui ont plusieurs instances.</p>
-<p>Les méthodes wait slepp join testent l’état de l’indicateur et lèvent l’exception Interruptedexeption si l’indicateur vaut true.</p>
-<h2 id="les-différents-états-dun-thread">Les différents états d’un thread</h2>
-<figure>
-<img src="../images/les_differents_etas_d_un_thread.png" alt="les_differents_etas_d_un_thread" /><figcaption>les_differents_etas_d_un_thread</figcaption>
-</figure>
-<p>l’<a href="ordonnanceur" class="uri">ordonnanceur</a></p>
-<p>L’entrée dans un moniteur bloqué (=ressource/objet protégée par un verrou)</p>
-<p>La méthode join: barrière de synchronisation ()</p>
+<h1 id="travaux-pratiques-dia">Travaux pratiques d’IA</h1>
+<h2 id="série-1-formalisation">Série 1: Formalisation</h2>
+<h2 id="les-trois-missionnaire">1 Les trois missionnaire</h2>
+<h3 id="description">1.2 Description</h3>
+<p>Voir le document</p>
+<h3 id="formalisation-du-problème-recherche">1.3 Formalisation du problème recherche</h3>
+<p><strong>1. Donnez une représentation des états</strong><br />
+On a deux rives, un groupe de trois missionnaires et un groupe de trois cannibales.<br />
+On peut représenter par rive: le nombre de missionnaire et de cannibale par un couple (m,c)<br />
+Comme il y a deux rives (gauche 0, droite 1 que j’ai choisi pour ce cas) on a (m0, c0, m1, c1)</p>
+<p><strong>2. Quels sont les opérateurs possibles?</strong><br />
+* On a des opérateurs <code>allez</code> pour aller de la rive gauche vers la rive droite.<br />
+* On a des opérateur <code>retour</code> pour aller de la rive droite vers la rive gauche<br />
+* Comme le bateau ne peut contenir que deux personnes, on a un ensemble de passagers contenant des couples ou des singletons: {m; c; (m,m); (c,c); (m,c)}.<br />
+* Les mouvements se font dans les deux sens</p>
+<p><strong>3. Définissez les conditions pour lesquels les opérateurs sont applicables</strong> Un opérateur est applicable si: 1. Le nombre de personnes déplacées n’est pas plus grand que le nombre de personnes disponibles. (par exemple déplacer 2 cannibals alors qu’il y en a que 1) 2. Il n’y a pas plus de cannibals que de missionnaires dans chaque côtés de la rivière.</p>
+<p><strong>4. Implémenter un algorithme de recherche pour résoudre le problème en utilisant un arbre de recherche correspondant à la description que vous avez choisi.</strong></p>
+<h2 id="la-tour-de-hanoi">2 La tour de Hanoi</h2>
+<h2 id="algorithme-de-recherche-général">3 Algorithme de recherche général</h2>
 </body>
 </html>

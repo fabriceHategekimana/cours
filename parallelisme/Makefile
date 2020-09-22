@@ -1,6 +1,6 @@
 
 COURS=parallelisme
-all: task
+all: note
  
 revisions: FORCE
 	cd ~/cours/parallelisme/revisions
