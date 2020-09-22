@@ -222,7 +222,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 6
-normal! 045|
+normal! 017|
 tabnext 1
 badd +0 Makefile
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0

@@ -440,6 +440,19 @@ Comme il y a deux rives (gauche 0, droite 1 que j’ai choisi pour ce cas) on a 
 * Les mouvements se font dans les deux sens</p>
 <p><strong>3. Définissez les conditions pour lesquels les opérateurs sont applicables</strong> Un opérateur est applicable si: 1. Le nombre de personnes déplacées n’est pas plus grand que le nombre de personnes disponibles. (par exemple déplacer 2 cannibals alors qu’il y en a que 1) 2. Il n’y a pas plus de cannibals que de missionnaires dans chaque côtés de la rivière.</p>
 <p><strong>4. Implémenter un algorithme de recherche pour résoudre le problème en utilisant un arbre de recherche correspondant à la description que vous avez choisi.</strong></p>
+<pre><code>//Algorithme de recherche
+init &lt;- (3,3,0,0)
+Transition(init)
+
+function Transition(old)
+for transition in transitions
+    new &lt;- transition(old)
+    if test(new) == true:
+        if new == (0,0,3,3)
+            print(new)
+        else
+            recherche(new)</code></pre>
+<p><strong>Remarque</strong>: J’ai donné dans le pseudo code une définition récursive. Cependant dans mon implémentation, je ferrai une représentation non récursive</p>
 <h2 id="la-tour-de-hanoi">2 La tour de Hanoi</h2>
 <h2 id="algorithme-de-recherche-général">3 Algorithme de recherche général</h2>
 </body>

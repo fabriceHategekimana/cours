@@ -3,7 +3,7 @@ COURS=intelligence_artificielle
 all: actu
 
 actu: FORCE
-	zathura tps/1/01-Formalisation.pdf & && cd tps/1/ && vim -S Session.vim
+	cd tps/1/
 revisions: FORCE
 	cd ~/cours/intelligence_artificielle/revisions
 exercices: FORCE
