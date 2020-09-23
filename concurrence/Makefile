@@ -1,6 +1,6 @@
 
 COURS=concurrence
-all: task
+all:  actu
  
 revisions: FORCE
 	cd ~/cours/concurrence/revisions
@@ -20,3 +20,5 @@ pdf: FORCE
 	cd pdf && bash ~/sh/cs.sh
 FORCE:
 
+actu: FORCE
+	bash ~/sh/session.sh /home/fabrice/cours/concurrence/tps/1/ex1_3

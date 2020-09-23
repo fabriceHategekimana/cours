@@ -17,4 +17,4 @@ crossel
 l'unfair advantage: tout attribut ou possessions qui nous donne un avantage sur la concurrence.
 
 
-
+![lean_canevas](../images/lean_canevas.png)
