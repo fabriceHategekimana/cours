@@ -49,6 +49,7 @@ vnoremap ét :call Task()
 nnoremap éé "
 nnoremap éo oO
 nnoremap èè :mks!:wqall
+xnoremap éspa :call MakeSpace()
 inoremap [[[ [A] 
 inoremap [[ [
 inoremap [ []<Left>
@@ -96,8 +97,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 105 + 105) / 211)
-exe 'vert 2resize ' . ((&columns * 105 + 105) / 211)
+exe 'vert 1resize ' . ((&columns * 104 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 107 + 106) / 212)
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
@@ -107,8 +108,11 @@ nnoremap <buffer> <F4> :!R
 nnoremap <buffer> <F2> :call Note("r")
 xnoremap <buffer> éc :normal! I#
 nnoremap <buffer> éc I#
+inoremap <buffer> function <-function(){}<Up><Up>I
+inoremap <buffer> if if(){}2<Up>t)a
 inoremap <buffer> matrix matrix(a, byrow=TRUE, ncol=)<Left>
 inoremap <buffer> print print()<Left>
+inoremap <buffer> while while(){}<Up><Up><Left>
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -236,12 +240,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 27) / 54)
+let s:l = 13 - ((9 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+13
+normal! 08|
 wincmd w
 argglobal
 if bufexists("tp1.md") | buffer tp1.md | else | edit tp1.md | endif
@@ -512,19 +516,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 27) / 54)
+let s:l = 23 - ((3 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 0
+23
+normal! 023|
 wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 105 + 105) / 211)
-exe 'vert 2resize ' . ((&columns * 105 + 105) / 211)
+exe 'vert 1resize ' . ((&columns * 104 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 107 + 106) / 212)
 tabnext 1
 badd +1 ex1.r
-badd +0 tp1.md
+badd +1 tp1.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

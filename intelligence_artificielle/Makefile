@@ -22,3 +22,5 @@ pdf: FORCE
 	cd pdf && bash ~/sh/cs.sh
 FORCE:
 
+actu: FORCE
+	bash ~/sh/session.sh /home/fabrice/cours/intelligence_artificielle/tps/1
