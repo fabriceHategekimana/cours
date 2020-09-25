@@ -59,6 +59,7 @@ inoremap { {}<Left>
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set autowriteall
+set background=dark
 set backspace=indent,eol,start
 set fileencodings=ucs-bom,utf-8,default,latin1
 set formatlistpat=^\\s*\\%(\\(-\\|\\*\\|+\\)\\|\\(\\C\\%(\\d\\+\\.\\)\\)\\)\\s\\+\\%(\\[\\([\ .oOX-]\\)\\]\\s\\)\\?
@@ -97,8 +98,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 104 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 107 + 106) / 212)
+exe 'vert 1resize ' . ((&columns * 97 + 49) / 99)
+exe 'vert 2resize ' . ((&columns * 1 + 49) / 99)
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
@@ -106,8 +107,10 @@ nnoremap <buffer> <F6> iHello R!
 nnoremap <buffer> <F5> :!Rscript %
 nnoremap <buffer> <F4> :!R
 nnoremap <buffer> <F2> :call Note("r")
+xnoremap <buffer> éd :normal! 0x
 xnoremap <buffer> éc :normal! I#
 nnoremap <buffer> éc I#
+inoremap <buffer> else else{}<Up>
 inoremap <buffer> function <-function(){}<Up><Up>I
 inoremap <buffer> if if(){}2<Up>t)a
 inoremap <buffer> matrix matrix(a, byrow=TRUE, ncol=)<Left>
@@ -240,12 +243,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 13 - ((9 * winheight(0) + 27) / 54)
+let s:l = 66 - ((50 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 08|
+66
+normal! 045|
 wincmd w
 argglobal
 if bufexists("tp1.md") | buffer tp1.md | else | edit tp1.md | endif
@@ -516,18 +519,20 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 23 - ((3 * winheight(0) + 27) / 54)
+let s:l = 13 - ((0 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-23
-normal! 023|
+13
+normal! 086|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 104 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 107 + 106) / 212)
+exe 'vert 1resize ' . ((&columns * 97 + 49) / 99)
+exe 'vert 2resize ' . ((&columns * 1 + 49) / 99)
 tabnext 1
 badd +1 ex1.r
 badd +1 tp1.md
+badd +4 tp1.html
+badd +540 ~/.vimrc
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -539,7 +544,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
