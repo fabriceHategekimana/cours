@@ -62,8 +62,35 @@ Bison: analyseur syntaxique
 On ne s'occupe pas explicitement du parcours d'un arbre
 
 
-But du 2e cours
-===============
 
+## Définition (langage engendré)
+Soit G une grammaire algébrique d'axiome S. Le langage engendré par G est défini par:
+L(G)= { m appartenant à V_T* | S =>* m}
 
+Déterminer si un mot m appartient au langage engendré, c'est déterminer si:
+S =>*_G m?
 
+## Définition (dérivation directe)
+Soient Beta et Beta' appartenant à terminaux/non-terminaux. Beta se dérive directement en Beta' selon G, noté Béta=>_G Béta', s'il existe des mots gamma, gamma' appartenants aussi à terminaux/-non et une production X -> alpha tel que 
+Beta= gamma X gamma'
+Beta'= gamma alpha gamma
+
+## Définition (dérivation)
+Soient Beta et Beta' appartenant à t/nt. Une suite de mots Beta 0 à Beta_N
+est une derivation de Beta en Beta'. Si Beta = Beta_0 et Beta' = Beta_N et que toute les transitions de N_i à N_i+1 sont des production de G.
+
+## Définition
+La dérivation est une fermeture transitive de la dérivation directe
+
+## Grammaire régulière
+Rappel: une production ne peut avoir qu'un symbole terminal (à gauche ou à droite) dans son membre de droite.
+
+## Arbre syntaxique
+Arbre dont les feuilles sont des composante d'un mot / d'une phrase
+
+## Grammaire pathologique
+Quand il y a une erreur dans la grammaire. C'est comme un bug dans un code.
+
+Les générateur d'analyseur syntaxique ne peuvent prendre au mieux qu'une grammaire algébrique
+
+Pas facile de prouver qu'une grammaire est ambiguë. Or on a besoin d'une grammaire stable (sinon, un code se ferrait interprété de plusieurs façons différentes de façon aléatoire).

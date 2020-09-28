@@ -1,0 +1,343 @@
+[1] "etat début"
+     [,1] [,2] [,3] [,4]
+[1,]    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+     [,1] [,2] [,3] [,4]
+[1,]    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état pas déjà exploré"
+[1] "etat début"
+     [,1] [,2] [,3] [,4]
+[1,]    3    3    0    0
+[2,]    3    1    0    2
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+     [,1] [,2] [,3] [,4]
+[1,]    3    3    0    0
+[2,]    3    1    0    2
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état pas déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état pas déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état pas déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état pas déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+nouvelEtat    3    0    0    3
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+nouvelEtat    3    0    0    3
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+nouvelEtat    3    0    0    3
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+nouvelEtat    3    0    0    3
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+nouvelEtat    3    0    0    3
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+nouvelEtat    3    0    0    3
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+nouvelEtat    3    2    0    1
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+nouvelEtat    2    2    1    1
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+           [,1] [,2] [,3] [,4]
+              3    3    0    0
+              3    1    0    2
+nouvelEtat    3    3    0    0
+[1] "etat début"
+ [,1] [,2] [,3] [,4]
+    3    3    0    0
+    3    1    0    2
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+ [,1] [,2] [,3] [,4]
+    3    3    0    0
+    3    1    0    2
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+ [,1] [,2] [,3] [,4]
+    3    3    0    0
+    3    1    0    2
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+ [,1] [,2] [,3] [,4]
+    3    3    0    0
+    3    1    0    2
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+ [,1] [,2] [,3] [,4]
+    3    3    0    0
+    3    1    0    2
+[1] "etat début"
+[1] 3 3 0 0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+[1] 3 3 0 0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+[1] 3 3 0 0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état pas accepté"
+[1] "etat début"
+[1] 3 3 0 0
+[1] "nouvelle transition"
+[1] "nouvelEtat"
+[1] "nouvel état accepté"
+[1] "nouvel état déjà exploré"
+[1] "etat début"
+[1] 3 3 0 0
