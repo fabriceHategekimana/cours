@@ -233,16 +233,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 63 - ((20 * winheight(0) + 21) / 42)
+let s:l = 47 - ((11 * winheight(0) + 28) / 57)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-63
+47
 normal! 016|
 tabnext 1
 badd +0 ex1.r
 badd +10 new.r
-badd +0 ~/note/note_r
+badd +1 ~/note/note_r
+badd +442 ~/.vimrc
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

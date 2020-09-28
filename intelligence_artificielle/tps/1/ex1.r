@@ -21,18 +21,18 @@ teste<-function(etat){
        res
 }
 
-estDans<-function(vect, mat){
+pasExplore<-function(vect, mat){
 	if(length(mat) == 0){
-		res=FALSE
+		res=TRUE
 	} else{
-		res=FALSE
+		res=TRUE
 		i= 1
 		while(i<=dim(mat)[1]){
 			#on prend la ligne
 			ligne= mat[i,]
 			#on teste si c'est pareil
 			if(all(vect == ligne)){
-				res=TRUE
+				res=FALSE
 			}
 			i= i+1
 		}
@@ -40,13 +40,39 @@ estDans<-function(vect, mat){
 	res
 }
 
+getTransition<-function(numero){
+	if(numero <= 5 & numero > 0){
+		a= c(c(-2,0,2,0),c(0,-2,0,2),c(-1,-1,1,1),c(-1,0,1,0),c(0,-1,0,1))
+		transitions= matrix(a, byrow=TRUE, ncol=4)
+		transitions[numero,]
+	}
+	else{
+		-1
+	}
+}
+
+#Cette fonction est là pour éviter qu'on revienne à l'état précédent avec une transition contraire
+pasContraire<-function(nouvelleTransition, historiqueDeTransition,tableauDeTransition){
+	#On retrouve la précédente transition
+	numeroDeTransition= historiqueDeTransition[length(historiqueDeTransition)-1]	
+	ancienneTransition= getTransition(numeroDeTransition)
+	#on teste si les transitions sont des opposés
+	if(sum(nouvelleTransition-ancienneTransition) == 0){
+		#les transitions sont bien contraire et donc pas "pas contraire"
+		FALSE
+	} else{
+		#les transitions sont bien "pas contraire"
+		TRUE
+	}
+}
+
 #--------------
 #INITIALISATION
 #--------------
 
 #la matrice des transitions possibles
-a= c(c(-2,0,2,0),c(0,-2,0,2),c(-1,-1,1,1),c(-1,0,1,0),c(0,-1,0,1))
-transitions= matrix(a, byrow=TRUE, ncol=4)
+#a= c(c(-2,0,2,0),c(0,-2,0,2),c(-1,-1,1,1),c(-1,0,1,0),c(0,-1,0,1))
+#transitions= matrix(a, byrow=TRUE, ncol=4)
 
 #chemin qui représente la série de noeud qui amènera à la solution
 chemin= matrix(c(3,3,0,0), byrow=TRUE, ncol=4)
@@ -54,15 +80,13 @@ chemin= matrix(c(3,3,0,0), byrow=TRUE, ncol=4)
 #compteur qui sera attribué à chaque noeuds de la recheche
 compteurs= c(1)
 
-#compte le nombre de ligne de la matrice
-ligne= dim(transitions)[1]
-
 #gère les mouvements pour faire l'allez et le retour de la barque
 allezretour= c(1)
 
 arrivee= c(0,0,3,3)
 
-dejaExplore= matrix(c(c(3,3,0,0),c(1)), byrow=TRUE, ncol=4)
+dejaExplore= matrix(c(c(3,3,0,0),c(1)), byrow=TRUE, ncol=5)
+
 
 #-------------
 #DÉBUT DU CODE
@@ -71,81 +95,40 @@ dejaExplore= matrix(c(c(3,3,0,0),c(1)), byrow=TRUE, ncol=4)
 recherche= TRUE
 etape= 1
 while(recherche == TRUE){
-	print("")
-	print("------------------------------")
-	print("")
-	print(etape)
-	print("etat début")
-	print(chemin)
-	#on prend le dernier compteur enregistré	
-	iActuel= compteurs[length(compteurs)]		
-	iAncien= compteurs[length(compteurs)-1]		
-	#On prend le dernier noeud enregistré
+	#on sélection le dernier noeud
 	if(length(chemin) == 4){
 		etatActuel= chemin
+		iAncien=0
 	} else{
 		etatActuel= chemin[dim(chemin)[1],]
+		iAncien= compteurs[length(compteurs)-1]		
 	}
-	mouvementActuel= allezretour[length(allezretour)]
-	#on teste d'abords qu'on est pas au bout de toutes les transitions
-	if(iActuel > 5){
-		#Si on a tout vu, on backtrack
-		if(length(chemin) > 4){
-			chemin= chemin[1:(dim(chemin)[1]-1),]	
-			compteurs= compteurs[1:(length(compteurs)-1)]
-			allezretour= allezretour[1:(length(allezretour)-1)]
-		}
-		else{
-			recherche=FALSE
-		}
+	#on sélectionne la prochaine transition
+	iActuel= compteurs[length(compteurs)]		
+	nouvelleTransition= getTransition(iActuel)
+	sens= allezretour[length(allezretour)]
+	#on obtient le prochain état
+	nouvelEtat= etatActuel+(nouvelleTransition*sens)
+	sens= sens-(2*sens)
+	#on fait des testes (valide, pas encore exploré, pas de sense contraire)
+	if(teste(nouvelEtat) & pasExplore(c(nouvelEtat,sens), dejaExplore) & iActuel != iAncien){
+		#s'il est valide, on enregistre
+		chemin= rbind(chemin, nouvelEtat)
+		compteurs= c(compteurs,1)
+		allezretour= c(allezretour, sens)
+		dejaExplore= rbind(dejaExplore, c(nouvelEtat,sens))
 	} else{
-		# si on est pas au bout, on continue
-		#on prend la prochaine transition
-		nouvelleTransition= transitions[iActuel,]
-		ancienneTransition= transitions[iAncien,]
-		print("nouvelle transition")
-		print(nouvelleTransition)
-		if(sum(nouvelleTransition-ancienneTransition) == 0){
-			#si la transition est le mouvement inverse du mouvement précédent on annule
-			compteurs[length(compteurs)]= iActuel+1
-		} else{
-			nouvelEtat= etatActuel+(nouvelleTransition*mouvementActuel)
-			print("nouvelEtat")
-			print(nouvelEtat)
-			#on teste le nouvel état
-			if(teste(nouvelEtat)){
-				print("nouvel état accepté")
-				mouvementActuel= mouvementActuel-(2*mouvementActuel)
-				#si le teste est positif on teste
-				if(estDans(c(nouvelEtat, mouvementActuel), dejaExplore)){
-					print("nouvel état déjà exploré")
-					#si le noeud a déja été exploré, on cherche ailleurs
-					compteurs[length(compteurs)]= iActuel+1
-				} else{
-					print("nouvel état pas déjà exploré")
-					#Si le noeud n'a pas encore été exploré, on l'enregistre
-					chemin= rbind(chemin, nouvelEtat)
-					compteurs= c(compteurs,1)
-					allezretour= c(allezretour, mouvementActuel)
-					dejaExplore= rbind(dejaExplore, c(nouvelEtat,mouvementActuel))
-					#Si on est arrivé sur l'etat désiré
-					if(all(nouvelEtat==arrivee)){
-						recherche= FALSE
-					}
-				}
-			} else{
-				print("nouvel état pas accepté")
-				#si le teste est négatif on passe à la transition suivante
-				compteurs[length(compteurs)]= iActuel+1
-			}
-		}
+		#sinon, on passe au suivant
+		compteurs[length(compteurs)]= iActuel+1
 	}
-	etape= etape+1
-	#if(etape == 50){
-		#recherche= FALSE
-	#}
+	if(all(nouvelEtat == arrivee)){
+		recherche= FALSE
+	}
 }
 #On affiche le résultat
-#print(chemin)
-
-
+print("CHEMIN")
+print(chemin)
+print("")
+print("----------------------------------------------------------------")
+print("TRANSITIONS")
+print(getTransition(compteurs))
