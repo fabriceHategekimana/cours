@@ -1,38 +1,99 @@
 #exercice 2
-#définition d'une pile
-pile=c(1:3)
 
-#définition des fonctions d'une pile
-#push
-push<-function(){
-
-}
+#-----------------------------------
+#DÉFINITION DES FONCTIONS D'UNE PILE
+#-----------------------------------
 #pop
-#peak
-
-
-
-teste<-function(etat){
-	res= TRUE
-	#1ER TESTE
-	#la fonction doit voir s'il n'y a aucun chiffre négatif (qu'on a enlevé des personnes en trop)
-	i=1
-       while(i <= 4){
-	       if(etat[i] < 0){
-		  res= FALSE
-	       }
-		i= i+1	       
-       }	       
-       #2E TESTE
-	#La fonction doit vérifier qu'il n'y ait pas plus de cannibal que de missionnaire
-       if((etat[1] > 0 & etat[2] > etat[1]) | (etat[3] > 0 & etat[4] > etat[3])){
-		res= FALSE
-       }
-       #3E TESTE
-       #la fonction doit contrôler que l'état n'ai pas déjà été exploré
-       res
+pop<-function(pile){
+	#on prend la matrice qui va faire le pop
+	m= matrix(c(0,0,0,1,0,0,0,1,0), byrow=TRUE, ncol=3)
+	#on prend le sommet
+	sommet= pile[1]
+	#on prend le reste
+	reste= c(pile%*%m)
+	
+	return(list(sommet, reste))
 }
 
-#Algorithme
- #on teste les état
+#push
+push<-function(pile, nombre){
+	#on prend la matrice qui va faire le décalage pour le push
+	m= matrix(c(0,1,0,0,0,1,0,0,0), byrow=TRUE, ncol=3)
+	#on décale
+	pile= c(pile%*%m)
+	nombre= c(nombre,0,0)	
+	pile= pile+nombre
+	return(pile)
+}
+
+#peak
+peak<-function(pile){
+	#on prend l'élément le plus au dessus
+	return(pile[1])	
+}
+
+
+#---------------------------------------------
+#DÉFINITION DES FONCTION POUR LA TOUR DE HANOÏ
+#---------------------------------------------
+getStack<-function(hanoi, nom){
+	#on récupère le vecteur de la colonne qui nous intéresse
+	vect= unlist(hanoi[nom], use.name=FALSE)
+	return(vect)
+}
+
+putStack<-function(hanoi, nom, pile){
+	hanoi[nom]= pile
+	return(hanoi)
+}
+
+
+#--------------------------------------------
+#Définition des fonction pour les transitions
+#--------------------------------------------
+
+transition<-function(hanoi, depart, arrivee){
+	d= getStack(hanoi, depart)
+	a= getStack(hanoi, arrivee)
 	
+	sr= pop(d)
+
+	sommet= unlist(sr[1], use.name=FALSE)
+	reste= unlist(sr[2], use.name=FALSE)
+
+	a= push(a,sommet)
+
+
+	hanoi= putStack(hanoi,depart,reste)
+	hanoi= putStack(hanoi,arrivee,a)
+
+	return(hanoi)
+}
+
+getTransition<-function(numero){
+	a= c(c("gauche","milieu"),c("gauche","droite"),c("milieu","gauche"),c("milieu","droite"),c("droite","gauche"),c("droite","milieu"))
+	ma= matrix(a, byrow=TRUE, ncol=2)
+	return(ma[numero,])	
+}
+
+#-------------------------------
+#DÉFINITION DE LA FONCTION TESTE
+#-------------------------------
+
+teste<-function(hanoi){
+	res= TRUE
+
+	g= getStack(hanoi, "gauche")
+	m= getStack(hanoi, "milieu")
+	d= getStack(hanoi, "droite")
+
+	if(g[1] > g[2] | m[1] > m[2] | d[1] > d[2]){ 
+		res= FALSE	
+	}
+	
+	return(res)
+}
+
+tour= data.frame(gauche= c(1:3), milieu= c(0), droite= c(0))
+
+print(teste(tour))
