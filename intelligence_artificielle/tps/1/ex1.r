@@ -93,7 +93,6 @@ dejaExplore= matrix(c(c(3,3,0,0),c(1)), byrow=TRUE, ncol=5)
 #------------
 
 recherche= TRUE
-etape= 1
 while(recherche == TRUE){
 	#on sélection le dernier noeud
 	if(length(chemin) == 4){
