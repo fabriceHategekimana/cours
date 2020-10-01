@@ -4,15 +4,22 @@
 #DÉFINITION DES FONCTIONS D'UNE PILE
 #-----------------------------------
 #pop
-pop<-function(pile){
+popReste<-function(pile){
+	#on prend la matrice qui va faire le pop
+	m= matrix(c(0,0,0,1,0,0,0,1,0), byrow=TRUE, ncol=3)
+	#on prend le reste
+	reste= c(pile%*%m)
+	
+	return(reste)
+}
+
+popSommet<-function(pile){
 	#on prend la matrice qui va faire le pop
 	m= matrix(c(0,0,0,1,0,0,0,1,0), byrow=TRUE, ncol=3)
 	#on prend le sommet
 	sommet= pile[1]
-	#on prend le reste
-	reste= c(pile%*%m)
 	
-	return(list(sommet, reste))
+	return(sommet)
 }
 
 #push
@@ -36,14 +43,28 @@ peak<-function(pile){
 #---------------------------------------------
 #DÉFINITION DES FONCTION POUR LA TOUR DE HANOÏ
 #---------------------------------------------
+getNum<-function(nom){
+	res= 0
+	if(nom == "gauche"){
+		res= 1	
+	} else if(nom == "milieu"){
+		res= 2
+	}else if(nom == "droite"){
+		res= 3
+	}
+	return(res)
+}
+
 getStack<-function(hanoi, nom){
 	#on récupère le vecteur de la colonne qui nous intéresse
-	vect= unlist(hanoi[,nom], use.name=FALSE)
+	num= getNum(nom)
+	vect= hanoi[,num]
 	return(vect)
 }
 
 putStack<-function(hanoi, nom, pile){
-	hanoi[,nom]= pile
+	num= getNum(nom)
+	hanoi[,num]= pile
 	return(hanoi)
 }
 
@@ -56,10 +77,8 @@ transition<-function(hanoi, depart, arrivee){
 	d= getStack(hanoi, depart)
 	a= getStack(hanoi, arrivee)
 
-	sr= pop(d)
-
-	sommet= unlist(sr[1], use.name=FALSE)
-	reste= unlist(sr[2], use.name=FALSE)
+	sommet= popSommet(d)
+	reste= popReste(d)
 
 	a= push(a,sommet)
 
@@ -95,7 +114,7 @@ teste<-function(hanoi){
 
 
 append<-function(chemin, tour){
-	chemin= list(chemin, data.matrix(tour))
+	chemin= c(chemin, list(tour))
 	return(chemin)
 }
 
@@ -112,14 +131,18 @@ sontContraire<-function(iAncien, iActuel){
 	return(res)
 }
 
-compare<-function(tour1, tour2){
-	res= FALSE
-	sg= sum(as.numeric(tour1[,"gauche"] - as.numeric(tour2[,"droite"])))
-	sm= sum(as.numeric(tour1[,"milieu"] - as.numeric(tour2[,"milieu"])))
-	sd= sum(as.numeric(tour1[,"droite"] - as.numeric(tour2[,"droite"])))
-	total = sg+sm+sd
+toVector<-function(matrice){
+	return((as.vector(t(matrice))))
+}
 
-	if(total == 0){
+toMatrix<-function(vecteur){
+	m= matrix(vecteur, byrow=TRUE, ncol=3)
+	return(m)
+}
+
+compare<-function(m1, m2){
+	res= FALSE
+	if(all(toVector(m1) == toVector(m2))){
 		res= TRUE
 	}
 	return(res)
@@ -168,7 +191,6 @@ mouvementForce<-function(tour, mouvement){
 
 #définition de la tour de Hanoï
 tour= matrix(c(1,0,0,2,0,0,3,0,0), byrow=TRUE, ncol=3)
-#tour= data.frame(gauche= c(0,0,0), milieu= c(3,0,0), droite= c(1,2,0))
 
 #définition du chemin et du compteur de transition
 chemin= list()
@@ -176,73 +198,77 @@ chemin= append(chemin, tour)
 
 compteurs= c(1)
 
+#définition de l'état qu'on cherche
+arrivee= matrix(c(0,0,1,0,0,2,0,0,3), byrow=TRUE, ncol=3)
+
+#définition du chemin d'exploration
 explore= list()
 explore= append(explore, tour)
 
-#définition de l'état qu'on cherche
-arrivee= data.frame(gauche= c(0), milieu= c(0), droite= c(1:3))
-
-#verbose=TRUE
-#etape= 1
-#recherche= TRUE
-#while(recherche == TRUE){
-	##on sélection le dernier noeud
-	#if(verbose){
-		#print("")
-		#print("------------------------------")
-		#print(etape)
-	#}
-	#etatActuel= chemin[[length(chemin)]]
-	#if(verbose){
-		#print("départ")
-		#print(etatActuel)
-	#}
-	#if(length(compteurs) == 1){
-		#iAncien= 0
-	#} else{
-		#iAncien= compteurs[length(compteurs)-1]		
-	#}
-	##on sélectionne la prochaine transition
-	#iActuel= compteurs[length(compteurs)]		
-	#nouvelleTransition= getTransition(iActuel)
+etape= 1
+recherche= TRUE
+#variable qui contrôle les prints
+verbose= FALSE
+while(recherche == TRUE){
+	#on sélection le dernier noeud
+	if(verbose){
+		print("")
+		print("------------------------------")
+		print(etape)
+	}
+	etatActuel= chemin[[length(chemin)]]
+	if(verbose){
+		print("départ")
+		print(etatActuel)
+	}
+	if(length(compteurs) == 1){
+		iAncien= 0
+	} else{
+		iAncien= compteurs[length(compteurs)-1]		
+	}
+	#on sélectionne la prochaine transition
+	iActuel= compteurs[length(compteurs)]		
+	nouvelleTransition= getTransition(iActuel)
 	#nouvelleTransition= mouvementForce(etatActuel, nouvelleTransition)
-	#if(verbose){
-		#print("nouvelle transition")
-		#print(nouvelleTransition)
-	#}
-	##on obtient le prochain état
-	#nouvelEtat= transition(etatActuel, nouvelleTransition[1], nouvelleTransition[2])
-	#if(verbose){
-		#print("nouvel état")
-		#print(nouvelEtat)
-	#}
+	if(verbose){
+		print("nouvelle transition")
+		print(nouvelleTransition)
+	}
+	#on obtient le prochain état
+	nouvelEtat= transition(etatActuel, nouvelleTransition[1], nouvelleTransition[2])
+	if(verbose){
+		print("nouvel état")
+		print(nouvelEtat)
+	}
 	##on fait des testes (valide, pas encore exploré, pas de sense contraire)
-	#if(teste(nouvelEtat) & ! dejaExplore(chemin, nouvelEtat) & ! sontContraire(iAncien, iActuel)){
-		##s'il est valide, on enregistre
-		#if(verbose){
-			#print("accepté")
-		#}
-		#chemin= append(chemin, nouvelEtat)
-		#compteurs= c(compteurs,1)
-	#} else{
-		#if(verbose){
-			#print("refusé")
-		#}
-		##sinon, on passe au suivant
-		#if(iActuel+1 > 6){
-			##si on a fait toutes les transitions on backtrack
-			#chemin= chemin[1:length(chemin)-1]		
-			#compteurs= compteurs[1:length(compteurs)-1]		
-		#} else{
-			##sinon on passe à la transition suivante
-			#compteurs[length(compteurs)]= iActuel+1
-		#}
-	#}
-	#etape= etape+1
-	#if(compare(nouvelEtat, arrivee) | etape == 15){
-		#recherche= FALSE
-	#}
-#}
+	if(teste(nouvelEtat) & ! dejaExplore(explore, nouvelEtat) & ! sontContraire(iAncien, iActuel)){
+		#s'il est valide, on enregistre
+		if(verbose){
+			print("accepté")
+		}
+		chemin= append(chemin, nouvelEtat)
+		explore= append(explore, nouvelEtat)
+		compteurs= c(compteurs,1)
+	} else{
+		if(verbose){
+			print("refusé")
+		}
+		#sinon, on passe au suivant
+		if(iActuel+1 > 6){
+			#si on a fait toutes les transitions on backtrack
+			chemin= chemin[1:length(chemin)-1]		
+			compteurs= compteurs[1:length(compteurs)-1]		
+		} else{
+			#sinon on passe à la transition suivante
+			compteurs[length(compteurs)]= iActuel+1
+		}
+	}
+	etape= etape+1
+	if(compare(nouvelEtat, arrivee) | etape == 100){
+		print("on s'arrête")
+		recherche= FALSE
+	}
+}
 
-#print(chemin)
+print(chemin)
 

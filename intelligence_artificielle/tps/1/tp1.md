@@ -42,7 +42,7 @@ for transition in transitions
 			recherche(new)
 ```
 
-**Remarque**: J'ai donné dans le pseudo code une définition récursive. Cependant dans mon implémentation, je ferrai une représentation non récursive  
+**Remarque**: J'ai donné dans le pseudo code une définition récursive. Cependant dans mon implémentation, je ferrai une représentation non récursive
 
 ### 1.3 Complexité  
 1. L'espace de recherche correspond à tout les états du système. On a alors les répartition possible entre les 3 missionnaires et les 3 cannibals multiplié par le fait que la barque peut se trouver d'un côté ou de l'autre de la rivière:  
