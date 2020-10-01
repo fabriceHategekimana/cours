@@ -59,6 +59,7 @@ inoremap { {}<Left>
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set autowriteall
+set background=dark
 set backspace=indent,eol,start
 set fileencodings=ucs-bom,utf-8,default,latin1
 set formatlistpat=^\\s*\\%(\\(-\\|\\*\\|+\\)\\|\\(\\C\\%(\\d\\+\\.\\)\\)\\)\\s\\+\\%(\\[\\([\ .oOX-]\\)\\]\\s\\)\\?
@@ -86,7 +87,7 @@ set shortmess=aoO
 argglobal
 %argdel
 $argadd ex2.md
-edit ex2.r
+edit test.r
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -108,8 +109,9 @@ inoremap <buffer> dataframe data.frame()<Left>
 inoremap <buffer> else else{}<Up>
 inoremap <buffer> function <-function(){}<Up><Up>I
 inoremap <buffer> if if(){}2<Up>t)a
-inoremap <buffer> matrix matrix(a, byrow=TRUE ncol=)<Left>
+inoremap <buffer> matrix matrix(a, byrow=TRUE, ncol=)<Left>
 inoremap <buffer> print print()<Left>
+inoremap <buffer> return return()<Left>
 inoremap <buffer> while while(){}<Up><Up>t{i
 let &cpo=s:cpo_save
 unlet s:cpo_save
@@ -240,19 +242,19 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 98 - ((36 * winheight(0) + 21) / 42)
+let s:l = 1 - ((0 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-98
+1
 normal! 0
 tabnext 1
-badd +1 ex2.r
+badd +98 ex2.r
 badd +1 ex2.md
 badd +5 ex1.r
-badd +1 .
 badd +19 ~/note/note_r
 badd +412 ~/.vimrc
+badd +0 test.r
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -264,6 +266,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

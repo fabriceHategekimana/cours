@@ -167,7 +167,7 @@ mouvementForce<-function(tour, mouvement){
 #-------------
 
 #définition de la tour de Hanoï
-tour= data.frame(gauche= c(1:3), milieu= c(0), droite= c(0))
+tour= matrix(c(1,0,0,2,0,0,3,0,0), byrow=TRUE, ncol=3)
 #tour= data.frame(gauche= c(0,0,0), milieu= c(3,0,0), droite= c(1,2,0))
 
 #définition du chemin et du compteur de transition
@@ -182,67 +182,67 @@ explore= append(explore, tour)
 #définition de l'état qu'on cherche
 arrivee= data.frame(gauche= c(0), milieu= c(0), droite= c(1:3))
 
-verbose=TRUE
-etape= 1
-recherche= TRUE
-while(recherche == TRUE){
-	#on sélection le dernier noeud
-	if(verbose){
-		print("")
-		print("------------------------------")
-		print(etape)
-	}
-	etatActuel= chemin[[length(chemin)]]
-	if(verbose){
-		print("départ")
-		print(etatActuel)
-	}
-	if(length(compteurs) == 1){
-		iAncien= 0
-	} else{
-		iAncien= compteurs[length(compteurs)-1]		
-	}
-	#on sélectionne la prochaine transition
-	iActuel= compteurs[length(compteurs)]		
-	nouvelleTransition= getTransition(iActuel)
-	nouvelleTransition= mouvementForce(etatActuel, nouvelleTransition)
-	if(verbose){
-		print("nouvelle transition")
-		print(nouvelleTransition)
-	}
-	#on obtient le prochain état
-	nouvelEtat= transition(etatActuel, nouvelleTransition[1], nouvelleTransition[2])
-	if(verbose){
-		print("nouvel état")
-		print(nouvelEtat)
-	}
-	#on fait des testes (valide, pas encore exploré, pas de sense contraire)
-	if(teste(nouvelEtat) & ! dejaExplore(chemin, nouvelEtat) & ! sontContraire(iAncien, iActuel)){
-		#s'il est valide, on enregistre
-		if(verbose){
-			print("accepté")
-		}
-		chemin= append(chemin, nouvelEtat)
-		compteurs= c(compteurs,1)
-	} else{
-		if(verbose){
-			print("refusé")
-		}
-		#sinon, on passe au suivant
-		if(iActuel+1 > 6){
-			#si on a fait toutes les transitions on backtrack
-			chemin= chemin[1:length(chemin)-1]		
-			compteurs= compteurs[1:length(compteurs)-1]		
-		} else{
-			#sinon on passe à la transition suivante
-			compteurs[length(compteurs)]= iActuel+1
-		}
-	}
-	etape= etape+1
-	if(compare(nouvelEtat, arrivee) | etape == 15){
-		recherche= FALSE
-	}
-}
+#verbose=TRUE
+#etape= 1
+#recherche= TRUE
+#while(recherche == TRUE){
+	##on sélection le dernier noeud
+	#if(verbose){
+		#print("")
+		#print("------------------------------")
+		#print(etape)
+	#}
+	#etatActuel= chemin[[length(chemin)]]
+	#if(verbose){
+		#print("départ")
+		#print(etatActuel)
+	#}
+	#if(length(compteurs) == 1){
+		#iAncien= 0
+	#} else{
+		#iAncien= compteurs[length(compteurs)-1]		
+	#}
+	##on sélectionne la prochaine transition
+	#iActuel= compteurs[length(compteurs)]		
+	#nouvelleTransition= getTransition(iActuel)
+	#nouvelleTransition= mouvementForce(etatActuel, nouvelleTransition)
+	#if(verbose){
+		#print("nouvelle transition")
+		#print(nouvelleTransition)
+	#}
+	##on obtient le prochain état
+	#nouvelEtat= transition(etatActuel, nouvelleTransition[1], nouvelleTransition[2])
+	#if(verbose){
+		#print("nouvel état")
+		#print(nouvelEtat)
+	#}
+	##on fait des testes (valide, pas encore exploré, pas de sense contraire)
+	#if(teste(nouvelEtat) & ! dejaExplore(chemin, nouvelEtat) & ! sontContraire(iAncien, iActuel)){
+		##s'il est valide, on enregistre
+		#if(verbose){
+			#print("accepté")
+		#}
+		#chemin= append(chemin, nouvelEtat)
+		#compteurs= c(compteurs,1)
+	#} else{
+		#if(verbose){
+			#print("refusé")
+		#}
+		##sinon, on passe au suivant
+		#if(iActuel+1 > 6){
+			##si on a fait toutes les transitions on backtrack
+			#chemin= chemin[1:length(chemin)-1]		
+			#compteurs= compteurs[1:length(compteurs)-1]		
+		#} else{
+			##sinon on passe à la transition suivante
+			#compteurs[length(compteurs)]= iActuel+1
+		#}
+	#}
+	#etape= etape+1
+	#if(compare(nouvelEtat, arrivee) | etape == 15){
+		#recherche= FALSE
+	#}
+#}
 
 #print(chemin)
 

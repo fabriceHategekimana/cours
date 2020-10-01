@@ -11,9 +11,6 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
   <style>
   /*
   Copyright (c) 2017 Chris Patuzzo
@@ -433,8 +430,8 @@
 <p>Si c’est naturel, c’est difficile à gérer (coordination à imposer)</p>
 <p>À l’époque, le matériel n’était pas fiable et surtout un manque de modèle de calcul qui permet d’exploiter ces machines.</p>
 <p>Problème résolut par l’architecture de von Neuman (“la machine séquentielle” par abus de langage). Permet le développement des hardware et le développement des programmes car cela a donnée un modèle de calcul. Le parallélisme est mis de côté. Les besoins de performances de calcul ne font qu’augmenter.</p>
-<p>Les machine actuellement les plus puissantes offrent 200 <a href="pflops" class="uri">pflops</a>/s de puissance. Pour 2 gigawatt par machine (la puissance pour faire fonctionner 40 jet d’eau de Genève)</p>
-<p>vers 1990 High performance computing (HPC) indique que le parallélisme est une méthode de performance. Aujourd’hui si on a plus de 100 processeur, on peut parler de HPC.</p>
+<p>Les machine actuellement les plus puissantes offrent 200 <a href="pflops">pflops</a>/s de puissance. Pour 2 gigawatt par machine (la puissance pour faire fonctionner 40 jet d’eau de Genève)</p>
+<p>vers 1990 High performance computing (<a href="HPC">HPC</a>) indique que le parallélisme est une méthode de performance. Aujourd’hui si on a plus de 100 processeur, on peut parler de HPC.</p>
 <h3 id="limite-de-larchitecture-de-von-neuman">Limite de l’architecture de Von Neuman</h3>
 <ul>
 <li>On peut accélérer la vitesse d’horloge de notre machine. Mais ça consomme plus d’énergie et produit beaucoup de chaleur.</li>
@@ -445,5 +442,48 @@
 <li>Le plateau représente la puissance maximale. La pente montre que la bande passante est limitée.</li>
 </ul></li>
 </ul>
+<h3 id="historique-du-parallélisme">Historique du parallélisme</h3>
+<ol type="1">
+<li>ILLIAC 1970 météo (qui est une machine qui faisait du parallélisme) (prévu avec 256 pro, mais construite avec 64 seulement, et pour 4x le prix)</li>
+<li>Rapidement supplantée par les <a href="machines_vectorielles">machines_vectorielles</a></li>
+<li>Dès les années 1990, réaparition des machines parallèle: SIMD, MIMD, SNP,… (plein de producteurs américains survivant aux subvention) On supplenté les <a href="machines_vectorielles">machines_vectorielles</a></li>
+<li>Dans les années 2000, l’expantion des clusters -&gt; démocratisation du parallélisme</li>
+<li>Par la suite les GPU se sont aussi développer et imposés pour le HPC.</li>
+<li>Cloud computing / GRID</li>
+</ol>
+<p>Nouveau classement: GREEN COMPUTING (=voir le bon rapport puissances/consomation)</p>
+<h2 id="où-trouver-des-performances">1.2 Où trouver des performances?</h2>
+<ol type="1">
+<li>Améliorer la technologie (actuellement, on utilise du silicium comme semi-conducteur)</li>
+<li>Améliorer l’architecture</li>
+<li>Optimiser l’application</li>
+</ol>
+<p>La fréquence max n’augmente plus depuis 2004 La miniaturisation permet de mettre plus de transistor dans une surface donnée. On est actuellement à 7 nanomètres, on annonce jusqu’à 3 nanomètres Limite: effet tunnel.</p>
+<p>Exemple pour s’occuper des tartines: Tâche: * couper le pain * beurrer les tranches * mettre la confiture * ranger sur un plat</p>
+<p>Les stratégies: 1. sequentielle 2. travail à la chaine ou pipeline 3. SIMD (plusieurs font la même tâche en même temps) 4. MIMD (Multiple Instruction flow, multiple data flow)</p>
+<p>Dans la 4e stratégie, les travailleurs vont réaliser leur tâche <code>à leur rythme</code>. Donc programmation asynchrone chacun travail sur ses propres données. On parle aussi de SPMD (Single Program, Multiple Data)</p>
+<p>Mémoire distribué vs mémoire partagée. SIMD utilise une mémoire distribuée.</p>
+<p>Parallélisme de contrôle (ou de tâche), où les travailleurs font en même temps des choses différente (exemple: pipeline), et le parallélisme de données où l’on fait la même chose sur des données différentes (SIMD, MIMD, SPMD)</p>
+<p>Le parallélisme de données offre un potentiel beaucoup plus important que le parallélisme de contrôle. Ce dernier est limité à quelques tâches parallélisables par la limitation intrinsèque des problèmes à résoudre. Par contre il est fréquent de répéter la même opération sur des données énormes.</p>
+<h2 id="notion-de-granularité">Notion de granularité</h2>
+<p>La taille des tâches associées à chaque processeur entre 2 échanges avec les autres processeurs.</p>
+<h2 id="scalabilité">Scalabilité</h2>
+<p>Passage à l’échelle. C’est la possibilité d’augmenter le nombre de processeurs tout en augmentant les performances proportionnellement.</p>
+<p>Il est très important pour les performances que tous les processeur soient toujours actifs et non qu’il s attendent le résultat d’un autre. Il faut donc distribuer le travail de façon équitable. Par exemple si dans l’exempledes tartines, en MIMD, l’un des travailleurs ne faisait que couper le pain, il se pourrait que les autres doivent attendre. C’est un prolème difficiles du parallélisme qui sera rediscuté tou au long de ce cours.</p>
+<h1 id="chapitre-2-architectures-à-haute-performance">Chapitre 2 Architectures à haute performance</h1>
+<h2 id="différentes-arhitectures">2.1 Différentes arhitectures</h2>
+<p>Architecture “instruction driven”</p>
+<h2 id="a-single-multiple">a |single | multiple</h2>
+<p>single |SISD |MISD multiple | SIMD |MIMD</p>
+<p>C’est la classification de Flynn (~1970)</p>
+<ul>
+<li>Architecture vectorielle</li>
+<li>Architecture data-flow: C’est la disponibilité des données qui fait avancer le programme</li>
+<li>Architecture_ILP (Instruction Level parallelism)</li>
+</ul>
+<h2 id="architecture-simd">2.2 Architecture SIMD</h2>
+<figure>
+<img src="../images/simd.png" alt="simd" /><figcaption>simd</figcaption>
+</figure>
 </body>
 </html>
