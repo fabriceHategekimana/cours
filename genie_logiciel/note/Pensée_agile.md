@@ -15,3 +15,13 @@ Parfois les client ne sont pas de bonne foi.
 Le but est d'avoir le produit prêt pour chaque livraison
 
 ## Motivation facteur clé
+
+Contrainte
+==========
+* Protocole
+* une équipe autonome et expérimentée (senior)
+
+Autonome = pas de leader
+
+Il faut aller chercher un équilibre entre ces deux extremes
+Aucun outis et interaction humaine et son contraire

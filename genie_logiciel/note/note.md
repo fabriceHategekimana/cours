@@ -3,6 +3,8 @@ Dans un contexte commercial, une partie prenante est une personne ou une organis
 
 Notions de besoins et de priorité  
 
+Le plus dur est de comprendre et saisir les requirements
+
 Capturer les besoins
 ====================
 Très compliqué  
@@ -23,4 +25,8 @@ V_Cycle
 ## Infos pratiques:
 Choisir une priorité dans la plateforme de déplacement  
 Unfair advantage  
+
+Quand on a fini nos requirement
+
+[Architecture](Architecture)
 
