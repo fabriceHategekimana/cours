@@ -1,5 +1,6 @@
 let SessionLoad = 1
 if &cp | set nocp | endif
+<<<<<<< Updated upstream
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <C-Y> 
@@ -75,6 +76,8 @@ set splitbelow
 set splitright
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set window=42
+=======
+>>>>>>> Stashed changes
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -86,8 +89,13 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
+<<<<<<< Updated upstream
 $argadd ex2.md
 edit test.r
+=======
+$argadd ~/.bashrc
+edit ~/.bashrc
+>>>>>>> Stashed changes
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -101,6 +109,7 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 87 + 92) / 185)
 exe 'vert 2resize ' . ((&columns * 97 + 92) / 185)
 argglobal
+<<<<<<< Updated upstream
 let s:cpo_save=&cpo
 set cpo&vim
 nnoremap <buffer> <F6> :!Rscript % 
@@ -421,6 +430,25 @@ badd +98 ex2.r
 badd +5 ex1.r
 badd +19 ~/note/note_r
 badd +412 ~/.vimrc
+=======
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 176 - ((24 * winheight(0) + 13) / 26)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+176
+normal! 04|
+tabnext 1
+badd +0 ~/.bashrc
+>>>>>>> Stashed changes
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
