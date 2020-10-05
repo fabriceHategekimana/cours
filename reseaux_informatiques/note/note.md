@@ -19,7 +19,7 @@ Matériel informatique qu'on connecte ensemble
 	
 ## Couches Du modèle ISO:
 0. Câble
-1. Hardware
+1. [Hardware](Hardware)
 2. [Linklayer](Linklayer) (fiabilise la liaison: s'assurer que l'info passe)
 3. Network (faire du routage: trouver un chemin dans le réseaux, IPV6/IPV4)
 4. Transport (fiabilise la connexion dans le réseaux, TCP/UDP)
