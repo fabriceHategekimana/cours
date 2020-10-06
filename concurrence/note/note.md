@@ -60,3 +60,23 @@ La méthode [join](join)
 Problème d'exclusion mutuelle
 
 Quand deux threads ne peuvent s'exécuter en même temps sur une mémoire partagée.
+
+## Algorithme de Lamport
+1. Chaque processus choisit un numéro plus grand que les numéros déjà attribués.
+2. Chaque processus teste s'il peut entrer en SC
+	1. S'assure qu'aucun processus est en phase 1
+	2. S'assure qu'il possède le plus petit numéro, en cas d'égalité, les identificateurs de processus font la différence
+
+**hypothèses**
+- Les processus ont des identificateurs connus (utilisation des booléens)
+- Les processus "se connaissent" tous
+
+synchronized est un mot clé qui fait en sorte qu'il n'y ait qu'un seul processus qui s'exécute à la fois.
+
+## Fonction testAndset
+Le processus T1 et T2 partagent un lockFlag.
+LockFlag possède une valeur et une fonction testAndset()
+la fonction test s'il y a un verrou
+Donc les processus
+On a pas d'attente active
+T2 se refera plus tard
