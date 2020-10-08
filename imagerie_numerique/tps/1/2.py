@@ -35,40 +35,38 @@ def mul(a, b):
     c= adjust(a*b)
     return c
 
-#imgplot = plt.imshow(img)
-#plt.show()
-#print(img)
-
-#définition des couleurs
-#red= [255, 0, 0, 255]
-#green= [0, 255, 0, 255]
-#blue= [0, 0, 255, 255]
-
-#Partie (a)
-#définition d'une ligne du gradient
-#ligne= []
-#for i in range(255, 0, -1):
-   #ligne.append([i, i, i, 255]) 
-#
-#image= np.array([ligne]*70)
-#print(image)
-#imageplot= plt.imshow(image)
-#plt.show()
+def partA():
+    #Partie (a)
+    #creation of a line with a gradient
+    ligne= []
+    for i in range(255, 0, -1):
+      ligne.append([i, i, i, 255]) 
+    #Now, we will duplicate this line to get more lines (70 lines)
+    image= np.array([ligne]*70)
+    imageplot= plt.imshow(image)
+    plt.show()
 
 
-#Partie (b)
-#création de blocs
-white= [1., 1., 1., 1.]
-black= [0., 0., 0., 1.]
+def partB():
+    #bloc creation
+    white= [1., 1., 1., 1.]
+    black= [0., 0., 0., 1.]
+    fig2a= [[black, white],[black, white]]
+    fig2b= [[black, black],[white, white]]
+    #the 2a and 2b Figures
+    a= np.array(fig2a)
+    b= np.array(fig2b)
+    #on fait la transformation
+    res= sub(add(a,b),mul(a,b))
 
-fig2a= [[black, white],[black, white]]
-fig2b= [[black, black],[white, white]]
+    plt.subplot(131)
+    plt.imshow(a)
+    plt.subplot(132)
+    plt.imshow(b)
+    plt.subplot(133)
+    plt.imshow(res)
+    plt.show()
 
-a= np.array(fig2a)
-b= np.array(fig2b)
-
-#on fait la transformation
-res= sub(add(a,b),mul(a,b))
-
-plt.imshow(res)
-plt.show()
+#BEGINING OF CODE:
+#partA()
+#partB()
