@@ -31,9 +31,6 @@ print(np.linalg.solve(a,[0,0,0]))
 print(newton_krylov(B,[0,0,0,0]))
 
 #(f)
-A= np.array([[1,1],[2,3]])
-b= np.array([5,0])
-print(np.linalg.solve(A,b))
 a= np.array([1,2,3])
 b= np.array([4,-5,6])
 print(np.dot(a, np.transpose(b)))
@@ -42,6 +39,9 @@ print(np.dot(a, np.transpose(b)))
 a= np.array([3,-3,1])
 b= np.array([4,9,2])
 print(np.dot(np.transpose(a), b))
+
+#angle between the two vectors
+print(np.arccos(np.dot(np.transpose(a), b)/(np.linalg.norm(a)*np.linalg.norm(b))))
 
 #(h) c= 18 scalar product must be 0
 
@@ -60,8 +60,17 @@ print(np.dot(A,b))
 #(m) Yes because of associativity
 
 #(n) No, (prove with example)
+A= np.array([[3,2],[3,4]])
+B= np.array([[2,3],[4,4]])
+C= np.array([[0,4],[1,6]])
+print(np.dot(np.dot(A,B),C))
+print(np.dot(A,np.dot(B,C)))
 
 #(o) No, (prove with example)
+B= np.array([[2,3],[4,4]])
+C= np.array([[0,4],[1,6]])
+print(np.dot(B,C))
+print(np.dot(C,B))
 
 #(p)
 

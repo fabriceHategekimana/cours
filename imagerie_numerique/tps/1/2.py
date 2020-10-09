@@ -46,7 +46,6 @@ def partA():
     imageplot= plt.imshow(image)
     plt.show()
 
-
 def partB():
     #bloc creation
     white= [1., 1., 1., 1.]
