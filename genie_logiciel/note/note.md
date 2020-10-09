@@ -1,6 +1,7 @@
 ## Stakholder:
 Dans un contexte commercial, une partie prenante est une personne ou une organisation qui a un intérêt légitime dans un projet ou une entité.  
 
+
 Notions de besoins et de priorité  
 
 Le plus dur est de comprendre et saisir les requirements
@@ -28,5 +29,9 @@ Unfair advantage
 
 Quand on a fini nos requirement
 
-[Architecture](Architecture)
 
+
+
+
+[Architecture](Architecture)
+[Programmation](Programmation)
