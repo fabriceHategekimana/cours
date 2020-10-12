@@ -29,12 +29,7 @@ int main(int argc, char *argv[]){
 	int index;
 	char *fonctionDeHashage;
 	int estFichier= option(argc, argv, &index, fonctionDeHashage);
-	if(estFichier == 0){
-		printf("N'est pas un fichier");
-	}
-	else{
-		printf("Est un fichier");
-	}
+	printf("index de: %d",index);
 	return 0;
 }
 
