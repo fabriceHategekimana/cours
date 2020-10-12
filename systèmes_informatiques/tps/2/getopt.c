@@ -1,22 +1,44 @@
-       #include <unistd.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-       int getopt(int argc, char * const argv[],
-                  const char *optstring);
 
-       extern char *optarg;
-       extern int optind, opterr, optopt;
+int main(int argc, char *argv[])
+{
+   int flags, opt;
+   int nsecs, tfnd;
 
-       #include <getopt.h>
+   nsecs = 0;
+   tfnd = 0;
+   flags = 0;
+   while ((opt = getopt(argc, argv, "nt:")) != -1) {
+       switch (opt) {
+       case 'n':
+	   flags = 1;
+	   break;
+       case 't':
+	   nsecs = atoi(optarg);
+	   tfnd = 1;
+	   break;
+       default: /* '?' */
+	   fprintf(stderr, "Usage: %s [-t nsecs] [-n] name\n",
+		   argv[0]);
+	   exit(EXIT_FAILURE);
+       }
+   }
 
-       int getopt_long(int argc, char * const argv[],
-                  const char *optstring,
-                  const struct option *longopts, int *longindex);
+   printf("flags=%d; tfnd=%d; nsecs=%d; optind=%d\n",
+	   flags, tfnd, nsecs, optind);
 
-       int getopt_long_only(int argc, char * const argv[],
-                  const char *optstring,
-                  const struct option *longopts, int *longindex);
+   if (optind >= argc) {
+       fprintf(stderr, "Expected argument after options\n");
+       exit(EXIT_FAILURE);
+   }
 
-   Feature Test Macro Requirements for glibc (see feature_test_macros(7)):
+   printf("name argument = %s\n", argv[optind]);
 
-       getopt(): _POSIX_C_SOURCE >= 2 || _XOPEN_SOURCE
-       getopt_long(), getopt_long_only(): _GNU_SOURCE
+   /* Other code omitted */
+
+   exit(EXIT_SUCCESS);
+}
+

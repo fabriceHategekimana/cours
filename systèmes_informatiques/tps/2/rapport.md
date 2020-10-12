@@ -29,5 +29,14 @@ $ echo "Le manuel disait: Nécessite Windows 7 ou mieux. j'ai donc installé Lin
 
 Je ne sais pas pourquoi ça marche comme ça? BUG
 
-## La librairie openssl
+## 2 La librairie openssl
+
+
+## 3 Gestion des paramètres d'un programme
+Les exemples proposés se divisaient en deux parties.
+Le premier code nous permettait de donner un chiffre (en seconde avec l'indice t) et un nom (avec l'indice n)
+Le second code nous permettait de donner les indices abc:d012 et d'établir des réponses les paramètres donnés.
+
+
+## 4 Intégration: le programme à réaliser
 
