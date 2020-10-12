@@ -31,4 +31,14 @@ Matériel informatique qu'on connecte ensemble
 
 Cela permet une abstraction par couche (on ne s'intéresse à rien qui est en haut ou en bas)
 
+## IEEE standards
+Un groupe de personnes qui font des documents (RFC: request for comment).
+IEEE 802.11= réseau wifi connecter par un BSS dans un Access Point (AP) et chaque station est connecté
+
+## SSID
+Server set ID: première sécurité, seules les stations qui partagent le même SSID peuvent communiquer ensemble
+
+Hidden terminal problem: deux terminaux sont tellement éloignés qu'ils n'arrivent pas à voir quand l'autre parle (parler en même temps)
+Pour résoudre ça, on utilise RTS (resolve to send) CTS (clear to send).
+1. On lance le RTS, on attend le CTS et envoie les donnée, puis reçois un acquittement 
 

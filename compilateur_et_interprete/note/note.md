@@ -94,3 +94,16 @@ Quand il y a une erreur dans la grammaire. C'est comme un bug dans un code.
 Les générateur d'analyseur syntaxique ne peuvent prendre au mieux qu'une grammaire algébrique
 
 Pas facile de prouver qu'une grammaire est ambiguë. Or on a besoin d'une grammaire stable (sinon, un code se ferrait interprété de plusieurs façons différentes de façon aléatoire).
+
+## Automate à pile
+C'est un 7-tuplet car contient les éléments d'un automate à état fini mais avec un alphabet et un symbole initial pour la pile.
+
+## Automate item
+L'item est le mot clé. L'item d'une grammaire G est de la forme
+x->alpha*beta
+L'étoile (le point représente la position du pointeur)
+
+Si on a n choix possible à chaque étape pour l'exploration de l'arbre, on a n^m.
+Pour simplifier, on supprime tout non-déterminisme pour avoir seulement un choix par étape. S'il y a une expansion (la pile va grandir) elle doit être unique. L'automate des items y arrive pas vraiment.
+
+Associer un AP à une grammaire algébrique.
