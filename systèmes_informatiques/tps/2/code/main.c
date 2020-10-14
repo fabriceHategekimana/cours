@@ -1,35 +1,15 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<unistd.h>
+#include<string.h>
 #include "options.h"
 #include "hash.h"
-
-int option(int argc, char *argv[], int *index, char *fonctionDeHashage){
-   int estFichier= 0;
-   fonctionDeHashage= "SHA1";
-   int option;
-   while((option = getopt(argc, argv, ":ft:")) != -1){ //get option from the getopt() method
-      switch(option){
-         case 'f':
-            estFichier= 1;
-            break;
-         case 't': 
-            optarg;
-            break;
-         case '?': 
-            printf("unknown option: %c\n", optopt);
-            break;
-      }
-   }
-   index= &optind;
-   return estFichier;
-}
 
 int main(int argc, char *argv[]){
 	int index;
 	char *fonctionDeHashage;
 	int estFichier= option(argc, argv, &index, fonctionDeHashage);
-	printf("index de: %d",index);
+	printf("fonction de hashage: %s", fonctionDeHashage);
 	return 0;
 }
 

@@ -8,7 +8,7 @@ int main(int argc, char **argv){
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
 	MPI_Comm_size(MPI_COMM_WORLD, &nProc);
-
+	
 	MPI_Barrier(MPI_COMM_WORLD);
 	double start = MPI_Wtime();
 
@@ -29,7 +29,6 @@ int main(int argc, char **argv){
 	double end = MPI_Wtime();
 
 	if(myRank==0) std::cout << "temps de l'operation : " << end-start << "[s]" << std::endl;
-
 	MPI_Finalize();
 }
 

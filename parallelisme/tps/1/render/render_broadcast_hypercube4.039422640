@@ -1,0 +1,12 @@
+node004
+1
+0
+0
+Je suis le processus 1 et j'ai reçu ce qu'il me faut du processus 0
+Je suis le processus 2 et j'ai reçu ce qu'il me faut du processus 0
+processus 0 et j'ai tout envoyé
+processus 2 et j'ai tout envoyé
+processus 1 et j'ai tout envoyé
+Je suis le processus 3 et j'ai reçu ce qu'il me faut du processus 1
+processus 3 et j'ai tout envoyé
+temps de l'operation : 0.546169[s]

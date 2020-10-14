@@ -1,0 +1,96 @@
+node[003-004]
+13
+0
+8
+11
+7
+6
+2
+3
+10
+14
+5
+1
+15
+9
+4
+12
+5
+1
+0
+3
+3
+0
+2
+1
+2
+1
+6
+4
+7
+0
+0
+Je suis le processus 1 et j'ai reçu ce qu'il me faut du processus 0
+Je suis le processus 2 et j'ai reçu ce qu'il me faut du processus 0
+Je suis le processus 3 et j'ai reçu ce qu'il me faut du processus 1
+Je suis le processus 6 et j'ai reçu ce qu'il me faut du processus 2
+Je suis le processus 7 et j'ai reçu ce qu'il me faut du processus 3
+Je suis le processus 4 et j'ai reçu ce qu'il me faut du processus 0
+Je suis le processus 5 et j'ai reçu ce qu'il me faut du processus 1
+Je suis le processus 12 et j'ai reçu ce qu'il me faut du processus 4
+Je suis le processus 15 et j'ai reçu ce qu'il me faut du processus 7
+Je suis le processus 14 et j'ai reçu ce qu'il me faut du processus 6
+Je suis le processus 10 et j'ai reçu ce qu'il me faut du processus 2
+Je suis le processus 8 et j'ai reçu ce qu'il me faut du processus 0
+Je suis le processus 11 et j'ai reçu ce qu'il me faut du processus 3
+Je suis le processus 9 et j'ai reçu ce qu'il me faut du processus 1
+Je suis le processus 13 et j'ai reçu ce qu'il me faut du processus 5
+processus 1 et j'ai tout envoyé
+Je suis le processus 17 et j'ai reçu ce qu'il me faut du processus 1
+processus 13 et j'ai tout envoyé
+processus 17 et j'ai tout envoyé
+Je suis le processus 29 et j'ai reçu ce qu'il me faut du processus 13
+processus 29 et j'ai tout envoyé
+processus 3 et j'ai tout envoyé
+Je suis le processus 19 et j'ai reçu ce qu'il me faut du processus 3
+processus 11 et j'ai tout envoyé
+Je suis le processus 27 et j'ai reçu ce qu'il me faut du processus 11
+processus 6 et j'ai tout envoyé
+processus 27 et j'ai tout envoyé
+processus 8 et j'ai tout envoyé
+processus 19 et j'ai tout envoyé
+processus 12 et j'ai tout envoyé
+Je suis le processus 22 et j'ai reçu ce qu'il me faut du processus 6
+processus 22 et j'ai tout envoyé
+processus 0 et j'ai tout envoyé
+Je suis le processus 24 et j'ai reçu ce qu'il me faut du processus 8
+processus 24 et j'ai tout envoyé
+processus 7 et j'ai tout envoyé
+Je suis le processus 28 et j'ai reçu ce qu'il me faut du processus 12
+processus 28 et j'ai tout envoyé
+processus 15 et j'ai tout envoyé
+Je suis le processus 16 et j'ai reçu ce qu'il me faut du processus 0
+processus 16 et j'ai tout envoyé
+processus 9 et j'ai tout envoyé
+Je suis le processus 23 et j'ai reçu ce qu'il me faut du processus 7
+processus 2 et j'ai tout envoyé
+processus 23 et j'ai tout envoyé
+processus 14 et j'ai tout envoyé
+Je suis le processus 31 et j'ai reçu ce qu'il me faut du processus 15
+processus 4 et j'ai tout envoyé
+processus 31 et j'ai tout envoyé
+processus 5 et j'ai tout envoyé
+Je suis le processus 21 et j'ai reçu ce qu'il me faut du processus 5
+processus 10 et j'ai tout envoyé
+processus 21 et j'ai tout envoyé
+temps de l'operation : 3.11631[s]
+Je suis le processus 25 et j'ai reçu ce qu'il me faut du processus 9
+processus 25 et j'ai tout envoyé
+Je suis le processus 18 et j'ai reçu ce qu'il me faut du processus 2
+Je suis le processus 30 et j'ai reçu ce qu'il me faut du processus 14
+processus 30 et j'ai tout envoyé
+Je suis le processus 20 et j'ai reçu ce qu'il me faut du processus 4
+processus 20 et j'ai tout envoyé
+processus 18 et j'ai tout envoyé
+Je suis le processus 26 et j'ai reçu ce qu'il me faut du processus 10
+processus 26 et j'ai tout envoyé

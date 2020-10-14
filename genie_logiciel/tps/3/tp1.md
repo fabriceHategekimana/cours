@@ -30,7 +30,6 @@ Vous devez rendre avant la prochaine séance de TP dans un fichier pdf, deux tab
   * les jours/développeur-euse.
 
 
-
 ## Remarques
 
 * Tous les sprints doivent avoir la même durée.

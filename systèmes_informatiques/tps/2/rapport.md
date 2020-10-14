@@ -30,13 +30,20 @@ $ echo "Le manuel disait: Nécessite Windows 7 ou mieux. j'ai donc installé Lin
 Je ne sais pas pourquoi ça marche comme ça? BUG
 
 ## 2 La librairie openssl
+J'ai lancé le code en exemple pour le man 3 EP_DigestInit.
+Ce code me permet de créer des digest de "hello world" et "Test Message" avec la fonction de hashage donnée.
+```
+./main md5
+Digest is: ce73931d2b3da6e60bf18af27494c6cd
 
+./main fabrice
+Unknown message digest fabrice
+```
 
 ## 3 Gestion des paramètres d'un programme
 Les exemples proposés se divisaient en deux parties.
 Le premier code nous permettait de donner un chiffre (en seconde avec l'indice t) et un nom (avec l'indice n)
 Le second code nous permettait de donner les indices abc:d012 et d'établir des réponses les paramètres donnés.
-
 
 ## 4 Intégration: le programme à réaliser
 
