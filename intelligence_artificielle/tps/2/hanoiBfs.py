@@ -2,7 +2,7 @@ class Pile():
 
     def __init__(self, tab):
         #code
-        self.tab= tab
+        self.tab= tab.copy()
 
     def peek(self):
         return self.tab[0]
@@ -24,7 +24,7 @@ class Hanoi():
 
     def __init__(self, liste):
         self.dic= {}
-        self.dic["gauche"]= Pile(liste)
+        self.dic["gauche"]= Pile(liste.copy())
         self.dic["milieu"]= Pile([])
         self.dic["droite"]= Pile([])
 
@@ -34,8 +34,13 @@ class Hanoi():
 
     def state(self):
         return [self.dic["gauche"].state(), self.dic["milieu"].state(), self.dic["droite"].state()]
-        
-#fonction de l'algorithme
+
+    def setState(self, state):
+       self.dic["gauche"]= Pile(state[0].copy())
+       self.dic["milieu"]= Pile(state[1].copy())
+       self.dic["droite"]= Pile(state[2].copy())
+
+#FONCTION DE L'ALGORITHME
 
 def test(hanoi, explore):
     hanoiSta= hanoi.state()
@@ -52,17 +57,50 @@ def test(hanoi, explore):
                 res= False
     #deuxième test: déjà traversé?
         for hanoiExp in explore:
-            if hanoiSta == hanoiExp.state():
+            if hanoiSta == hanoiExp:
                 res= False
     return res
          
 
+#ALGORITHME DE RECHERCHE
+transitions= [("gauche", "milieu"),("gauche", "droite"),("milieu", "gauche"),("milieu", "droite"),("droite", "gauche"),("droite", "milieu")]
+
 h= Hanoi([1,2,3])
-h1= Hanoi([4,2,3])
+dejaExplore= [h.state()]
+chemins= [[h.state()]]
 
-dej= [h1]
+compteur= [0]
+final= []
+recherche= True
+while(recherche):
+    #on prend le dernier état
+    for chemin in chemins:
+        actuel= chemin[len(chemin)-1]
+        h.setState(actuel)
+        valide=[]
+        #on regroupe tout les états atteignables 
+        for transition in transitions:
+            h.transition(transition) 
+            if test(h, dejaExplore):
+                dejaExplore.append(h.state())
+                valide.append(h.state())
+            h.setState(actuel)
+        #on combine le tout
+        newChemin=[]
+        for nouvelEtat in valide:
+            newChemin.append(chemin.append(nouvelEtat))
+            chemin.pop()
+    recherche= False
 
-#h.transition(("gauche","droite"))
+    #on prend le prochain mouvement
+    #on fait la transition pour avoir un nouvel état
+    #si l'état est valide et non exploré on l'enregistre
+    #sinon
+        #si on est au dernier mouvement on backtrack
+        #sinon on passe au prochain mouvement
 
-print(test(h,dej))
-
+#algorithme BFS
+#liste de liste
+#1 extraction (for each)
+#2 état valide (for transition)
+#3 combine (new liste de liste)
