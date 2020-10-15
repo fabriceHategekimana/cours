@@ -125,3 +125,75 @@ Multiplication matrice-vecteur:
 
 ![Exemple_simd2](../images/Exemple_simd2.png)
 
+
+## Conclusion:
+Il y a deux type de parallelisme, mais plusieurs manières de le mettre en oeuvre. Le parallélisme de données où
+beaucoup de valeurs différentes sont traitées en même temps par des processeurs
+différents et le parallélisme de contrôle où des tâches différentes sont exécutées
+simultanément. En pratique, on s’aperçoit que dans les codes scientifiques ou ceux
+écrits par des ingénieurs, le parallélisme de données peut être très élevé (plusieurs
+centaines ou milliers, voire bien davantage). Par contre, le parallélisme de contrôle
+est bien moins important en général et dans la plupart des codes il ne dépasse
+pas un facteur de 5 à 10.
+Ces formes de parallélisme reflètent la nature du problème considéré alors que
+la classification de Flynn décrit la nature de l’architecture utilisée pour traiter
+le problème. Le parallélisme de donnée est bien adapté aux machines SIMD et
+MIMD alors que le parallélisme de contrôle n’est possible que dans le cas MIMD.)
+
+Granularité du parallélisme:
+Niveau d'intervention du parallélisme dans un code/algorithme. Trois niveaux:
+- jobs ou programmes
+- tâches
+- variables
+
+## 2.5 Architectures data flow:
+Ce n'est pas les instructions mais les données qui guident l'exécution des programmes. Très différent des models classiques (instruction-driven). Ainsi, dès que les opérandes sont disponibles instructions qui les modifient s'exécute. De plus l'ordre des opérations peut changer selon l'exécution. Deux types de data flow:
+
+1. data-driven: C'est les données qui demande aux instructions de s'exécutés lorsqu'elles sont prêtes.
+2. demand-driven: C'est les instructions qui demandant les donnée quand ils n'en trouvent pas.
+
+Le data-flow est un avantage car il permet une exécution parallèle des instructions.
+
+## 2.6 Parallélisme interne
+Le Parallélisme est présent dans les processeurs (et même les coeurs) à petite échelle = Instruction level parallelsim. Granularité au niveau des instructions.
+Exemple: le pipeline (avec fetch->decode->execute->write-back)
+CPI: cycle per instruction
+
+EU: Execution unit.
+Pour le parallélisme utiliser
+- le VLIW (very long instruction word) avec par exemple des instruction de 128 bits (4 instructions) à répartir dans chaque EU
+- Superscalarité: utilise le model data-flow en utilisant des stations où les instructions viennent en attente. Les dépendances sont résolus en hardware
+
+## branchement spéculatif
+Casse un peu le pipe line d'exécution des instruction car on ne sait pas quelle est la procaine instruction à faire tant que le teste n'est pas fait. Donc casse un peut le parallélisme.
+Même le calcule scientifique utilise 25% de branchement dans son code.
+
+L'idée du branchement spéculatif est de déterminer arbitrairement la valeur du test et si erreur il y a, on retourne en arrière. Ce retour en arrière est coûteux mais peut être négliger s'il est rare. Ces suppositions sont la résultante d'étude qui montre certaine tendance de résultat par classe de teste (par exemple le tes "est plus grand que 0").
+
+De cette façon, le flow d'instruction n'est pas interrompu par les branchements. On peut aussi avoir un test dynamique qui révise les prédictions selon les résultats des branchements.
+
+# 3 Réseaux d'interconnexion
+
+Le résexu d'interconnexion relie les processeurs entre eux et leur permet de communiquer et d'échanger des données. En général, l'échange processeur-processeur est plus lent que la communication processeur-mémoire interne.
+Le réseau d'interconnexion doit être puissance et permettre à de nombreuses communications pour s'exécuter en même temps.
+
+## 3.1 propriétés d'un réseau
+2 types de réseau:
+	- statique: topologie fixe un peu comme un graphe:
+		- sommet: noeud de calcul
+		- arc: câblage ou connexion
+	- dynamique: un peu comme un switch dans lesquels tout les noeuds sont connecté (une connection en étoile)
+
+propriétés d'un réseau:
+Pour établir les performances:
+	- Diamètre: la longueur la plus court liant deux noeuds.
+	- Latence: le temps qu'il faut pour établir un contact entre 2 noeuds.
+	- Bande passante: débit du réseau (quantité d'information par seconde)
+	- Degré: nombre de lien qui viennent/partent d'un noeud
+	- Largeur bissectionnelle: mesure la capacité d'un réseau à communiquer de façon globale
+	- Prix (complexité): quantité de matériel pour réaliser ce réseau
+	- Scalabilité: borne de la taille maximal du réseau
+
+## Routage:
+Algoirthme d'acheminement des messages (entre un processeur source et un processeur destination). On va alors exploiter la topoligie du réseau pour trouver le chemin le plus cours. Le routage est fait de façon asynchrone et de façon local (le message sait à chaque noeud où il doit aller)
+On peut avoir un routage single-port ou multi-port selon qu'un noeud peut recevoir/envoyer plusieurs messages en même temps.
