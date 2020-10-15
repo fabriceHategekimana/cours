@@ -69,13 +69,26 @@ h= Hanoi([1,2,3])
 dejaExplore= [h.state()]
 chemins= [[h.state()]]
 
-compteur= [0]
 final= []
+verbose= True
 recherche= True
+
+etatFinal= [[],[],[1,2,3]]
+tour= 0
 while(recherche):
+    if verbose:
+        print("")
+        print("----------------------")
+        print("tour ", tour+1)
     #on prend le dernier état
+    remplacement= []
     for chemin in chemins:
         actuel= chemin[len(chemin)-1]
+        if verbose:
+            print("noeud traité:")
+            print(actuel)
+            print("état de la file:")
+            print(chemins)
         h.setState(actuel)
         valide=[]
         #on regroupe tout les états atteignables 
@@ -84,23 +97,33 @@ while(recherche):
             if test(h, dejaExplore):
                 dejaExplore.append(h.state())
                 valide.append(h.state())
+                #si l'état validé est l'état final qu'on recherche, on met fin à la boucle
+                if h.state() == etatFinal:
+                    recherche= False
             h.setState(actuel)
         #on combine le tout
         newChemin=[]
         for nouvelEtat in valide:
-            newChemin.append(chemin.append(nouvelEtat))
+            chemin.append(nouvelEtat.copy())
+            newChemin.append(chemin.copy())
             chemin.pop()
-    recherche= False
+        remplacement= remplacement+newChemin.copy()
+    chemins= remplacement.copy()
+    tour= tour+1
+    if tour == 100:
+        recherche= False
+    #print("")
+    #print("** FINALEMENT: **")
+    #print(chemins)
+    #print(len(chemins))
+    #print(len(chemins[0]))
 
-    #on prend le prochain mouvement
-    #on fait la transition pour avoir un nouvel état
-    #si l'état est valide et non exploré on l'enregistre
-    #sinon
-        #si on est au dernier mouvement on backtrack
-        #sinon on passe au prochain mouvement
-
-#algorithme BFS
-#liste de liste
-#1 extraction (for each)
-#2 état valide (for transition)
-#3 combine (new liste de liste)
+print("")
+print("")
+print("###############")
+print("SOLUTION FINALE")
+print("###############")
+print("")
+for chemin in chemins:
+    if etatFinal in chemin:
+        print(chemin)

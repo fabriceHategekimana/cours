@@ -34,7 +34,7 @@ But: explorer le graphe à partir de l'état initial
 Noeuds: contiennet les états visité
 Racine: correspond à l'état initial
 
-Complétude: Le fait qu'un arlgorithme arrive a trouver la solution si elle existe. (on ne s'intéresse pas de savoir son efficacité).
+Complétude: Le fait qu'un algorithme arrive a trouver la solution si elle existe. (on ne s'intéresse pas de savoir son efficacité).
 Optimalité: Le fait qu'un algorithme soit le plus rapide (ou le moins coûteux) pour trouver la solution.
 
 ## Type de problèmes de recherches

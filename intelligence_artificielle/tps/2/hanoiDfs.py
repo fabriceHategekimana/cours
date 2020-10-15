@@ -34,6 +34,11 @@ class Hanoi():
 
     def state(self):
         return [self.dic["gauche"].state(), self.dic["milieu"].state(), self.dic["droite"].state()]
+
+    def setState(self, state):
+       self.dic["gauche"]= Pile(state[0].copy())
+       self.dic["milieu"]= Pile(state[1].copy())
+       self.dic["droite"]= Pile(state[2].copy())
         
 #fonction de l'algorithme
 
@@ -52,17 +57,66 @@ def test(hanoi, explore):
                 res= False
     #deuxième test: déjà traversé?
         for hanoiExp in explore:
-            if hanoiSta == hanoiExp.state():
+            if hanoiSta == hanoiExp:
                 res= False
     return res
          
+#ALGORITHME DE RECHERCHE
+transitions= [("gauche", "milieu"),("gauche", "droite"),("milieu", "gauche"),("milieu", "droite"),("droite", "gauche"),("droite", "milieu")]
 
 h= Hanoi([1,2,3])
-h1= Hanoi([4,2,3])
+dejaExplore= [h.state()]
+chemin= [h.state()]
+compteurs= [0]
 
-dej= [h1]
+verbose= True
+recherche= True
 
-#h.transition(("gauche","droite"))
-
-print(test(h,dej))
-
+etatFinal= [[],[],[1,2,3]]
+tour= 0
+while(recherche):
+    if verbose:
+        print("")
+        print("----------------------")
+        print("tour ", tour+1)
+        print("noeud traité")
+    #on prend le dernier état
+    actuel= chemin[len(chemin)-1]
+    if verbose:
+        print(actuel)
+        print("état de la file")
+        print(chemin)
+    compteur= compteurs[len(compteurs)-1]
+    h.setState(actuel)
+    #on prend la prochaine transition selon le compteur
+    transition= transitions[compteur]
+    #on trouve le nouvel état
+    h.transition(transition)
+    #on teste le nouvel état
+    if test(h, dejaExplore):
+        #si ça passe on regarde si c'est l'état final
+        if h.state() == etatFinal:
+            #si c'est le cas, on arrête la boucle
+            recherche= False
+            print("Solution trouvée au tour: ", tour+1)
+        #on ajoute le nouvel état et on laisse le reste
+        chemin.append(h.state())
+        compteurs.append(0)
+    else:
+        compteur= compteur+1
+        #si on a testé toutes les transitions, on backtrack
+        if compteur == len(transitions):
+            chemin.pop()
+            compteurs.pop()
+        #sinon on prépare la prochaine transition
+        else:
+            compteurs[len(compteurs)-1]= compteur
+    dejaExplore.append(h.state()) 
+    tour= tour+1
+    if tour == 100:
+        recherche= False
+print("")
+print("")
+print("** FINALEMENT **")
+print("chemin:")
+print(chemin)
