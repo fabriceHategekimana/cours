@@ -5,26 +5,31 @@
 #include "options.h"
 #include "hash.h"
 
+int concatAll(int index, int argc, char *argv[], char *fonctionDeHashage){
+	char message[255];
+	for(; index < argc; index++){
+		strcat(message, argv[index]);
+		strcat(message, " ");
+	}
+	hashage(message, fonctionDeHashage);
+	printf("\n");
+}
+
 int main(int argc, char *argv[]){
 	int index;
 	char *fonctionDeHashage;
+	// on fait appelle au module options pour savoir quoi faire
 	int estFichier= option(argc, argv, &index, fonctionDeHashage);
-	printf("fonction de hashage: %s", fonctionDeHashage);
+	if(estFichier){
+		//pour chaque fichiers
+		for(; index < argc; index++){
+			hasher(argv[index], fonctionDeHashage);
+		}
+	}
+	else{
+		//on compte le nombre de caractère des entrées plus les espaces
+		concatAll(index, argc, argv, fonctionDeHashage);
+	}
 	return 0;
 }
 
-//appelle de options:
-//estfichier= options(argc, argv, &index, &fonctiondehashage)
-//Segement pour le hashage
-//si fichier
-//	pour chaque fichier:
-//		ouvrir()
-//		prendre le contenu
-//		hasher le contenu
-//		afficher le hashage
-//sinon
-//	pour chaque élément
-//		string= string+élément
-//	hasher le string
-//	afficher le hashage
-//
