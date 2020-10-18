@@ -1,4 +1,4 @@
-
+HVS= Human visual system
 
 Champs de vision des humains 350 nm < lambda < 780
 
@@ -11,4 +11,4 @@ luminence
 
 La fovea contient le plus de concentration de rods et de cones
 
-
+HVS
