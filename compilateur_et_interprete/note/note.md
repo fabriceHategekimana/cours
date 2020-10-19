@@ -107,3 +107,5 @@ Si on a n choix possible à chaque étape pour l'exploration de l'arbre, on a n^
 Pour simplifier, on supprime tout non-déterminisme pour avoir seulement un choix par étape. S'il y a une expansion (la pile va grandir) elle doit être unique. L'automate des items y arrive pas vraiment.
 
 Associer un AP à une grammaire algébrique.
+
+[Analyseur_récursif](Analyseur_récursif)

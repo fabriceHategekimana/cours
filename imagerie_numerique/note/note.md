@@ -10,3 +10,5 @@ Oral 2/3 - Tps 1/3
 4. Histograme et opération sur les points
 5. Opération Géométriques
 6. philtres spatials
+
+[tps](tps)
