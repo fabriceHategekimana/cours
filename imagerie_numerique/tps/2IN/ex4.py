@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from skimage.color import rgb2gray
-from skimage.color import rgb2yiq
-from skimage.color import yiq2rgb
+from skimage.color import rgb2ycbcr
+from skimage.color import ycbcr2rgb
 from skimage.metrics import mean_squared_error
 from PIL import Image
 
-def rgbToyiq(image):
+def rgbToycbcr(image):
     matrice= np.array([[0.299, 0.587, 0.114], [0.596, -0.274, -0.322], [0.211, -0.523, 0.312]])
     newImage= []
     for ligne in image:
@@ -18,10 +18,10 @@ def rgbToyiq(image):
         newImage.append(newLigne)
     return np.array(newImage)
 
-def yiqTorgb():
+def ycbcrTorgb():
     matrice= np.array([[1, 0.956, 0.621], [1, -0.272, -0.647], 1, -1.106, 1.703])
     newPixel= np.dot(matrice, pixel)
-    return newPixel
+    ycbcrrn newPixel
 
 def MSE(im1, img2):
     mse= mean_squared_error(img, img4)
