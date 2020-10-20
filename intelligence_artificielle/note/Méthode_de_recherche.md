@@ -40,3 +40,21 @@ Optimalité: Le fait qu'un algorithme soit le plus rapide (ou le moins coûteux)
 ## Type de problèmes de recherches
 Recherche recherche aveugle: (On organise la liste de voisin comme ça vient)
 recherche heuristique: (On modifie notre recherche par une critère qui influe sur la direction)
+
+## Recherche heuristique
+Def: une heuristique est une fonction h d'estimation de coût telle que:
+h:V->R⁺ avec h(v)= 0 si state(v)=S_G
+Une heuristique peut être bonne ou mauvaise (pour le temps/chemin requis au résultat) mais ne doit pas annuler la possibilité de trouver la solution si elle est trouvable en sens inverse.
+
+Best first search:
+On explore les chemin les moins coûteux
+
+def: une heuristique est dite admissible si elle sous estime le coût du chemin d'un point à un autre.
+
+def une heuristique est dite consistante si elle respecte cette condition:
+- S'il existe une transition de s à s' de coût c(s,s') alors h(s)<=h(s')+c(s,s')
+
+- l'algorithme A* est l'algorithme Best first search avec une fonction d'evaluation:
+	- f= g(v)+h(v)
+	- où  est une heuristique admissible et consistante et c(s,s')>= epsilon > 0 pour tout s et s'
+	- Alors l'algoritme A* est complet et optimal

@@ -1,7 +1,9 @@
 ## Exercice 1
 
 (a) The main components of the HVS as an optical system are:
-- the eyes
+- the eyes:
+	- cones
+	- 
 - Percieved information:
 	- luminance
 	- brightness
@@ -14,6 +16,8 @@ Chromatic light is percieved by the cones and is charaterized by 3 quantities:
 3. 3. Brigtness is a subjective evaluation what is the source of radiation we talk about.
 
 ## Exercice 2
+Done with the code:
+images
 
 ## Exercice 3
 (a) YIQ is the color space used by NTSC (National Television System Committee) color TV system. This is used for television.
@@ -43,5 +47,18 @@ Y’ – represents luma component (different from Y in XYZ due not non-linearly
 RGB components; not equi-proportional sum of RGB)
 U/Cb – represents blue difference component
 V/Cr – represents red difference component
-(c)
-(d)
+
+## Exercice 5
+CMY is a color format used for printing.
+C= cyan
+M= magenta
+Y= yellow
+(on a pas besoin de créer la fonction CMY)
+
+## Exercice 6
+CMYK is the same as CMY but it has another parameter: black. It is optimised to manage more efficiently black and white in printing.
+
+## Exercice 7
+There are for exemple, the myopie, the hypermetropie and the presbytie.
+They are solved with adaptative glasses.
+There is also the daltonism where a person can only see a precise portion of colors we normally see with HVS.
