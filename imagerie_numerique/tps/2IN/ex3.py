@@ -33,22 +33,38 @@ img3= rgb2yiq(img)
 img4= yiq2rgb(img3)
 
 MSE(img, img4)
-#greyRed= img2[:,:,0]
-#greyGreen= img2[:,:,1]
-#greyBlue= img2[:,:,2]
-#
-#plt.subplot(231)
-#plt.imshow(img)
-#plt.subplot(232)
-#plt.imshow(img2)
-#plt.subplot(233)
-#plt.imshow(img3)
-#
-#plt.subplot(234)
-#plt.imshow(greyRed)
-#plt.subplot(235)
-#plt.imshow(greyGreen)
-#plt.subplot(236)
-#plt.imshow(greyBlue)
-#plt.show()
+
+#---------------------------------------------------------
+#PRENDRE LES PARAMÈTRES RGB DES IMAGES YQI COMME GRAY SCALE
+#---------------------------------------------------------
+greyRed= img2[:,:,0]
+greyGreen= img2[:,:,1]
+greyBlue= img2[:,:,2]
+
+#Image normale (en haut à gauche)
+plt.subplot(231)
+plt.imshow(img)
+
+#Image modifiée avec ma propre fonction (en haut au milieu)
+plt.subplot(232)
+plt.imshow(img2)
+
+#Image modifiée avec la fonction de python (en haut à droite)
+plt.subplot(233)
+plt.imshow(img3)
+
+#Greyscale pour le rouge (en bas à gauche)
+plt.subplot(234)
+plt.imshow(greyRed)
+
+#Greyscale pour le vert (en bas au milieu)
+plt.subplot(235)
+plt.imshow(greyGreen)
+
+#Greyscale pour le bleu (en bas à droite)
+plt.subplot(236)
+plt.imshow(greyBlue)
+
+#on affiche
+plt.show()
 
