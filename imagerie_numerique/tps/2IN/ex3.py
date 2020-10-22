@@ -23,48 +23,52 @@ def yiqTorgb():
     newPixel= np.dot(matrice, pixel)
     return newPixel
 
-def MSE(im1, img2):
-    mse= mean_squared_error(img, img4)
+def MSE(img1, img2):
+    mse= mean_squared_error(img1, img2)
     print(mse)
 
+
+def b(img):
+    #preparing images
+    original= img 
+    converted= rgbToyiq(original)
+    grayOriginal= rgb2gray(original) 
+    grayConverted= rgb2gray(converted) 
+    #showing the results
+    plt.subplot(221)
+    plt.imshow(original)
+    plt.xlabel("original")
+    plt.subplot(222)
+    plt.imshow(converted)
+    plt.xlabel("converted")
+    plt.subplot(223)
+    plt.imshow(grayOriginal, cmap=plt.cm.gray)
+    plt.xlabel("grayOriginal")
+    plt.subplot(224)
+    plt.imshow(grayConverted, cmap=plt.cm.gray)
+    plt.xlabel("grayConverted")
+    plt.show()
+
+def c(img):
+    convertedWithCustomFunction= rgbToyiq(img)
+    convertedWithBuiltinFunction= rgb2yiq(img)
+    plt.subplot(121)
+    plt.imshow(convertedWithBuiltinFunction)
+    plt.xlabel("builtin convertion")
+    plt.subplot(122)
+    plt.imshow(convertedWithCustomFunction)
+    plt.xlabel("custom convertion")
+    plt.show()
+
+def d(img):
+   converted= rgb2yiq(img) 
+   back= yiq2rgb(converted)
+   MSE(img,back) 
+
+#-------------
+#STARTING CODE
+#-------------
 img = (mpimg.imread('mnms_512.jpg'))/255
-img2= rgbToyiq(img)
-img3= rgb2yiq(img)
-img4= yiq2rgb(img3)
-
-MSE(img, img4)
-
-#---------------------------------------------------------
-#PRENDRE LES PARAMÈTRES RGB DES IMAGES YQI COMME GRAY SCALE
-#---------------------------------------------------------
-greyRed= img2[:,:,0]
-greyGreen= img2[:,:,1]
-greyBlue= img2[:,:,2]
-
-#Image normale (en haut à gauche)
-plt.subplot(231)
-plt.imshow(img)
-
-#Image modifiée avec ma propre fonction (en haut au milieu)
-plt.subplot(232)
-plt.imshow(img2)
-
-#Image modifiée avec la fonction de python (en haut à droite)
-plt.subplot(233)
-plt.imshow(img3)
-
-#Greyscale pour le rouge (en bas à gauche)
-plt.subplot(234)
-plt.imshow(greyRed)
-
-#Greyscale pour le vert (en bas au milieu)
-plt.subplot(235)
-plt.imshow(greyGreen)
-
-#Greyscale pour le bleu (en bas à droite)
-plt.subplot(236)
-plt.imshow(greyBlue)
-
-#on affiche
-plt.show()
-
+#b(img)
+#c(img)
+d(img)
