@@ -27,7 +27,7 @@ def MSE(img1, img2):
     mse= mean_squared_error(img1, img2)
     print(mse)
 
-def b(img):
+def b1(img):
     #preparing images
     original= img 
     converted= rgbToyuv(original)
@@ -46,6 +46,22 @@ def b(img):
     plt.subplot(224)
     plt.imshow(grayConverted, cmap=plt.cm.gray)
     plt.xlabel("grayConverted")
+    plt.show()
+
+def b2(img):
+    #preparing images
+    original= img 
+    converted= rgbToyuv(original)
+    #showing the results
+    plt.subplot(131)
+    plt.imshow(converted[:,:,0], cmap=plt.cm.gray)
+    plt.xlabel("Y")
+    plt.subplot(132)
+    plt.imshow(converted[:,:,1], cmap=plt.cm.gray)
+    plt.xlabel("U")
+    plt.subplot(133)
+    plt.imshow(converted[:,:,2], cmap=plt.cm.gray)
+    plt.xlabel("V")
     plt.show()
 
 def c(img):
@@ -70,6 +86,8 @@ def d(img):
 #STARTING CODE
 #-------------
 img = (mpimg.imread('mnms_512.jpg'))/255
-#b(img)
+#choose wich part to do (b1, b2, c or d)
+#b1(img)
+#b2(img)
 #c(img)
 #d(img)

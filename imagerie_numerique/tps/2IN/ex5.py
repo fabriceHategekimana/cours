@@ -32,7 +32,7 @@ def MSE(img1, img2):
     print(mse)
 
 
-def b(img):
+def b1(img):
     #preparing images
     original= img 
     converted= rgbTocmy(original)
@@ -53,6 +53,22 @@ def b(img):
     plt.xlabel("grayConverted")
     plt.show()
 
+def b2(img):
+    #preparing images
+    original= img 
+    converted= rgbTocmy(original)
+    #showing the results
+    plt.subplot(131)
+    plt.imshow(converted[:,:,0], cmap=plt.cm.gray)
+    plt.xlabel("C")
+    plt.subplot(132)
+    plt.imshow(converted[:,:,1], cmap=plt.cm.gray)
+    plt.xlabel("M")
+    plt.subplot(133)
+    plt.imshow(converted[:,:,2], cmap=plt.cm.gray)
+    plt.xlabel("Y")
+    plt.show()
+
 def c(img):
     print("There is no builtin function for cmy")
 
@@ -65,6 +81,8 @@ def d(img):
 #STARTING CODE
 #-------------
 img = (mpimg.imread('mnms_512.jpg'))/255
-#b(img)
+#choose wich part to do (b1, b2, c or d)
+#b1(img)
+#b2(img)
 #c(img)
-d(img)
+#d(img)

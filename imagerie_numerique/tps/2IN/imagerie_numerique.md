@@ -1,5 +1,5 @@
-\newcommand\TPid{1}
-\newcommand\TPname{Titre}
+\newcommand\TPid{2}
+\newcommand\TPname{HW2 Perception and colors}
 \newcommand\Firstname{Fabrice}
 \newcommand\Familyname{Hategekimana}
 \newcommand\Email{Ganza.Hategekimana@etu.unige.ch}
