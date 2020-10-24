@@ -11,9 +11,6 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
   <style>
   /*
   Copyright (c) 2017 Chris Patuzzo
@@ -423,17 +420,19 @@
   </style>
 </head>
 <body>
-<p><a href="Questions" class="uri">Questions</a></p>
+<p><a href="Questions">Questions</a></p>
+<p>Évaluation: examen oral</p>
+<p>4 tp (1 d’intro et trois à rendre) -1/2 par tp non rendu (évaluation oral du tp)</p>
 <h1 id="éléments-importants">éléments importants</h1>
 <h2 id="outils">outils</h2>
-<p><img src="../images/outils_analyse_tableau.png" alt="outils_analyse_tableau" /> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ## def compilation * Analyser une description * Synthétiser une exécution * Conserver la sémantique</p>
+<p><img src="../images/outils_analyse_tableau.png" alt="outils_analyse_tableau" /> ## def compilation * Analyser une description * Synthétiser une exécution * Conserver la sémantique</p>
 <p>On part d’une forme source pour arriver vers une forme objet</p>
 <h2 id="def-interprétation">def interprétation</h2>
 <ul>
 <li>Expliquer et donner une sémantique</li>
 <li>Parcourir un graphe, noeud;instruction</li>
 </ul>
-<p>=======</p>
+<hr />
 <figure>
 <img src="../images/outils_analyse_tableau_02.png" alt="outils_analyse_tableau_02" /><figcaption>outils_analyse_tableau_02</figcaption>
 </figure>
@@ -441,6 +440,45 @@
 <img src="../images/outils_analyse_tableau_03.png" alt="outils_analyse_tableau_03" /><figcaption>outils_analyse_tableau_03</figcaption>
 </figure>
 <h2 id="objets">objets</h2>
-<p>Arbre de dérivation &gt;&gt;&gt;&gt;&gt;&gt;&gt; e968ddfe53e220ecfc37031395c81d12591e3eaa</p>
+<p>Arbre de dérivation</p>
+<p>Trois concepts de base: Analyse: 1. <a href="Lexique">Lexique</a> 2. <a href="Syntaxe">Syntaxe</a> 3. sémantique 4. <a href="édition_des_lien">édition_des_lien</a></p>
+<p><a href="statique_ou_dynamique">statique_ou_dynamique</a></p>
+<p>But du langage, combler un fossé sémantique (=niveau d’abstraction, résolution de problème)</p>
+<p>Idéal si un langage de programmation est proche du langage naturel</p>
+<p>Notation <a href="postfixé">postfixé</a></p>
+<p><a href="fonction_stricte">fonction_stricte</a></p>
+<p><a href="Compilation_indépendante">Compilation_indépendante</a></p>
+<p><a href="auto_interprète">auto_interprète</a></p>
+<h1 id="outils-de-génération-de-compilateur">Outils de génération de compilateur:</h1>
+<p>Flex: analyseur lexicale Bison: analyseur syntaxique</p>
+<hr />
+<p>On ne s’occupe pas explicitement du parcours d’un arbre</p>
+<h2 id="définition-langage-engendré">Définition (langage engendré)</h2>
+<p>Soit G une grammaire algébrique d’axiome S. Le langage engendré par G est défini par: L(G)= { m appartenant à V_T* | S =&gt;* m}</p>
+<p>Déterminer si un mot m appartient au langage engendré, c’est déterminer si: S =&gt;*_G m?</p>
+<h2 id="définition-dérivation-directe">Définition (dérivation directe)</h2>
+<p>Soient Beta et Beta’ appartenant à terminaux/non-terminaux. Beta se dérive directement en Beta’ selon G, noté Béta=&gt;_G Béta’, s’il existe des mots gamma, gamma’ appartenants aussi à terminaux/-non et une production X -&gt; alpha tel que Beta= gamma X gamma’ Beta’= gamma alpha gamma</p>
+<h2 id="définition-dérivation">Définition (dérivation)</h2>
+<p>Soient Beta et Beta’ appartenant à t/nt. Une suite de mots Beta 0 à Beta_N est une derivation de Beta en Beta’. Si Beta = Beta_0 et Beta’ = Beta_N et que toute les transitions de N_i à N_i+1 sont des production de G.</p>
+<h2 id="définition">Définition</h2>
+<p>La dérivation est une fermeture transitive de la dérivation directe</p>
+<h2 id="grammaire-régulière">Grammaire régulière</h2>
+<p>Rappel: une production ne peut avoir qu’un symbole terminal (à gauche ou à droite) dans son membre de droite.</p>
+<h2 id="arbre-syntaxique">Arbre syntaxique</h2>
+<p>Arbre dont les feuilles sont des composante d’un mot / d’une phrase</p>
+<h2 id="grammaire-pathologique">Grammaire pathologique</h2>
+<p>Quand il y a une erreur dans la grammaire. C’est comme un bug dans un code.</p>
+<p>Les générateur d’analyseur syntaxique ne peuvent prendre au mieux qu’une grammaire algébrique</p>
+<p>Pas facile de prouver qu’une grammaire est ambiguë. Or on a besoin d’une grammaire stable (sinon, un code se ferrait interprété de plusieurs façons différentes de façon aléatoire).</p>
+<h2 id="automate-à-pile">Automate à pile</h2>
+<p>C’est un 7-tuplet car contient les éléments d’un automate à état fini mais avec un alphabet et un symbole initial pour la pile.</p>
+<h2 id="automate-item">Automate item</h2>
+<p>L’item est le mot clé. L’item d’une grammaire G est de la forme x-&gt;alpha*beta L’étoile (le point représente la position du pointeur)</p>
+<p>Si on a n choix possible à chaque étape pour l’exploration de l’arbre, on a n^m. Pour simplifier, on supprime tout non-déterminisme pour avoir seulement un choix par étape. S’il y a une expansion (la pile va grandir) elle doit être unique. L’automate des items y arrive pas vraiment.</p>
+<p>Associer un AP à une grammaire algébrique.</p>
+<p><a href="Analyseur_récursif">Analyseur_récursif</a></p>
+<figure>
+<img src="../images/whatsapp.png" alt="whatsapp" /><figcaption>whatsapp</figcaption>
+</figure>
 </body>
 </html>

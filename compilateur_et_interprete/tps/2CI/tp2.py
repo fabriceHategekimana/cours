@@ -24,6 +24,12 @@ class Pile():
         else:
             return self.liste.pop()
 
+    def isEmpty(self):
+        if len(self.liste) == 0:
+            return True
+        else:
+            return False
+
 class Arbre():
 
     def __init__(self):
@@ -48,8 +54,34 @@ class Arbre():
                 noeud.Droite= droite
                 noeud.enfants= 2
                 noeud.explore_ajout= 1
-                self.pile_ajout.push(noeud)
-                self.pile_ajout.push(gauche)
+            self.pile_ajout.push(noeud)
+            self.pile_ajout.push(gauche)
+
+    def estDroiteExplore(self, noeud):
+        res= False
+        if noeud.enfants == 2 and noeud.explore_affiche == 2 or noeud.enfants == 1:
+            res= True
+        return res
+
+    def remonte(self):
+        if not self.pile_exploration.isEmpty():
+            rem= True
+            while rem:
+                if not self.pile_exploration.isEmpty():
+                    noeud= self.pile_exploration.pop()
+                    if not self.estDroiteExplore(noeud):
+                       noeud.explore_affiche= noeud.explore_affiche+1
+                       self.pile_exploration.push(noeud) 
+                       self.pile_exploration.push(noeud.Droite) 
+                       rem= False
+                else:
+                    rem= False
+
+    def existeSuccesseurGauche(self, noeud):
+        res= False
+        if noeud.enfants > 0:
+            res= True
+        return res
 
     def affiche(self):
         #initialisation
@@ -58,35 +90,29 @@ class Arbre():
         tour= 0
         #boucle
         while recherche:
-            #on prend le dernier noeud actif
-            noeud= self.pile_exploration.pop()
-            print("Noeud= ", noeud)
-            if noeud != None:
+            if not self.pile_exploration.isEmpty():
+                #on prend le dernier noeud actif
+                noeud= self.pile_exploration.pop()
                 if noeud.explore_affiche == 0:
                     print(noeud.valeur)
-                    noeud.explore_affiche= noeud.explore_affiche+1
-                if noeud.enfants > 0 or (noeud.enfants - noeud.explore_affiche) > 0:
-                    if noeud.explore_affiche == 0:
+                if self.existeSuccesseurGauche(noeud):
                         noeud.explore_affiche= noeud.explore_affiche+1
                         self.pile_exploration.push(noeud)
                         self.pile_exploration.push(noeud.Gauche)
-                    elif noeud.explore_affiche == 1:
-                        if noeud.enfants == 2:
-                            noeud.explore_affiche= noeud.explore_affiche+1
-                            self.pile_exploration.push(noeud)
-                            self.pile_exploration.push(noeud.Droite)
                 else:
-                    res= self.pile_exploration.pop()
-                    if res == None:
-                        recherche= False
+                    self.remonte()
+                tour= tour+1
+                if tour == 100:
+                    recherche= False
             else:
-                recherche= False
-            tour= tour+1
-            if tour == 2:
                 recherche= False
         
 
 a= Arbre()
-a.addNoeuds(["0"])
-a.addNoeuds(["a","b"])
+a.addNoeuds(["E"])
+a.addNoeuds(["T","D"])
+a.addNoeuds(["F","G"])
+a.addNoeuds(["nb"])
+a.addNoeuds(["3"])
+#print(a.root.Gauche.Droite.valeur)
 a.affiche()
