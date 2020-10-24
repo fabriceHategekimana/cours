@@ -1,4 +1,12 @@
 #implémentation d'un noeud de l'arbre
+NONTERMINAL= 0
+TERMINAL1= 1
+TERMINAL2= 2
+
+#Les modes
+MODE_AJOUT= 0
+MODE_AFFICHAGE= 1
+
 class Noeud():
 
     def __init__(self, valeur):
@@ -37,8 +45,14 @@ class Arbre():
         self.pile_ajout= Pile([])  
         self.pile_exploration= Pile([])  
         self.root= None
+
+    def estTerminal(self, symbole):
+        res= False
+        if symbole == 2:
+            res= True
+        return res
     
-    def addNoeuds(self, valeurs):
+    def addNoeuds(self, valeurs, typeDeSymbole):
         if self.root == None:
             if len(valeurs) == 1:
                 self.root= Noeud(valeurs[0])
@@ -55,27 +69,52 @@ class Arbre():
                 noeud.enfants= 2
                 noeud.explore_ajout= 1
             self.pile_ajout.push(noeud)
-            self.pile_ajout.push(gauche)
+            if self.estTerminal(typeDeSymbole):
+                self.remonte(MODE_AJOUT)
+            else:
+                self.pile_ajout.push(gauche)
 
     def estDroiteExplore(self, noeud):
         res= False
         if noeud.enfants == 2 and noeud.explore_affiche == 2 or noeud.enfants == 1:
             res= True
         return res
+    
+    def estAffiche(self, mode):
+        res= False
+        if mode == 1:
+            res= True
+        return res
 
-    def remonte(self):
-        if not self.pile_exploration.isEmpty():
-            rem= True
-            while rem:
-                if not self.pile_exploration.isEmpty():
-                    noeud= self.pile_exploration.pop()
-                    if not self.estDroiteExplore(noeud):
-                       noeud.explore_affiche= noeud.explore_affiche+1
-                       self.pile_exploration.push(noeud) 
-                       self.pile_exploration.push(noeud.Droite) 
-                       rem= False
-                else:
-                    rem= False
+    def remonte(self, mode):
+        #remonter dans la pile d'affichage
+        if self.estAffiche(mode):
+            if not self.pile_exploration.isEmpty():
+                rem= True
+                while rem:
+                    if not self.pile_exploration.isEmpty():
+                        noeud= self.pile_exploration.pop()
+                        if not self.estDroiteExplore(noeud):
+                           noeud.explore_affiche= noeud.explore_affiche+1
+                           self.pile_exploration.push(noeud) 
+                           self.pile_exploration.push(noeud.Droite) 
+                           rem= False
+                    else:
+                        rem= False
+        else:
+            #remonter dans la pile d'ajout
+            if not self.pile_ajout.isEmpty():
+                rem= True
+                while rem:
+                    if not self.pile_ajout.isEmpty():
+                        noeud= self.pile_ajout.pop()
+                        if not self.estDroiteExplore(noeud):
+                           noeud.explore_ajout= noeud.explore_affiche+1
+                           self.pile_ajout.push(noeud) 
+                           self.pile_ajout.push(noeud.Droite) 
+                           rem= False
+                    else:
+                        rem= False
 
     def existeSuccesseurGauche(self, noeud):
         res= False
@@ -100,7 +139,7 @@ class Arbre():
                         self.pile_exploration.push(noeud)
                         self.pile_exploration.push(noeud.Gauche)
                 else:
-                    self.remonte()
+                    self.remonte(MODE_AFFICHAGE)
                 tour= tour+1
                 if tour == 100:
                     recherche= False
@@ -109,10 +148,13 @@ class Arbre():
         
 
 a= Arbre()
-a.addNoeuds(["E"])
-a.addNoeuds(["T","D"])
-a.addNoeuds(["F","G"])
-a.addNoeuds(["nb"])
-a.addNoeuds(["3"])
+a.addNoeuds(["E"], NONTERMINAL)
+a.addNoeuds(["T","D"], NONTERMINAL)
+a.addNoeuds(["F","G"], NONTERMINAL)
+a.addNoeuds(["nb"], TERMINAL1)
+a.addNoeuds(["3"], TERMINAL2)
+a.addNoeuds(["*","T"], TERMINAL2)
+a.addNoeuds(["F","G"], NONTERMINAL)
+
 #print(a.root.Gauche.Droite.valeur)
 a.affiche()
