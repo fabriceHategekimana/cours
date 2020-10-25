@@ -1,160 +1,96 @@
-#implémentation d'un noeud de l'arbre
-NONTERMINAL= 0
-TERMINAL1= 1
-TERMINAL2= 2
+#fiche de test
+from arbreExpArrith import *
+from fenetre import *
 
-#Les modes
-MODE_AJOUT= 0
-MODE_AFFICHAGE= 1
+#la grammaire
+g= { }
+g["E"]= ["T", "D", NONTERMINAL]
+g["D"]= [["+", "E", TERMINAL2], ["epsilon", TERMINAL2]]
+g["T"]= ["F", "G", NONTERMINAL]
+g["G"]= [["*", "T", TERMINAL2], ["epsilon", TERMINAL2]]
+g["F"]= [["(", "E",")", TERMINAL2], ["nb", TERMINAL1]]
 
-class Noeud():
+def remplace(pile, transition):
+    terminalOuNon= transition.pop()
+    #le sommet doit avoir le symbole tout à gauche
+    transition.reverse()
+    pile.pop()
+    for element in transition:
+        pile.push(element)
+    #on remet transition à sa place (pour éviter les effets de bord)
+    transition.reverse()
+    transition.append(terminalOuNon)
 
-    def __init__(self, valeur):
-        self.valeur= valeur
-        self.Gauche= None
-        self.Droite= None
-        self.explore_ajout= 0
-        self.explore_affiche= 0
-        self.enfants= 0
-
-class Pile():
-
-    def __init__(self, liste):
-        #code
-        self.liste= liste
-
-    def push(self, element):
-        self.liste.append(element)
-
-    def pop(self):
-        if len(self.liste) == 0:
-            return None
+def prochaineTransition(sommet, mot_actuel):
+    T= g[sommet].copy()
+    #Dans le cas où on a deux transitions possibles
+    if len(T) == 2:
+        if mot_actuel in T[0]:
+            transition= T[0]
         else:
-            return self.liste.pop()
+            transition= T[1]
+    #sinon
+    else:
+        transition= T
+    return transition.copy()
 
-    def isEmpty(self):
-        if len(self.liste) == 0:
-            return True
+def estTerminal(symbole):
+    res= False
+    if symbole in ["+", "epsilon", "*", "(", ")", "nb"]:
+        res= True
+    return res
+
+def derivation(expression, etape):
+    #initialisation
+    #pile
+    p= Pile(["E"])
+    #arbre
+    a= Arbre()
+    a.addNoeuds(["E", NONTERMINAL])
+    #fenêtre
+    f= Fenetre(expression)
+
+    #boucle
+    boucle= True
+    verbose= etape
+    tour= 0
+    while boucle:
+        #sommet
+        sommet= p.peak()
+        #mot actuel
+        mot_actuel= f.actuel()
+        if verbose:
+            print("")
+            print("-------------------------")
+            print("tour ", tour+1)
+            print("-------")
+            print("pile: ", p.state())
+            print("sommet: ", sommet)
+            print("mot actuel: ", mot_actuel)
+        #Si le sommet est un symbole terminal
+        if estTerminal(sommet):
+            if sommet == "nb":
+                a.addNoeuds([mot_actuel, TERMINAL2])
+                f.suivant()
+            elif sommet == mot_actuel:
+                f.suivant()
+            p.pop()
         else:
-            return False
+            #prochaine transition
+            transition= prochaineTransition(sommet, mot_actuel)
+            if verbose:
+                print("==========")
+                print("transition: ", transition)
+            #on remplace
+            remplace(p, transition)
+            #on ajoute le lot à l'arbre
+            a.addNoeuds(transition)
+            #on quitte si la pile est vide
+        if p.isEmpty():
+            boucle= False
+        #tour= tour+1
+        #if tour == 1000:
+            #boucle= False
+    a.affiche()
 
-class Arbre():
-
-    def __init__(self):
-        #code
-        self.pile_ajout= Pile([])  
-        self.pile_exploration= Pile([])  
-        self.root= None
-
-    def estTerminal(self, symbole):
-        res= False
-        if symbole == 2:
-            res= True
-        return res
-    
-    def addNoeuds(self, valeurs, typeDeSymbole):
-        if self.root == None:
-            if len(valeurs) == 1:
-                self.root= Noeud(valeurs[0])
-                self.pile_ajout.push(self.root)
-        else:
-            #on prend le dernier noeud actif
-            noeud= self.pile_ajout.pop()
-            gauche= Noeud(valeurs[0])
-            noeud.Gauche= gauche
-            noeud.enfants= 1
-            if len(valeurs) == 2:
-                droite= Noeud(valeurs[1])
-                noeud.Droite= droite
-                noeud.enfants= 2
-                noeud.explore_ajout= 1
-            self.pile_ajout.push(noeud)
-            if self.estTerminal(typeDeSymbole):
-                self.remonte(MODE_AJOUT)
-            else:
-                self.pile_ajout.push(gauche)
-
-    def estDroiteExplore(self, noeud):
-        res= False
-        if noeud.enfants == 2 and noeud.explore_affiche == 2 or noeud.enfants == 1:
-            res= True
-        return res
-    
-    def estAffiche(self, mode):
-        res= False
-        if mode == 1:
-            res= True
-        return res
-
-    def remonte(self, mode):
-        #remonter dans la pile d'affichage
-        if self.estAffiche(mode):
-            if not self.pile_exploration.isEmpty():
-                rem= True
-                while rem:
-                    if not self.pile_exploration.isEmpty():
-                        noeud= self.pile_exploration.pop()
-                        if not self.estDroiteExplore(noeud):
-                           noeud.explore_affiche= noeud.explore_affiche+1
-                           self.pile_exploration.push(noeud) 
-                           self.pile_exploration.push(noeud.Droite) 
-                           rem= False
-                    else:
-                        rem= False
-        else:
-            #remonter dans la pile d'ajout
-            if not self.pile_ajout.isEmpty():
-                rem= True
-                while rem:
-                    if not self.pile_ajout.isEmpty():
-                        noeud= self.pile_ajout.pop()
-                        if not self.estDroiteExplore(noeud):
-                           noeud.explore_ajout= noeud.explore_affiche+1
-                           self.pile_ajout.push(noeud) 
-                           self.pile_ajout.push(noeud.Droite) 
-                           rem= False
-                    else:
-                        rem= False
-
-    def existeSuccesseurGauche(self, noeud):
-        res= False
-        if noeud.enfants > 0:
-            res= True
-        return res
-
-    def affiche(self):
-        #initialisation
-        self.pile_exploration.push(self.root)
-        recherche= True
-        tour= 0
-        #boucle
-        while recherche:
-            if not self.pile_exploration.isEmpty():
-                #on prend le dernier noeud actif
-                noeud= self.pile_exploration.pop()
-                if noeud.explore_affiche == 0:
-                    print(noeud.valeur)
-                if self.existeSuccesseurGauche(noeud):
-                        noeud.explore_affiche= noeud.explore_affiche+1
-                        self.pile_exploration.push(noeud)
-                        self.pile_exploration.push(noeud.Gauche)
-                else:
-                    self.remonte(MODE_AFFICHAGE)
-                tour= tour+1
-                if tour == 100:
-                    recherche= False
-            else:
-                recherche= False
-        
-
-a= Arbre()
-a.addNoeuds(["E"], NONTERMINAL)
-a.addNoeuds(["T","D"], NONTERMINAL)
-a.addNoeuds(["F","G"], NONTERMINAL)
-a.addNoeuds(["nb"], TERMINAL1)
-a.addNoeuds(["3"], TERMINAL2)
-a.addNoeuds(["*","T"], TERMINAL2)
-a.addNoeuds(["F","G"], NONTERMINAL)
-
-#print(a.root.Gauche.Droite.valeur)
-a.affiche()
+derivation("( 5 * 5 ) + 8", False)
