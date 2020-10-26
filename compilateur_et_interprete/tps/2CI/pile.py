@@ -25,5 +25,8 @@ class Pile():
         else:
             return self.liste[len(self.liste)-1]
 
+    def length(self):
+        return len(self.liste)
+
     def state(self):
         return self.liste

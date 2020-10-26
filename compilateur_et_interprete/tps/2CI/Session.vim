@@ -54,6 +54,7 @@ inoremap {{ {
 inoremap { {}<Left> 
 let &cpo=s:cpo_save
 unlet s:cpo_save
+set background=dark
 set backspace=indent,eol,start
 set fileencodings=ucs-bom,utf-8,default,latin1
 set helplang=fr
@@ -98,8 +99,8 @@ set winwidth=1
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <buffer> <C-D> /_s
 inoremap <buffer> <C-S> <Right>
+inoremap <buffer> <C-D> /_s
 nnoremap <buffer> <F6> :call RunPythonLess()
 xnoremap <buffer> <F5> y:call RunPythonPart()
 nnoremap <buffer> <F5> :call RunPython()
@@ -246,7 +247,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 141 - ((47 * winheight(0) + 24) / 48)
+let s:l = 141 - ((48 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -408,7 +409,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 24) / 48)
+let s:l = 2 - ((1 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -570,7 +571,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 10 - ((9 * winheight(0) + 24) / 48)
+let s:l = 10 - ((9 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -732,18 +733,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 72 - ((23 * winheight(0) + 24) / 48)
+let s:l = 84 - ((35 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-72
+84
 normal! 0
 tabnext 4
 set stal=1
-badd +0 arbreExpArrith.py
+badd +1 arbreExpArrith.py
 badd +1 fenetre.py
 badd +28 pile.py
-badd +1 tp2.py
+badd +0 tp2.py
 badd +1 .
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
@@ -756,6 +757,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

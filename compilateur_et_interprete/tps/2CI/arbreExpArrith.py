@@ -139,3 +139,43 @@ class Arbre():
                     #recherche= False
             else:
                 recherche= False
+
+    def symboleValide(self, symbole):
+        res= False
+        if symbole in ["+", "*"] or symbole.isnumeric():
+            res= True
+        return res
+
+    def getVoisins(self, noeud):
+        v= [] 
+        if noeud.Gauche != None:
+            v.append(noeud.Gauche)
+        if noeud.Droite != None:
+            v.append(noeud.Droite)
+        if noeud.Annexe != None:
+            v.append(noeud.Annexe)
+        return v
+
+    def sousArbre(self):
+        #Exploration en BFS
+        recherche= [self.root]
+        voisins= []
+        symboles= []
+        boucle= True
+        while(boucle):
+            for noeud in recherche:
+                if self.symboleValide(noeud.valeur):
+                    symboles.append(noeud.valeur)
+                v= self.getVoisins(noeud)
+                voisins= voisins+v.copy()
+            recherche= voisins.copy()
+            voisins= []
+            if recherche == []:
+                boucle= False
+        return symboles
+
+             
+        #pour chaque élément de la liste
+            #on trouve ses voisins
+            #on on les met dans la liste des voisins
+        

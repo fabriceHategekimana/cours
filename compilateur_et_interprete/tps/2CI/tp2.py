@@ -1,6 +1,8 @@
 #fiche de test
 from arbreExpArrith import *
+from arbreAbstrait import *
 from fenetre import *
+from pile import *
 
 #la grammaire
 g= { }
@@ -91,6 +93,52 @@ def derivation(expression, etape):
         #tour= tour+1
         #if tour == 1000:
             #boucle= False
-    a.affiche()
+    #a.affiche()
+    return a.sousArbre()
 
-derivation("( 5 * 5 ) + 8", False)
+def calcule(pile):
+    if  pile.length() >= 3:
+        #on prend les trois derniers éléments de la liste
+        #exp= liste[-3:len(liste)]
+        print(pile.state())
+        exp= []
+        exp.append(pile.pop())
+        exp.append(pile.pop())
+        exp.append(pile.pop())
+        print(exp[0]. isnumeric())
+        print(exp[1].isnumeric())
+        print(exp[2] in ["+", "*"])
+        if exp[0].isnumeric() and exp[1].isnumeric() and (exp[2] in ["+", "*"]):
+            if exp[2] == "+":
+                res= str(int(exp[0])+int(exp[1]))
+            else:
+                res= str(int(exp[0])*int(exp[1]))
+            pile.push(res)
+        else:
+            pile.push(exp[2])
+            pile.push(exp[1])
+            pile.push(exp[0])
+
+print("7.0".isnumeric())
+
+
+def evaluer(expression):
+    #on constriuit l'arbre de dérivation et on retourne les terminaux pour l'arbre abstrait
+    sa= derivation(expression, False)
+    #Construction et remplissage de l'arbre abstrait
+    aa= ArbreAbstrait()
+    for symbole in sa:
+        aa.addValeur(symbole)
+
+    ##début de l'évaluation
+    pile= Pile([])
+    for symbole in sa:
+        pile.push(symbole)
+        calcule(pile)
+    calcule(pile)
+    print(pile.state())
+         
+
+#Exemple d'expression à évaluer
+evaluer("2 * ( 3 + 4 )")
+     
