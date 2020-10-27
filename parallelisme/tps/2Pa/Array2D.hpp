@@ -1,5 +1,6 @@
 #include <vector>
 #include <cstdlib>
+#include "Point.hpp"
 
 // simple classe pour un tableau 2D
 template<class T>
@@ -22,4 +23,11 @@ public:
     }
     void unsafeSwap(Array2D<T> &otherArray){ otherArray.vector.swap(vector); }
     std::vector<T>& unsafeVector(){ return vector; }
+
+    //Mes méthodes personnelles
+    T& operator()(Point p) {
+        return vector.at(p.y()*sX+p.x());
+    }
+    bool isIn(Point p){ return (p.x() < sX) && (p.y() < vector.size()/sX); }
+
 };

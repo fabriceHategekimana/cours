@@ -100,14 +100,14 @@ def calcule(pile):
     if  pile.length() >= 3:
         #on prend les trois derniers éléments de la liste
         #exp= liste[-3:len(liste)]
-        print(pile.state())
+        #print(pile.state())
         exp= []
         exp.append(pile.pop())
         exp.append(pile.pop())
         exp.append(pile.pop())
-        print(exp[0]. isnumeric())
-        print(exp[1].isnumeric())
-        print(exp[2] in ["+", "*"])
+        #print(exp[0]. isnumeric())
+        #print(exp[1].isnumeric())
+        #print(exp[2] in ["+", "*"])
         if exp[0].isnumeric() and exp[1].isnumeric() and (exp[2] in ["+", "*"]):
             if exp[2] == "+":
                 res= str(int(exp[0])+int(exp[1]))
@@ -119,7 +119,6 @@ def calcule(pile):
             pile.push(exp[1])
             pile.push(exp[0])
 
-print("7.0".isnumeric())
 
 
 def evaluer(expression):
@@ -137,7 +136,11 @@ def evaluer(expression):
         calcule(pile)
     calcule(pile)
     print(pile.state())
-         
+
+
+#-------------
+#DÉBUT DU CODE
+#-------------
 
 #Exemple d'expression à évaluer
 evaluer("2 * ( 3 + 4 )")
