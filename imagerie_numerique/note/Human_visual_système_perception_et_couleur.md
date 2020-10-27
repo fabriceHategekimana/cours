@@ -1,6 +1,6 @@
 HVS= Human visual system
 
-Champs de vision des humains 350 nm < lambda < 780
+Champs de vision des humains 350 nm < lambda < 780 nm
 
 ## Property of light:
 luminence

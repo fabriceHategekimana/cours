@@ -4,15 +4,15 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/cours/parallelisme/tps/2Pa
+cd ~/cours/imagerie_numerique/note
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd tp2.cpp
-edit tp2.cpp
+$argadd note.md
+edit ~/cours/imagerie_numerique/note/Human_visual_système_perception_et_couleur.md
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -29,14 +29,16 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 39 - ((5 * winheight(0) + 15) / 31)
+let s:l = 4 - ((3 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-39
-normal! 043|
+4
+normal! 0
 tabnext 1
-badd +0 tp2.cpp
+badd +8 note.md
+badd +10 ~/cours/imagerie_numerique/note/intro_image_processing.md
+badd +0 ~/cours/imagerie_numerique/note/Human_visual_système_perception_et_couleur.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

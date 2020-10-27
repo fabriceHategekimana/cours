@@ -34,11 +34,11 @@ int main(int argc, char **argv){
 	MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
 	MPI_Comm_size(MPI_COMM_WORLD, &nProc);
 	
-	int width= 3;
-	int height= 3;
+	float width= 3;
+	float height= 3;
+	Array2D<float> a(width, height, 0);
 	
 	if(myRank == nProc-1){
-		Array2D<int> a(3,3,0);
 		std::list<Point> l= getDiagonale(2, a);
 		std::vector<Point> v= listToVector(l);
 		for(int i= 0; i < nProc-1; i++){
@@ -51,6 +51,11 @@ int main(int argc, char **argv){
 		MPI_Status status;
 		MPI_Recv(v.data(), v.size(), MPI_INT, nProc-1, 0, MPI_COMM_WORLD, &status);
 		std::cout << "Je suis le processus: " << myRank << " et j'ai reçu le vecteur"<< std::endl;
+		for(int i= myRank; i<v.size(); i+nProc){ 
+			std::vector<int> voisins= getVoisin(v.at(i), a);
+			float res= calcule(voisins);
+			a(v.at(i))= res;
+		}
 	}
 	MPI_Finalize();
 }
