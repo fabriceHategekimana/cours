@@ -12,6 +12,7 @@
 	    int y(){ return Y; }
 	    Point plus(int newX, int newY){ return Point(X+newX, Y+newY); }
 	    Point plus(Point p){ return Point(X+p.x(), Y+p.y()); }
+	    void show(){ std::cout << "(" << X << "," << Y << ")" << std::endl;}
 	};
 
 #endif

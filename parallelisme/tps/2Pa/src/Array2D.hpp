@@ -29,5 +29,29 @@ public:
         return vector.at(p.y()*sX+p.x());
     }
     bool isIn(Point p){ return (p.x() < sX) && (p.y() < vector.size()/sX); }
+    std::vector<T> getVector(){ return vector; }
 
+    void show(){ 
+	int c= 0;
+	std::cout << "" << std::endl;
+	for(int i= vector.size()-1; i >= 0; i--){
+		std::cout << vector.at(i) << " " ;
+		c++;
+		if(c == sX){
+			c= 0;
+		std::cout << std::endl;
+		}
+	}
+    }
+   T max(){
+	T max= 0;
+	for(T i: vector){
+		if(i > max){
+			max= i;
+		}
+	}
+	return max;
+   }
+   void setVector(std::vector<T> v){ vector= v;}
+   size_t getColumn(){ return sX;}
 };
