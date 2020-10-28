@@ -1,2 +1,10 @@
-ultracopy: main.c listing.c ultracopy.c
-	gcc main.c listing.c ultracopy.c -o ultracopy
+all: session
+
+pdf: FORCE
+	zathura *.pdf &
+
+session: pdf
+	vim -S Session.vim
+
+FORCE:
+	
