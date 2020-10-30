@@ -13,7 +13,7 @@ So a is four times bigger than b
 
 ## Exercice 2
 Sampling: Cut distance by a regular step (chosing the result for some points)
-Quantization: Cut by amplitude by (in)regular step (define an ensemble more little)
+Quantization: Cut by amplitude by (in)regular step (define an ensemble smaller)
 
 ## Exercice 3
 Etape:

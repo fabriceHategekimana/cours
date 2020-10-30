@@ -119,13 +119,42 @@ void RecursiveFunc(char *entry)
 	}
 }
 
+int remplacer(char *source_file, char *target_file){
+
+   FILE *source, *target;
+   source = fopen(source_file, "r");
+
+   if (source == NULL)
+   {
+      printf("Press any key to exit...\n");
+      exit(EXIT_FAILURE);
+   }
+
+   target = fopen(target_file, "w");
+
+   if (target == NULL)
+   {
+      fclose(source);
+      printf("Press any key to exit...\n");
+      exit(EXIT_FAILURE);
+   }
+
+   int ch;
+   while ((ch = fgetc(source)) != EOF)
+      fputc(ch, target);
+
+   fclose(source);
+   fclose(target);
+}
+
 int main(int argc, char *argv[]){
 	//char *rootFolder= "./destination/dossier";
 	char *rootFolder= ".";
 	//char *element= ".";
 
 	//displayStat(element, rootFolder);
-	RecursiveFunc(rootFolder);
+	//RecursiveFunc(rootFolder);
+	//remplacer("tp3.md", "src/abc");
 	return 0;
 }
 

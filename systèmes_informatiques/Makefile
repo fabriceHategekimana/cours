@@ -1,5 +1,5 @@
 
-COURS=
+COURS=project:systèmes_informatiques
 all: task
  
 revisions: FORCE

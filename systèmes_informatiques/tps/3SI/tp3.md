@@ -1,9 +1,5 @@
 ## Objectif
-Backup pour architecture de fichier
 Lister le contenu d'un dossier
-
-date de modification strftime
-Ou sinon lstat/stat/fstat
 
 ## Partie 1: listing
 - fonction qui ouvre un dossier ou non
@@ -16,7 +12,28 @@ Ou sinon lstat/stat/fstat
 - Si dossier on recommence
 
 ## Backup de dossier et fichiers
+- établir les cas possibles
+- copier fichier
+	- fichier dans dossier
+	- fichier dans fichier
+- copier dossier
+ 	- dossier dans dossier
+ 	- dossier dans fichier
 - control destination
-- control arrivé
-- si fichier, copie simple
-- si dossier, copie contenu
+ 	- est un dossier
+ 
+ 
+ Cas possibles:
+1. un répertoire
+2. fichiers/dossiers à un répertoire
+3. un fichier à un fichier
+
+//si un entrée
+	display
+//sinon
+	//si destination est répertoire
+		copier(reste) // dans boucle
+	//sinon
+		// si un seul reste et fichier
+		remplacer()
+	
