@@ -17,10 +17,7 @@ Quantization: Cut by amplitude by (in)regular step (define an ensemble smaller)
 
 ## Exercice 3
 Etape:
-- créer une fonction f(x,y)= sin(x)+cos(y)
-- créer une fonction de sampling selon un pas donné
-- créer une fonction de quantification selon un pas donné
-- faire un plot 3D
+- faire un plot 3D du sampling et de quantization
 
 ## Exercice 4
 - faire une fonction qui encode selon n bits (n <= 8)
