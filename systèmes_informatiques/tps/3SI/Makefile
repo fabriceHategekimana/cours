@@ -1,10 +1,6 @@
-all: session
+all:start
 
-pdf: FORCE
-	zathura *.pdf &
-
-session: pdf
-	vim -S Session.vim
+start: FORCE
+	gcc ultracp.c -o ultracp 
 
 FORCE:
-	

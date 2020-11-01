@@ -1,5 +1,0 @@
-Travail pratique de système informatique
-Le but est de créer une version améliorée de la commande copy (cp)
-Cette version devra s'appeller ultra cp
-
-Ce fichier servira de référence pour faire des copy.

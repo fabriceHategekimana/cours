@@ -6,6 +6,8 @@
 #include<unistd.h>
 #include<sys/stat.h>
 #include<sys/types.h>
+#include <fcntl.h>
+#include <errno.h>
 
 int DROIT_PROP= 2;
 int DROIT_GROU= 3;
@@ -147,14 +149,109 @@ int remplacer(char *source_file, char *target_file){
    fclose(target);
 }
 
-int main(int argc, char *argv[]){
-	//char *rootFolder= "./destination/dossier";
-	char *rootFolder= ".";
-	//char *element= ".";
+int estRepertoire(char *chemin){
+	int res;
+	struct stat buff;
+	if(stat(chemin, &buff) == -1){
+		perror("lstat");
+	}
+	if(S_ISDIR(buff.st_mode)){
+		res= 1;
+	}
+	else{
+		res= 0;
+	}
+	return res;
+}
 
-	//displayStat(element, rootFolder);
+int copy(const char *from, const char *to)
+{
+    int fd_to, fd_from;
+    char buf[4096];
+    ssize_t nread;
+    int saved_errno;
+
+    fd_from = open(from, O_RDONLY);
+    if (fd_from < 0)
+        return -1;
+
+    fd_to = open(to, O_WRONLY | O_CREAT | O_EXCL, 0666);
+    if (fd_to < 0)
+        goto out_error;
+
+    while (nread = read(fd_from, buf, sizeof buf), nread > 0)
+    {
+        char *out_ptr = buf;
+        ssize_t nwritten;
+
+        do {
+            nwritten = write(fd_to, out_ptr, nread);
+
+            if (nwritten >= 0)
+            {
+                nread -= nwritten;
+                out_ptr += nwritten;
+            }
+            else if (errno != EINTR)
+            {
+                goto out_error;
+            }
+        } while (nread > 0);
+    }
+
+    if (nread == 0)
+    {
+        if (close(fd_to) < 0)
+        {
+            fd_to = -1;
+            goto out_error;
+        }
+        close(fd_from);
+
+        /* Success! */
+        return 0;
+    }
+
+  out_error:
+    saved_errno = errno;
+
+    close(fd_from);
+    if (fd_to >= 0)
+        close(fd_to);
+
+    errno = saved_errno;
+    return -1;
+}
+
+int main(int argc, char *argv[]){
+	char *rootFolder= "";
+	char *destination= argv[argc-1];
+
 	//RecursiveFunc(rootFolder);
-	//remplacer("tp3.md", "src/abc");
+	//si une entrée
+	if(argc == 2 && estRepertoire(argv[1])){
+		//displayStat(argv[1]);
+		RecursiveFunc(argv[1]);
+	}
+	// si un seul reste et fichier
+	else if(argc == 3 && estRepertoire(argv[2]) == 0){
+			remplacer(argv[1], argv[2]);
+	}
+	//si destination est répertoire
+	else if(estRepertoire(destination)){
+		for(int i= 1; i < argc-1; i++){
+			char newFile[100]="";
+			strcat(newFile, destination);
+			strcat(newFile, "/");
+			strcat(newFile, argv[i]);
+			copy(argv[i], newFile);
+		}
+	}
+	//sinon c'est une erreur d'écriture de l'utilisateur
+	else{
+		printf("Erreur, mauvaise syntaxe");
+	}
+	
 	return 0;
 }
 

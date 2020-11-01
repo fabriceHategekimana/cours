@@ -36,4 +36,4 @@ Lister le contenu d'un dossier
 	//sinon
 		// si un seul reste et fichier
 		remplacer()
-	
+
