@@ -48,3 +48,11 @@ N'utilise pas de pile explicite: pile implicite des appels
 Une fonction X() par non-terminal X appartenant au non-terminaux
 
 ### Par ensemble Premier
+![ensemble_premier](../../images/ensemble_premier.png)
+
+![calcul_effectif_des_ensembles_premiers](../../images/calcul_effectif_des_ensembles_premiers.png)
+Un premier ne se concentre seulement sur le terminal de gauche
+
+## Caractérisation d'une grammaire algébrique
+Une grammaire est LL(1) si chaque case contient exactement une production ou erreur
+Un ennemi de la class ll(1) est la récursivité à gauche

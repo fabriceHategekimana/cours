@@ -143,5 +143,6 @@ def evaluer(expression):
 #-------------
 
 #Exemple d'expression à évaluer
-evaluer("2 * ( 3 + 4 )")
-     
+evaluer("3 + 1")
+
+#détection d'erreur
