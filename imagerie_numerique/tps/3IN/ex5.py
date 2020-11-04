@@ -46,7 +46,9 @@ psnrList= np.array(psnrList)
 imgSum= np.sum(imgList, axis=0)
 
 #psnr= PSNR(gImg, imgSum)
-plt.show()
+psnr= PSNR(imgSum, gImg)
+#plt.show()
+print(psnr)
 
 
 
