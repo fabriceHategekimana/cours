@@ -1,25 +1,44 @@
-#Variables personnelles
+#----------------------
+#VARIABLES PERSONNELLES
 nom="nom"
 prenom="prenom"
 mail="mail"
+#----------------------
+
+#LIENS UTILS:
+# Télécharger pandoc (Windows, Mac, Linux): https://pandoc.org/installing.html
+# Installer le compilateur latex (Windows, Mac, Linux): https://www.latex-project.org/get/
 
 if [ -z "$1" ]; then
 	echo il manque le nom du fichier
+elif [ "$1" == "-h" ];  then
+	echo "USAGE:
+./imnum.sh [name] [number] 
+
+[name]= the name of file you want
+[number]= the tp number you want
+	"
 else
+
+if [ -z "$2" ]; then
+	number=0
+else
+	number=$2
+fi
 	#Création du Makefile
 	touch Makefile
 	echo "all:pdf
 	
 pdf: FORCE
-	pandoc imagerie_numerique.md $1.md  imagerie_numerique.yaml -o $1.pdf
+	pandoc latex/imagerie_numerique.md $1.md  latex/imagerie_numerique.yaml -o $1.pdf
 	
 FORCE:
 	" >> Makefile
-	
+	mkdir latex	
 	#Création du template première page
-	touch imagerie_numerique.md
+	touch latex/imagerie_numerique.md
 	echo "
-Back newcommandBack TPid{1}
+Back newcommandBack TPid{$number}
 Back newcommandBack TPname{$1}
 Back newcommandBack Firstname{$prenom}
 Back newcommandBack Familyname{$nom}
@@ -39,10 +58,10 @@ Back emph{E-mail:} {Back color{blue}Back Email}Back Back [7cm]
 {Back large Back today}Back Back [2cm]
 Back vfill 
 Back end{titlepage}
-" > imagerie_numerique.md
+" > latex/imagerie_numerique.md
 
 	#création du fichier yaml
-	touch imagerie_numerique.yaml
+	touch latex/imagerie_numerique.yaml
 	echo "
 ---
 header-includes: 
@@ -69,12 +88,12 @@ header-includes:
   Back lhead{Back Firstname Back ; Back Familyname}
   Back rfoot{Page Back thepage}
 ---
-	" > imagerie_numerique.yaml
+	" > latex/imagerie_numerique.yaml
 	
 	#on arrange les backslash (qui sont vraiment mal pris en charge sur bash)
 	back='\'
-	sed -i -e "s/Back /$back$back/g" imagerie_numerique.md
-	sed -i -e "s/Back /$back$back/g" imagerie_numerique.yaml
+	sed -i -e "s/Back /$back$back/g" latex/imagerie_numerique.md
+	sed -i -e "s/Back /$back$back/g" latex/imagerie_numerique.yaml
 
 	#Création de la page principale
 	touch $1.md

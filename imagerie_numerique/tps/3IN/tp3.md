@@ -20,16 +20,13 @@ Etape:
 - faire un plot 3D du sampling et de quantization
 
 ## Exercice 4
-- faire une fonction qui encode selon n bits (n <= 8)
-- faire une fonction qui génère un gradient image (gray scale)
 - afficher encoding de 7, 5, 3, 2, 1 pour gradient et lena.png (5 images + originale) 
 ## Exercice 5
 (a)
-- Créer une fonction PSNR = 10*(log_10((max(f(x,y))^2))/MSE)
 - lena en gray scale 
 - faire 10 bruit gaussiens de lena (zero-mean et sigma 25)
 (b)
-- pour tout noisy: PSNR avec original puis faire une moyen de tout les PSNR
+- pour tout noisy: PSNR avec original puis faire une moyenne de tout les PSNR
 (c)
 - somme des 10 images pixel par pixel divisé par 10 (frame averaging)
 (d)
