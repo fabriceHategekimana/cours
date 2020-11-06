@@ -1,5 +1,6 @@
-# 5.1 Formulation du problème sous forme d'un csp
+# 5.1 Formulation du problème sous forme d'un csp  
 règles à vérifier: adjacence, côté
+
 1. Déterminer:
 	1. Variables du problème:
 		- la position de la cave C (D={1,2,3,4})
@@ -17,6 +18,7 @@ règles à vérifier: adjacence, côté
 		- La fonction adjacent() retourne toutes les pièces adjacentes
 
 ## 5.2 Backtracking
+### On utilise l'algorithme du backtracking:
 PSC_BACKTRACKING(A: affectation, D:domaines)
 1. Si A= S_G alors retourner A
 2. Sélectionner une variable x_p non affectée
@@ -27,3 +29,15 @@ PSC_BACKTRACKING(A: affectation, D:domaines)
 		- Retourner PSC_BACKTRACKING(A,D)
 	- sinon:
 		- Retourner échec
+
+Résultats:
+```
+	Etape 1. CU C=0; D=0; W=0
+	Etape 2. AV C=1; D=0; W=0
+	Etape 3. FC C=1; D=0; W=0
+	Etape 4. AV C=1; D=3; W=0
+	Etape 5. FC C=1; D=3; W=0
+	Etape 6. AV C=1; D=3; W=3
+	Etape 7. FC C=1; D=3; W=3
+	final:  { 'C': 1, 'D': 3, 'W': 3}}
+```

@@ -1,16 +1,61 @@
-def PSC_BACKTRACKING(affectation, domaines):
-    print("Fonction en construction")
-    #affectation est un dictionnaire
+#-------------------------
+# PSC BACKTRACKING HELPERS
+#-------------------------
+def estVide(d):
+    res= True
+    for el in d:
+        if len(d[el]) > 0:
+            res= False
+            break
+    return res
 
-#1. Si A= S_G alors retourner A
-#2. Sélectionner une variable x_p non affectée
-#3. Pour chaque valeur v_pi de D_p faire:
-	#- Ajouter x_p <- v_pi dans A
-	#- D <- FORWARD_CHECKING(A,D)
-	#- si aucun domaine de D n'est vide:
-		#- Retourner PSC_BACKTRACKING(A,D)
-	#- sinon:
-		#- Retourner échec
+def valide(a):
+    res= True
+    for el in a:
+        if a[el] == 0:
+            res= False
+            break
+    return res
+    
+def getNonAffecte(a):
+    res= 0
+    for el in a:
+        if a[el] == 0:
+            res= el
+            break
+    return res
+
+#-----------------
+# PSC BACKTRACKING
+#-----------------
+def PSC_BACKTRACKING(a, d):
+    #1. Si A= S_G alors retourner A
+    if valide(a):
+        return a
+    #2. Sélectionner une variable x_p non affectée
+    NA= getNonAffecte(a) 
+    #3. Pour chaque valeur v_pi de D_p faire:
+    for v in d[NA]:
+        #- Ajouter x_p <- v_pi dans A
+        a[NA]= v
+        print("Etape "+str(d["etape"])+". AV "+state(a))
+        d["etape"]= d["etape"]+1
+        #- D <- FORWARD_CHECKING(A,D)
+        d= FORWARD_CHECKING(a,d)
+        #- si aucun domaine de D n'est vide:
+        if not estVide(d):
+            #- Retourner PSC_BACKTRACKING(A,D)
+            return PSC_BACKTRACKING(a,d)
+        #- sinon:
+        else:
+            #- Retourner échec
+            return "Echec!"
+
+#-------------------------------
+#Petites fonctions particulières
+#-------------------------------
+def state(a):
+    return "C="+str(a["C"])+"; D="+str(a["D"])+"; W="+str(a["W"])
 
 def adjacent(num):
     adj= {1:[2], 2:[1,3], 3:[2,4], 4:[3]}
@@ -30,9 +75,10 @@ def myFilter(fonction, liste, entree=None):
                 res.append(element)
     return res
 
-#créer FORWARD_CHECKING
+#-----------------
+# FORWARD_CHECKING
+#-----------------
 def FORWARD_CHECKING(a, d):
-    print("en Contraintes")
     #Traiter chaque condition
     #- <C,W>: <piece(W)= X, piece(C)= Y> , X != Y
     #- <C,W>: <piece(W)= X, adjacent(C)= Y> , X != Y
@@ -51,17 +97,27 @@ def FORWARD_CHECKING(a, d):
             d[nonAffecte]= myFilter(cond[1], d[nonAffecte], val)
         else:
             d[nonAffecte]= myFilter(cond[1], d[nonAffecte])
+    print("Etape "+str(d["etape"])+". FC "+state(a))
+    d["etape"]= d["etape"]+1
     return d
-            
+
+#-------------------
+#CONTRAINTES UNAIRES            
+#-------------------
 def MONO_FORWARD_CHECKING(a,d): 
+    #Contrainte unitaire
     for i in range(3, 5):
         cond= c[i]
         nonAffecte= cond[0][0]
         d[nonAffecte]= myFilter(cond[1], d[nonAffecte])
+    print("Etape "+str(d["etape"])+". CU "+state(a))
+    d["etape"]= d["etape"]+1
     return d
 
 
-#Définition des contraintes
+#--------------------------
+#DÉFINITION DES CONTRAINTES
+#--------------------------
 c= []
 c.append([("C","W"), lambda C,W: C != W])
 c.append([("C","W"), lambda C,W: W not in adjacent(C)])
@@ -69,11 +125,20 @@ c.append([("C","D"), lambda C,D: cote(C) != cote(D)])
 c.append([("W"), lambda W: len(adjacent(W)) >= 2])
 c.append([("D"), lambda D: len(adjacent(D)) >= 2])
 
+
+
+#-------------
+#DÉBUT DU CODE
+#-------------
 #créer affectation
 a= {"C":0, "D":0, "W":0}
 #créer domaine
-d= { "C":[1,2,3,4], "D":[1,2,3,4], "W":[1,2,3,4] }
+d= { "C":[1,2,3,4], "D":[1,2,3,4], "W":[1,2,3,4], "etape":1}
 
-#print(FORWARD_CHECKING(a,d))
-print(MONO_FORWARD_CHECKING(a,d))
+#On utilise l'argorithme
+d=MONO_FORWARD_CHECKING(a,d)
+final= PSC_BACKTRACKING(a,d) 
+
+#On afficher l'état final
+print("final: ", final)
              
