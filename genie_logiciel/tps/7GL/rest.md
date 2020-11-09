@@ -39,3 +39,6 @@ Server can temporarily extend client
 Peut transmettre une logic à un client que le client peut exécuter.
 
 https://openclassrooms.com/fr/courses/6573181-adoptez-les-api-rest-pour-vos-projets-web/6818136-definissez-des-requetes-et-reponses-typiques
+
+## Youtube
+https://www.youtube.com/watch?v=lsMQRaeKNDk

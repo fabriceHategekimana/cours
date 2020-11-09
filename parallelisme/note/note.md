@@ -6,6 +6,8 @@ Oral: pas de préparation, liste de questions fournies
 
 C'est quoi le parallélisme?
 
+[TP](TP)
+
 ## 1.1 Concepts et définition
 ### **Def**: Le parallélisme c'est la résolution d'un `même problème` par la `coopération` de plusieurs processeurs.
 
