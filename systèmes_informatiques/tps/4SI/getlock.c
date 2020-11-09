@@ -121,40 +121,29 @@ int main(int argc, char *argv[]){
 	int res;
 	char total[255]="";
 	int num;
-	//do{
-		//showPID();
-		//num= myRead(total);
-		//res= execute(num, total);
-	//} while(res == 1);
+
+	showPID();
 	
 	struct flock fl0;
 	struct flock fl1;
 	//défintion du lock
 	fl0.l_type= F_RDLCK;
-	fl0.l_whence= SEEK_SET;
-	fl0.l_start= 0;
-	fl0.l_len= 10;
+	//fl0.l_whence= SEEK_SET;
+	fl0.l_start= 40;
+	fl0.l_len= 5;
+	fl0.l_pid=-1;
 
-	int fd= open("teste.txt", O_RDONLY);
+	int fd= open("teste.txt", O_RDWR);
 
 	int ret0= 0;
-
+	
 	ret0= fcntl(fd, F_GETLK, &fl0);
-	if(fl0.l_type == F_UNLCK){
-		printf("C'est gagné!\n");
-	}
-	else{
-		printf("C'est perdu!\n");
+	printf("%d\n", ret0);
+	printf("lpid= %d\n", fl0.l_pid);
+
+	while(1){ 
+		sleep(1);
 	}
 
-	while(1){ }
-
-	//if(fl->l_type == F_RDLCK){
-		//printf("C'est le premier des trois\n");
-	//}else if(fl->l_type == F_WRLCK){
-		//printf("C'est le write type\n");
-	//} else if(fl->l_type == F_UNLCK){
-		//printf("C'est le unlock type\n");
-	//}
 	return 0;
 }

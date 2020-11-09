@@ -2,9 +2,9 @@
 Il existe flock() et fcntl()
 
 [X] Fonction pour afficher le PID
-[] Faire l'interface utilisateur
-[] Faire le help
-[] Analyser extrait de code Analyser extrait de codee
+[X] Faire l'interface utilisateur
+[X] Faire le help
+[] Analyser extrait de code
 [] Coder pour les actions (s'inspirer du help):
 	- dé/verouiller une partie du fichier
 	- obtenir les infos de verrouillage
@@ -48,15 +48,3 @@ if (status ==0 ){
 // process results and print informative text
 }
 }
-}
-
----------------------------------------------------------
-
-//CONTENU DU HELP
-ID =258 > ?
-Format : cmd l_type start length [ whence ( optional ) ]
-’ cmd ’ --- ’g ’ ( F_GETLK ) , ’s ’ ( F_SETLK ) , or ’w ’ ( F_SETLKW )
-’ l_type ’ --- ’r ’ ( F_RDLCK ) , ’w ’ ( F_WRLCK ) , or ’u ’ ( F_UNLCK )
-’ start ’ --- lock starting offset
-’ length ’ --- number of bytes to lock
-’ whence ’ --- ’s ’ ( SEEK_SET , default ) , ’c ’ ( SEEK_CUR ) , or ’e ’ ( SEEK_END )
