@@ -1,6 +1,8 @@
 Paralellisme
 ============
 
+[MPI](MPI)
+
 examen 1/3 TP + 2/3 Oral
 Oral: pas de préparation, liste de questions fournies
 
