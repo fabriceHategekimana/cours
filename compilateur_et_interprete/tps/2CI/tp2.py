@@ -23,14 +23,26 @@ def remplace(pile, transition):
     transition.reverse()
     transition.append(terminalOuNon)
 
+def estNombre(entree):
+    res= True
+    try:
+        tmp = int(entree)
+    except:
+        res= False
+    return res
+
 def prochaineTransition(sommet, mot_actuel):
     T= g[sommet].copy()
     #Dans le cas où on a deux transitions possibles
     if len(T) == 2:
         if mot_actuel in T[0]:
             transition= T[0]
-        else:
+        #modifiable
+        elif estNombre(mot_actuel) or estTerminal(mot_actuel):
             transition= T[1]
+        else:
+            print("Erreur l'élément que vous avez donné n'est pas reconnu: ", mot_actuel)
+            exit(1)
     #sinon
     else:
         transition= T
@@ -38,7 +50,7 @@ def prochaineTransition(sommet, mot_actuel):
 
 def estTerminal(symbole):
     res= False
-    if symbole in ["+", "epsilon", "*", "(", ")", "nb"]:
+    if symbole in ["+", "epsilon", "*", "(", ")", "nb", None]:
         res= True
     return res
 
@@ -123,7 +135,7 @@ def calcule(pile):
 
 def evaluer(expression):
     #on constriuit l'arbre de dérivation et on retourne les terminaux pour l'arbre abstrait
-    sa= derivation(expression, False)
+    sa= derivation(expression, True)
     #Construction et remplissage de l'arbre abstrait
     aa= ArbreAbstrait()
     for symbole in sa:
@@ -143,6 +155,6 @@ def evaluer(expression):
 #-------------
 
 #Exemple d'expression à évaluer
-evaluer("3 + 1")
+evaluer(" 3 + 5 * 4")
 
 #détection d'erreur

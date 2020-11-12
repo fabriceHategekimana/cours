@@ -20,7 +20,7 @@ MPI_BRecv();
 
 ## permet d'envoyer les données à un autre processeur
 MPI_Send();
-MPI_ISend();
+MPI_ISend(); -> retourne un MPI request qui a Wait ou Test
 MPI_SSend();
 MPI_BSend();
 
@@ -61,13 +61,21 @@ Permet à tout les processus de partager rapidement les données.
 methode permettant de synchroniser tout les processus
 
 <!-- Les Threads -->
-## Thread
+## Thread (std)
 Objet à qui on passe un callable
+std::this_thread::get_id()
 
 ## thread.join()
 Retiens le thread appellant jusqu'à ce que le processus appelé aye terminé.
 
-## future
+## mutex (std)
+mutex.lock()
+mutex.unlock()
+
+## chrono
+steady_clock::now()
+
+## future (std)
 Structure de donnée permettant la récupération asynchrone d'une donnée.
 
 ## compare exchange

@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FORWARD_CHECKING	forward_checking.py	/^def FORWARD_CHECKING(a,d):$/;"	f
+FORWARD_CHECKING	psc_backtracking.py	/^def FORWARD_CHECKING(a, d):$/;"	f
+Graphe	graphe.py	/^class Graphe():$/;"	c
+MONO_FORWARD_CHECKING	psc_backtracking.py	/^def MONO_FORWARD_CHECKING(a,d): $/;"	f
+PROCHAIN	forward_checking.py	/^PROCHAIN= ["NB", "CA", "V", "MPLR", "RAA", "PACA", "PLCB"] $/;"	v
+PSC_BACKTRACKING	forward_checking.py	/^def PSC_BACKTRACKING(a, d):$/;"	f
+PSC_BACKTRACKING	psc_backtracking.py	/^def PSC_BACKTRACKING(a, d):$/;"	f
+PSC_BACKTRACKING	tp5.py	/^def PSC_BACKTRACKING(a, d):$/;"	f
+__init__	graphe.py	/^    def __init__(self, sommets, cotes):$/;"	m	class:Graphe
+a	forward_checking.py	/^a= { "NB": -1, "CA": -1, "V": -1, "MPLR": -1, "RAA": -1, "PACA": -1, "PLCB": -1}$/;"	v
+a	psc_backtracking.py	/^a= {"C":0, "D":0, "W":0}$/;"	v
+adjacent	psc_backtracking.py	/^def adjacent(num):$/;"	f
+c	psc_backtracking.py	/^c= []$/;"	v
+cote	psc_backtracking.py	/^def cote(num):$/;"	f
+couleurs	forward_checking.py	/^couleurs= list(map(getCouleurs, voisins))$/;"	v
+d	forward_checking.py	/^d= { "NB": [0,1,2,3,4,5,6], "CA": [0,1,2,3,4,5,6], "V": [0,1,2,3,4,5,6], "MPLR": [0,1,2,3,4,5,6], "RAA": [0,1,2,3,4,5,6], "PACA": [0,1,2,3,4,5,6], "PLCB": [0,1,2,3,4,5,6]}$/;"	v
+d	psc_backtracking.py	/^d= { "C":[1,2,3,4], "D":[1,2,3,4], "W":[1,2,3,4], "etape":1}$/;"	v
+d	psc_backtracking.py	/^d=MONO_FORWARD_CHECKING(a,d)$/;"	v
+estVide	psc_backtracking.py	/^def estVide(d):$/;"	f
+final	psc_backtracking.py	/^final= PSC_BACKTRACKING(a,d) $/;"	v
+g	graphe.py	/^g= Graphe(list("ABCDEFG"), "A.D A.B A.C C.E B.E C.F")$/;"	v
+g	graphe.py	/^g= Graphe(list("ABCDEFG"), [("A","D"), ("A","B"), ("A","C"), ("C","E"), ("B","E"), ("C","F")])$/;"	v
+getColor	forward_checking.py	/^def getColor(indice, a):$/;"	f
+getEdge	graphe.py	/^    def getEdge(self): $/;"	m	class:Graphe
+getNonAffecte	forward_checking.py	/^def getNonAffecte(a):$/;"	f
+getNonAffecte	psc_backtracking.py	/^def getNonAffecte(a):$/;"	f
+getVertex	graphe.py	/^    def getVertex(self): $/;"	m	class:Graphe
+getVoisins	graphe.py	/^    def getVoisins(self, element):$/;"	m	class:Graphe
+myFilter	psc_backtracking.py	/^def myFilter(fonction, liste, entree=None):$/;"	f
+state	psc_backtracking.py	/^def state(a):$/;"	f
+valide	forward_checking.py	/^def valide(a):$/;"	f
+valide	psc_backtracking.py	/^def valide(a):$/;"	f
