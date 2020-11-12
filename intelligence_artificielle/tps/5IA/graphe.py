@@ -6,9 +6,9 @@ class Graphe():
         if isinstance(cotes, list):
             self.edge= cotes
         elif isinstance(cotes, str):
-            a= "a.b c.d e.f g.h i.j".split(" ")
             self.edge= []
-            for i in a:
+            cotes= cotes.split(" ")
+            for i in cotes:
                self.edge.append(i.split(".")) 
             
     def getVoisins(self, element):
@@ -26,11 +26,3 @@ class Graphe():
     def getEdge(self): 
        return self.edge
             
-g= Graphe(list("ABCDEFG"), [("A","D"), ("A","B"), ("A","C"), ("C","E"), ("B","E"), ("C","F")])
-
-g= Graphe(list("ABCDEFG"), "A.D A.B A.C C.E B.E C.F")
-
-
-
-print(g.getVertex())
-    
