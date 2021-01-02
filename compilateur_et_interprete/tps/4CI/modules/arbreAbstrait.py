@@ -1,5 +1,4 @@
 from pile import *
-
 class NoeudAbstrait():
 
     def __init__(self, valeur):
@@ -8,8 +7,6 @@ class NoeudAbstrait():
         self.droite= None
         self.valeur= valeur
         self.passage= 0
-
-
 
     def isEmpty(self):
         res= False 

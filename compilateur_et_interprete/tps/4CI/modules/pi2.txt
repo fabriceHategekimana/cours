@@ -1,0 +1,14 @@
+pi = 3.141592;
+sPi = 0;
+i = 1;
+haut = 0;
+boucle 5
+{
+	positif;
+	négatif;
+	haut = -1 + haut;
+	afficher haut;
+	aff_ral;
+}
+
+
